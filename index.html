@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luciano Private Collection</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background:#0D0D0D;
+  color:white;
+}
+header {
+  text-align:center;
+  padding:30px;
+  background:black;
+}
+header img {
+  width:120px;
+}
+h1 {
+  color:#C9A14A;
+}
+.slogan {
+  color:#ccc;
+}
+.container {
+  padding:20px;
+}
+.section-title {
+  color:#C9A14A;
+  margin-top:40px;
+}
+.product {
+  border:1px solid #C9A14A;
+  border-radius:12px;
+  padding:15px;
+  margin:20px 0;
+  text-align:center;
+}
+.product img {
+  width:100%;
+  border-radius:10px;
+}
+button {
+  background:#7A1C2E;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+  width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="assets/logo.png">
+  <h1>Luciano Private Collection</h1>
+  <p class="slogan">Confianza, discreción y placer</p>
+</header>
+
+<div class="container">
+
+<h2 class="section-title">🔥 Combos</h2>
+
+<div class="product">
+  <img src="assets/combo1.jpg">
+  <h3>Combo Inicio Perfecto</h3>
+  <p>Lubricante + Anillo</p>
+  <p><strong>$20</strong></p>
+  <button onclick="buy('Combo Inicio Perfecto')">Comprar</button>
+</div>
+
+<div class="product">
+  <img src="assets/combo2.jpg">
+  <h3>Combo Noche Intensa</h3>
+  <p>Succionador + Lubricante</p>
+  <p><strong>$48</strong></p>
+  <button onclick="buy('Combo Noche Intensa')">Comprar</button>
+</div>
+
+<h2 class="section-title">💧 Lubricantes</h2>
+
+<div class="product">
+  <img src="assets/lubricante.jpg">
+  <h3>Lubricante Base Agua</h3>
+  <p><strong>$8</strong></p>
+  <button onclick="buy('Lubricante')">Comprar</button>
+</div>
+
+<h2 class="section-title">🔥 Succionadores</h2>
+
+<div class="product">
+  <img src="assets/rose.jpg">
+  <h3>Rose App</h3>
+  <p><strong>$40</strong></p>
+  <button onclick="buy('Rose App')">Comprar</button>
+</div>
+
+<div class="product">
+  <img src="assets/twisted.jpg">
+  <h3>Twisted</h3>
+  <p><strong>$60</strong></p>
+  <button onclick="buy('Twisted')">Comprar</button>
+</div>
+
+<h2 class="section-title">🔥 Para Ellos</h2>
+
+<div class="product">
+  <img src="assets/anillo.jpg">
+  <h3>Anillo Vibrador</h3>
+  <p><strong>$25</strong></p>
+  <button onclick="buy('Anillo Vibrador')">Comprar</button>
+</div>
+
+<h2 class="section-title">💎 Anal</h2>
+
+<div class="product">
+  <img src="assets/plug.jpg">
+  <h3>Plug Anal</h3>
+  <p><strong>$20</strong></p>
+  <button onclick="buy('Plug Anal')">Comprar</button>
+</div>
+
+<h2 class="section-title">🖤 BDSM</h2>
+
+<div class="product">
+  <img src="assets/bdsm.jpg">
+  <h3>Kit BDSM</h3>
+  <p><strong>$24</strong></p>
+  <button onclick="buy('Kit BDSM')">Comprar</button>
+</div>
+
+<h2 class="section-title">🎮 Juegos</h2>
+
+<div class="product">
+  <img src="assets/sexopoly.jpg">
+  <h3>Sexopoly</h3>
+  <p><strong>$20</strong></p>
+  <button onclick="buy('Sexopoly')">Comprar</button>
+</div>
+
+</div>
+
+<script>
+function buy(product){
+  let numero = "593XXXXXXXXX"; // 🔥 CAMBIA TU NUMERO
+  let msg = "Hola, quiero comprar: " + product;
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
