@@ -1,160 +1,655 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luciano Private Collection</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luciano Private Collection</title>
+  <meta name="description" content="Catalogo premium de Luciano Private Collection" />
+  <style>
+    :root{
+      --bg:#070707;
+      --bg2:#0d0d0d;
+      --card:#121212;
+      --gold:#d4b06a;
+      --gold2:#b98b41;
+      --text:#f5eee5;
+      --muted:#cabfad;
+      --line:rgba(212,176,106,.22);
+      --wine:#6d1730;
+      --wa:#25d366;
+      --shadow:0 18px 48px rgba(0,0,0,.38);
+      --radius:24px;
+      --max:1200px;
+    }
 
-<style>
-body {
-  margin:0;
-  font-family: Arial;
-  background:#0D0D0D;
-  color:white;
-}
-header {
-  text-align:center;
-  padding:30px;
-  background:black;
-}
-header img {
-  width:120px;
-}
-h1 {
-  color:#C9A14A;
-}
-.slogan {
-  color:#ccc;
-}
-.container {
-  padding:20px;
-}
-.section-title {
-  color:#C9A14A;
-  margin-top:40px;
-}
-.product {
-  border:1px solid #C9A14A;
-  border-radius:12px;
-  padding:15px;
-  margin:20px 0;
-  text-align:center;
-}
-.product img {
-  width:100%;
-  border-radius:10px;
-}
-button {
-  background:#7A1C2E;
-  color:white;
-  border:none;
-  padding:12px;
-  border-radius:8px;
-  cursor:pointer;
-  width:100%;
-}
-</style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top, rgba(212,176,106,.08), transparent 28%),
+        linear-gradient(180deg,var(--bg2),var(--bg));
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 28px));margin:0 auto}
+
+    .hero{
+      padding:28px 0 42px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:20px;
+      flex-wrap:wrap;
+    }
+
+    .brand-mini{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .brand-mini img{
+      width:46px;
+      height:46px;
+      object-fit:contain;
+      border-radius:10px;
+    }
+
+    .quick-nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .chip{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(212,176,106,.08);
+      color:var(--muted);
+      border:1px solid var(--line);
+      font-size:14px;
+      transition:.18s ease;
+    }
+
+    .chip:hover{transform:translateY(-1px);color:var(--text)}
+
+    .hero-card{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      gap:22px;
+      align-items:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-logo{
+      width:100%;
+      filter:drop-shadow(0 10px 22px rgba(0,0,0,.35));
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(34px,6vw,58px);
+      line-height:1;
+      color:var(--gold);
+      font-weight:800;
+    }
+
+    .sub{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.5;
+      max-width:760px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .btn,
+    .btn-outline,
+    .mini-btn,
+    .wa-float,
+    .filter-btn{
+      transition:.18s ease;
+    }
+
+    .btn:hover,
+    .btn-outline:hover,
+    .mini-btn:hover,
+    .wa-float:hover,
+    .filter-btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#121212;
+      font-weight:800;
+      border:none;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+    }
+
+    .btn-outline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 18px;
+      border-radius:999px;
+      background:transparent;
+      color:var(--text);
+      border:1px solid var(--line);
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    section{padding:34px 0 6px}
+
+    .cover{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      background:
+        linear-gradient(135deg, rgba(212,176,106,.1), rgba(212,176,106,0)),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      padding:28px;
+      min-height:340px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .cover:before{
+      content:"";
+      position:absolute;
+      right:-120px;
+      top:-80px;
+      width:320px;
+      height:320px;
+      background:radial-gradient(circle, rgba(212,176,106,.16), transparent 62%);
+      pointer-events:none;
+    }
+
+    .cover h2{
+      margin:0 0 12px;
+      font-size:clamp(30px,5vw,52px);
+      color:var(--gold);
+      line-height:1.02;
+    }
+
+    .cover p{
+      color:var(--muted);
+      margin:0;
+      line-height:1.6;
+      font-size:16px;
+      max-width:620px;
+    }
+
+    .cover-panel{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+
+    .cover-box{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+
+    .cover-box strong{
+      display:block;
+      color:var(--gold);
+      margin-bottom:8px;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+
+    .toolbar{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .search{
+      flex:1 1 260px;
+      min-width:220px;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#0d0d0d;
+      color:var(--text);
+      outline:none;
+    }
+
+    .search::placeholder{color:#9f978d}
+
+    .filters{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .filter-btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .filter-btn.active{
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#111;
+      border-color:transparent;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(24px,4vw,34px);
+      color:var(--gold);
+    }
+
+    .section-head p{
+      margin:8px 0 0;
+      color:var(--muted);
+      max-width:760px;
+      line-height:1.55;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .card{
+      display:flex;
+      flex-direction:column;
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.008));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .card-image{
+      aspect-ratio:1 / 1;
+      background:#0b0b0b;
+      overflow:hidden;
+    }
+
+    .card-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .card-body{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+    }
+
+    .tag{
+      display:inline-block;
+      width:fit-content;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--gold);
+      background:rgba(212,176,106,.08);
+      border:1px solid var(--line);
+    }
+
+    .card h3{
+      margin:0;
+      font-size:21px;
+      line-height:1.15;
+    }
+
+    .desc,
+    .meta{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14px;
+    }
+
+    .price-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-top:auto;
+    }
+
+    .price{
+      font-size:26px;
+      font-weight:800;
+      color:var(--gold);
+    }
+
+    .mini-btn{
+      width:100%;
+      margin-top:4px;
+      border:none;
+      border-radius:14px;
+      padding:13px 14px;
+      background:var(--wine);
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .category-block{margin-bottom:28px}
+    .hidden{display:none !important}
+
+    .footer{
+      margin-top:38px;
+      padding:24px 0 42px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+    }
+
+    .wa-float{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--wa);
+      color:white;
+      font-size:28px;
+      font-weight:700;
+      box-shadow:var(--shadow);
+      z-index:20;
+      border:none;
+      cursor:pointer;
+    }
+
+    @media (max-width:980px){
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .cover{grid-template-columns:1fr}
+    }
+
+    @media (max-width:680px){
+      .hero-card{grid-template-columns:1fr;text-align:center}
+      .hero-logo{width:120px;margin:0 auto}
+      .topbar{justify-content:center}
+      .quick-nav,.hero-actions{justify-content:center}
+      .section-head{display:block}
+      .grid{grid-template-columns:1fr}
+      .cover-panel{grid-template-columns:1fr}
+    }
+  </style>
 </head>
-
 <body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand-mini">
+          <img src="assets/logo.png" alt="Logo" />
+          <span>Luciano Private Collection · Catalogo premium</span>
+        </div>
+        <div class="quick-nav">
+          <a class="chip" href="#catalogo">Catalogo</a>
+          <a class="chip" href="#combos">Combos</a>
+          <a class="chip" href="#sugar-rush">Sugar Rush</a>
+          <a class="chip" href="#succionadores-y-app">Succionadores</a>
+          <a class="chip" href="#bolas-y-balas">Bolas y Balas</a>
+          <a class="chip" href="#lubricantes">Lubricantes</a>
+          <a class="chip" href="#ellos">Ellos</a>
+          <a class="chip" href="#bdsm">BDSM</a>
+          <a class="chip" href="#arneses">Arneses</a>
+          <a class="chip" href="#anal">Anal</a>
+        </div>
+      </div>
 
-<header>
-  <img src="assets/logo.png">
-  <h1>Luciano Private Collection</h1>
-  <p class="slogan">Confianza, discreción y placer</p>
-</header>
+      <div class="hero-card">
+        <img class="hero-logo" src="assets/logo.png" alt="Luciano Private Collection" />
+        <div>
+          <div class="eyebrow">Catalogo premium tipo lujo</div>
+          <h1>Luciano Private Collection</h1>
+          <p class="sub">Confianza, discrecion y placer. Un catalogo elegante, completo y listo para compartir por WhatsApp con tus clientes.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#catalogo">Ver catalogo</a>
+            <button class="btn-outline" onclick="abrirWhatsApp('Hola, quiero asesoria para elegir un producto de Luciano Private Collection.')">Asesoria por WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<div class="container">
+  <main class="wrap">
+    <section>
+      <div class="cover">
+        <div>
+          <h2>Catalogo completo premium organizado por categorias</h2>
+          <p>Esta version esta pensada para venta directa por WhatsApp, con imagen, nombre, precio y boton de accion en cada producto. Luego puedes seguir escalando a una version ultra premium.</p>
+        </div>
+        <div class="cover-panel">
+          <div class="cover-box"><strong>Elegante</strong>Negro profundo, detalles dorados y estilo boutique.</div>
+          <div class="cover-box"><strong>Rapido</strong>Boton de pedido en cada producto y cada combo.</div>
+          <div class="cover-box"><strong>Ordenado</strong>8 categorias claras para que el cliente navegue facil.</div>
+          <div class="cover-box"><strong>Listo</strong>Preparado para GitHub Pages y para compartir por WhatsApp.</div>
+        </div>
+      </div>
+    </section>
 
-<h2 class="section-title">🔥 Combos</h2>
+    <section id="catalogo">
+      <div class="section-head">
+        <div>
+          <h2>Explora el catalogo</h2>
+          <p>Busca por nombre o filtra por categoria. Los precios se mantienen exactos a tus PDFs.</p>
+        </div>
+      </div>
 
-<div class="product">
-  <img src="assets/combo1.jpg">
-  <h3>Combo Inicio Perfecto</h3>
-  <p>Lubricante + Anillo</p>
-  <p><strong>$20</strong></p>
-  <button onclick="buy('Combo Inicio Perfecto')">Comprar</button>
-</div>
+      <div class="toolbar">
+        <input id="searchInput" class="search" type="text" placeholder="Buscar producto..." />
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Todo</button>
+          <button class="filter-btn" data-filter="combo">Combos</button>
+          <button class="filter-btn" data-filter="sugar-rush">Sugar Rush</button>
+          <button class="filter-btn" data-filter="succionadores-y-app">Succionadores</button>
+          <button class="filter-btn" data-filter="bolas-y-balas">Bolas y Balas</button>
+          <button class="filter-btn" data-filter="lubricantes">Lubricantes</button>
+          <button class="filter-btn" data-filter="ellos">Ellos</button>
+          <button class="filter-btn" data-filter="bdsm">BDSM</button>
+          <button class="filter-btn" data-filter="arneses">Arneses</button>
+          <button class="filter-btn" data-filter="anal">Anal</button>
+        </div>
+      </div>
+    </section>
 
-<div class="product">
-  <img src="assets/combo2.jpg">
-  <h3>Combo Noche Intensa</h3>
-  <p>Succionador + Lubricante</p>
-  <p><strong>$48</strong></p>
-  <button onclick="buy('Combo Noche Intensa')">Comprar</button>
-</div>
+    <section id="combos" class="category-block">
+      <div class="section-head">
+        <div>
+          <h2>Combos recomendados</h2>
+          <p>Combos de venta rapida para subir ticket promedio.</p>
+        </div>
+      </div>
+      <div class="grid product-grid">
+        <article class="card product-card" data-category="combo" data-name="combo inicio perfecto">
+          <div class="card-image"><img src="assets/combo-inicio-perfecto.jpg" alt="Combo Inicio Perfecto" /></div>
+          <div class="card-body">
+            <span class="tag">Combo</span>
+            <h3>Combo Inicio Perfecto</h3>
+            <p class="desc">Lubricante + anillo vibrador.</p>
+            <p class="meta">Ideal para clientes nuevos.</p>
+            <div class="price-row"><div class="price">$20</div></div>
+            <button class="mini-btn" onclick="abrirWhatsApp('Hola, quiero el Combo Inicio Perfecto de Luciano Private Collection.')">Pedir por WhatsApp</button>
+          </div>
+        </article>
 
-<h2 class="section-title">💧 Lubricantes</h2>
+        <article class="card product-card" data-category="combo" data-name="combo noche intensa">
+          <div class="card-image"><img src="assets/combo-noche-intensa.jpg" alt="Combo Noche Intensa" /></div>
+          <div class="card-body">
+            <span class="tag">Combo</span>
+            <h3>Combo Noche Intensa</h3>
+            <p class="desc">Succionador + lubricante premium.</p>
+            <p class="meta">Percepcion alta de valor.</p>
+            <div class="price-row"><div class="price">$48</div></div>
+            <button class="mini-btn" onclick="abrirWhatsApp('Hola, quiero el Combo Noche Intensa de Luciano Private Collection.')">Pedir por WhatsApp</button>
+          </div>
+        </article>
 
-<div class="product">
-  <img src="assets/lubricante.jpg">
-  <h3>Lubricante Base Agua</h3>
-  <p><strong>$8</strong></p>
-  <button onclick="buy('Lubricante')">Comprar</button>
-</div>
+        <article class="card product-card" data-category="combo" data-name="combo dominio y fantasia">
+          <div class="card-image"><img src="assets/combo-dominio-fantasia.jpg" alt="Combo Dominio y Fantasia" /></div>
+          <div class="card-body">
+            <span class="tag">Combo</span>
+            <h3>Combo Dominio y Fantasia</h3>
+            <p class="desc">Kit BDSM + juego para parejas.</p>
+            <p class="meta">Excelente para experiencia completa.</p>
+            <div class="price-row"><div class="price">$44</div></div>
+            <button class="mini-btn" onclick="abrirWhatsApp('Hola, quiero el Combo Dominio y Fantasia de Luciano Private Collection.')">Pedir por WhatsApp</button>
+          </div>
+        </article>
+      </div>
+    </section>
 
-<h2 class="section-title">🔥 Succionadores</h2>
+    <section id="sugar-rush" class="category-block">
+      <div class="section-head">
+        <div>
+          <h2>Sugar Rush</h2>
+          <p>Productos de la categoria Sugar Rush.</p>
+        </div>
+      </div>
+      <div class="grid product-grid">
+        <article class="card product-card" data-category="sugar-rush" data-name="new desire">
+          <div class="card-image"><img src="assets/sugar-new-desire.jpg" alt="New Desire" /></div>
+          <div class="card-body">
+            <span class="tag">Sugar Rush</span>
+            <h3>New Desire</h3>
+            <p class="desc">Masturbador con vibracion incremental.</p>
+            <p class="meta">REF 0044</p>
+            <div class="price-row"><div class="price">$30</div></div>
+            <button class="mini-btn" onclick="abrirWhatsApp('Hola, quiero New Desire de Luciano Private Collection.')">Pedir por WhatsApp</button>
+          </div>
+        </article>
 
-<div class="product">
-  <img src="assets/rose.jpg">
-  <h3>Rose App</h3>
-  <p><strong>$40</strong></p>
-  <button onclick="buy('Rose App')">Comprar</button>
-</div>
+        <article class="card product-card" data-category="sugar-rush" data-name="bomba verde">
+          <div class="card-image"><img src="assets/sugar-bomba-verde.jpg" alt="Bomba Verde" /></div>
+          <div class="card-body">
+            <span class="tag">Sugar Rush</span>
+            <h3>Bomba Verde</h3>
+            <p class="desc">USB recargable.</p>
+            <p class="meta">REF 0789</p>
+            <div class="price-row"><div class="price">$60</div></div>
+            <button class="mini-btn" onclick="abrirWhatsApp('Hola, quiero Bomba Verde de Luciano Private Collection.')">Pedir por WhatsApp</button>
+          </div>
+        </article>
 
-<div class="product">
-  <img src="assets/twisted.jpg">
-  <h3>Twisted</h3>
-  <p><strong>$60</strong></p>
-  <button onclick="buy('Twisted')">Comprar</button>
-</div>
+        <article class="card product-card" data-category="sugar-rush" data-name="lyra desire">
+          <div class="card-image"><img src="assets/sugar-lyra-desire.jpg" alt="Lyra Desire" /></div>
+          <div class="card-body">
+            <span class="tag">Sugar Rush</span>
+            <h3>Lyra Desire</h3>
+            <p class="desc">Dildo hiper realista.</p>
+            <p class="meta">REF P0042</p>
+            <div class="price-row"><div class="price">$50</div></div>
+            <button class="mini-btn" onclick="abrirWhatsApp('Hola, quiero Lyra Desire de Luciano Private Collection.')">Pedir por WhatsApp</button>
+          </div>
+        </article>
+      </div>
+    </section>
 
-<h2 class="section-title">🔥 Para Ellos</h2>
+    <section id="succionadores-y-app" class="category-block">
+      <div class="section-head">
+        <div>
+          <h2>Succionadores y App</h2>
+          <p>Opciones recargables, con app y de alto interes visual.</p>
+        </div>
+      </div>
+      <div class="grid product-grid">
+        <article class="card product-card" data-category="succionadores-y-app" data-name="clithorse">
+          <div class="card-image"><img src="assets/succ-clithorse.jpg" alt="Clithorse" /></div>
+          <div class="card-body">
+            <span class="tag">Succionadores</span>
+            <h3>Clithorse</h3>
+            <p class="desc">Succionador USB recargable.</p>
+            <p class="meta">REF 1028</p>
+            <div class="price-row"><div class="price">$20</div></div>
+            <button class="mini-btn" onclick="abrirWhatsApp('Hola, quiero Clithorse de Luciano Private Collection.')">Pedir por WhatsApp</button>
+          </div>
+        </article>
 
-<div class="product">
-  <img src="assets/anillo.jpg">
-  <h3>Anillo Vibrador</h3>
-  <p><strong>$25</strong></p>
-  <button onclick="buy('Anillo Vibrador')">Comprar</button>
-</div>
+        <article class="card product-card" data-category="succionadores-y-app" data-name="jane">
+          <div class="card-image"><img src="assets/succ-jane.jpg" alt="Jane" /></div>
+          <div class="card-body">
+            <span class="tag">Succionadores</span>
+            <h3>Jane</h3>
+            <p class="desc">Succionador USB recargable.</p>
+            <p class="meta">REF 1042</p>
+            <div class="price-row"><div class="price">$20</div></div>
+            <button class="mini-btn" onclick="abrirWhatsApp('Hola, quiero Jane de Luciano Private Collection.')">Pedir por WhatsApp</button>
+          </div>
+        </article>
 
-<h2 class="section-title">💎 Anal</h2>
-
-<div class="product">
-  <img src="assets/plug.jpg">
-  <h3>Plug Anal</h3>
-  <p><strong>$20</strong></p>
-  <button onclick="buy('Plug Anal')">Comprar</button>
-</div>
-
-<h2 class="section-title">🖤 BDSM</h2>
-
-<div class="product">
-  <img src="assets/bdsm.jpg">
-  <h3>Kit BDSM</h3>
-  <p><strong>$24</strong></p>
-  <button onclick="buy('Kit BDSM')">Comprar</button>
-</div>
-
-<h2 class="section-title">🎮 Juegos</h2>
-
-<div class="product">
-  <img src="assets/sexopoly.jpg">
-  <h3>Sexopoly</h3>
-  <p><strong>$20</strong></p>
-  <button onclick="buy('Sexopoly')">Comprar</button>
-</div>
-
-</div>
-
-<script>
-function buy(product){
-  let numero = "593XXXXXXXXX"; // 🔥 CAMBIA TU NUMERO
-  let msg = "Hola, quiero comprar: " + product;
-  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
-  window.open(url, "_blank");
-}
-</script>
-
-</body>
-</html>
+        <article class="card product-card" data-category="succionadores-y-app" data-name="lush 4">
+          <div class="card-image"><img src="assets/succ-lush4.jpg" alt="Lush 4" /></div>
+          <div class="card-body">
+            <span class="tag">App premium</span>
+            <h3>Lush 4</h3>
+            <p class="desc">Conectividad con todo el mundo.</p>
+            <p class="meta">REF P0332</p>
+            <div class="price-row"><div class="price">$180</div></div>
+            <button class="mini-btn" onclick="abrirWh
