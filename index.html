@@ -73,4 +73,91 @@ h1{color:#d4af37;}
 }
 
 .price{
-  font-size
+  font-size:30px;
+  color:#d4af37;
+}
+
+.btn{
+  display:block;
+  margin-top:15px;
+  background:#25d366;
+  padding:12px;
+  text-align:center;
+  border-radius:10px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
+}
+</style></head><body><div class="header">
+  <h1>Categoría Anal</h1>
+</div><div class="chips" id="chips"></div><div class="grid" id="productos"></div><script>
+
+const productos = [
+  {img:"anal/IMG-20260320-WA0000.jpg", nombre:"Plug Anal Baxter", precio:"20", tipo:"Plugs"},
+
+  {img:"anal/IMG-20260320-WA0008.jpg", nombre:"Cola de Conejo Roja", precio:"18", tipo:"Colas"},
+  {img:"anal/IMG-20260320-WA0009.jpg", nombre:"Cola de Conejo Rosada", precio:"18", tipo:"Colas"},
+  {img:"anal/IMG-20260320-WA0010.jpg", nombre:"Cola de Conejo Morada", precio:"18", tipo:"Colas"},
+  {img:"anal/IMG-20260320-WA0011.jpg", nombre:"Cola de Conejo Blanca", precio:"18", tipo:"Colas"},
+
+  {img:"anal/IMG-20260320-WA0015.jpg", nombre:"Plug Metálico Corazón Pequeño", precio:"13", tipo:"Plugs metálicos"},
+  {img:"anal/IMG-20260320-WA0014.jpg", nombre:"Plug Metálico Corazón Mediano", precio:"15", tipo:"Plugs metálicos"},
+
+  {img:"anal/IMG-20260320-WA0004.jpg", nombre:"Cola de Zorro Café", precio:"25", tipo:"Colas"},
+  {img:"anal/IMG-20260320-WA0006.jpg", nombre:"Ducha Anal Fino", precio:"30", tipo:"Duchas"}
+];
+
+const tipos = ["Todo","Colas","Plugs","Plugs metálicos","Duchas"];
+
+const grid = document.getElementById("productos");
+const chips = document.getElementById("chips");
+
+let filtroActivo = "Todo";
+
+function renderChips(){
+  chips.innerHTML = "";
+  tipos.forEach(tipo=>{
+    const btn = document.createElement("button");
+    btn.className = "chip" + (tipo === filtroActivo ? " active" : "");
+    btn.textContent = tipo;
+    btn.onclick = ()=>{
+      filtroActivo = tipo;
+      renderChips();
+      renderProductos();
+    };
+    chips.appendChild(btn);
+  });
+}
+
+function renderProductos(){
+  grid.innerHTML = "";
+
+  const filtrados = productos.filter(p=>
+    filtroActivo === "Todo" || p.tipo === filtroActivo
+  );
+
+  filtrados.forEach(p=>{
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <div class="img-box">
+        <img src="${p.img}?v=5">
+      </div>
+      <div class="card-body">
+        <div class="tag">${p.tipo}</div>
+        <div class="title">${p.nombre}</div>
+        <div class="price">$${p.precio}</div>
+        <a class="btn" href="https://wa.me/593992064254?text=Quiero ${p.nombre}" target="_blank">Comprar ahora</a>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+renderChips();
+renderProductos();
+
+</script></body>
+</html>
