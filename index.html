@@ -7,7 +7,6 @@
   <style>
     :root{
       --bg:#070707;
-      --bg-soft:#101010;
       --card:#121212;
       --gold:#d4b06a;
       --gold-dark:#b88e4a;
@@ -16,7 +15,6 @@
       --line:rgba(212,176,106,.18);
       --wa:#25d366;
       --shadow:0 18px 48px rgba(0,0,0,.35);
-      --radius:22px;
     }
 
     *{box-sizing:border-box}
@@ -34,16 +32,16 @@
     img{display:block;max-width:100%}
 
     .wrap{
-      width:min(1250px, calc(100% - 24px));
+      width:min(1200px, calc(100% - 20px));
       margin:auto;
     }
 
     .topbar{
       position:sticky;
       top:0;
-      z-index:50;
+      z-index:40;
       backdrop-filter:blur(10px);
-      background:rgba(8,8,8,.88);
+      background:rgba(8,8,8,.9);
       border-bottom:1px solid var(--line);
     }
 
@@ -53,19 +51,16 @@
       justify-content:space-between;
       gap:12px;
       padding:14px 0;
-    }
-
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
+      flex-wrap:wrap;
     }
 
     .brand small{
+      display:block;
       color:var(--muted);
-      letter-spacing:.18em;
+      letter-spacing:.16em;
       text-transform:uppercase;
       font-size:11px;
+      margin-bottom:4px;
     }
 
     .brand strong{
@@ -96,30 +91,22 @@
     }
 
     .hero{
-      padding:28px 0 20px;
+      padding:22px 0 16px;
       text-align:center;
     }
 
     .hero h1{
-      margin:0 0 14px;
+      margin:0 0 12px;
       color:var(--gold);
-      font-size:clamp(34px, 7vw, 62px);
+      font-size:clamp(30px, 7vw, 56px);
       line-height:1.05;
     }
 
-    .hero p{
-      margin:0 auto 18px;
-      color:var(--muted);
-      max-width:860px;
-      line-height:1.6;
-      font-size:15px;
-    }
-
     .hero-banner{
-      max-width:460px;
-      margin:0 auto 18px;
+      max-width:360px;
+      margin:0 auto 14px;
       background:#d9efea;
-      border-radius:24px;
+      border-radius:22px;
       overflow:hidden;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
@@ -131,28 +118,12 @@
       object-fit:contain;
     }
 
-    .hero-buttons{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .hero-btn{
-      display:inline-block;
-      padding:14px 18px;
-      border-radius:999px;
-      font-weight:800;
-    }
-
-    .hero-btn.gold{
-      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-      color:#111;
-    }
-
-    .hero-btn.wa{
-      background:var(--wa);
-      color:#fff;
+    .hero p{
+      margin:0 auto;
+      max-width:760px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
     }
 
     .tools{
@@ -160,17 +131,17 @@
       gap:12px;
       flex-wrap:wrap;
       align-items:center;
-      margin:22px 0 14px;
+      margin:18px 0 12px;
     }
 
     .search{
-      flex:1 1 280px;
+      flex:1 1 260px;
       min-width:220px;
       background:#111;
       color:#fff;
       border:1px solid var(--line);
       border-radius:16px;
-      padding:15px 16px;
+      padding:14px 16px;
       font-size:15px;
       outline:none;
     }
@@ -202,15 +173,15 @@
       display:flex;
       justify-content:space-between;
       align-items:end;
-      gap:14px;
+      gap:12px;
       flex-wrap:wrap;
-      margin:12px 0 18px;
+      margin:10px 0 16px;
     }
 
     .section-head h2{
       margin:0;
       color:var(--gold);
-      font-size:clamp(24px, 5vw, 36px);
+      font-size:clamp(22px, 5vw, 34px);
     }
 
     .section-head p{
@@ -223,11 +194,11 @@
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
       gap:18px;
-      padding-bottom:40px;
+      padding-bottom:34px;
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.008));
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.008));
       border:1px solid var(--line);
       border-radius:24px;
       overflow:hidden;
@@ -243,8 +214,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:12px;
-      overflow:hidden;
+      padding:14px;
     }
 
     .img-box img{
@@ -280,14 +250,12 @@
       margin:0;
       font-size:22px;
       line-height:1.15;
-      min-height:50px;
     }
 
     .meta{
       color:var(--muted);
       font-size:14px;
       line-height:1.45;
-      min-height:38px;
     }
 
     .price{
@@ -320,7 +288,7 @@
     }
 
     .payments{
-      padding:10px 0 42px;
+      padding:6px 0 36px;
     }
 
     .payments h3{
@@ -374,25 +342,8 @@
       color:var(--muted);
     }
 
-    .floating{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      width:64px;
-      height:64px;
-      border:none;
-      border-radius:50%;
-      background:var(--wa);
-      color:#fff;
-      font-size:28px;
-      font-weight:800;
-      box-shadow:var(--shadow);
-      cursor:pointer;
-      z-index:60;
-    }
-
     footer{
-      padding:24px 0 38px;
+      padding:22px 0 34px;
       color:var(--muted);
       text-align:center;
       border-top:1px solid var(--line);
@@ -400,10 +351,9 @@
 
     @media (max-width:640px){
       .img-box{height:300px}
-      .title{font-size:20px;min-height:auto}
+      .title{font-size:20px}
       .price{font-size:30px}
-      .hero h1{font-size:46px}
-      .hero-banner{max-width:320px}
+      .hero-banner{max-width:300px}
     }
   </style>
 </head>
@@ -431,13 +381,8 @@
       </div>
 
       <p>
-        Explora los productos de la categoría anal, filtra por tipo y compra directo por WhatsApp con mensajes listos para cerrar ventas.
+        Explora los productos de la categoría anal, filtra por tipo y compra directo por WhatsApp.
       </p>
-
-      <div class="hero-buttons">
-        <a href="#catalogo" class="hero-btn gold">Ver productos</a>
-        <a target="_blank" href="https://wa.me/593992064254?text=Hola%2C%20quiero%20comprar%20de%20la%20categor%C3%ADa%20Anal." class="hero-btn wa">Comprar por WhatsApp</a>
-      </div>
     </section>
 
     <section id="catalogo">
@@ -448,7 +393,7 @@
 
       <div class="section-head">
         <h2>Productos disponibles</h2>
-        <p>Diseño premium · compra directa por WhatsApp</p>
+        <p>Versión revisada y corregida</p>
       </div>
 
       <div class="grid" id="productos"></div>
@@ -486,8 +431,6 @@
       </div>
     </section>
   </div>
-
-  <button class="floating" onclick="window.open('https://wa.me/593992064254?text=Hola%2C%20quiero%20asesor%C3%ADa%20sobre%20productos%20de%20la%20categor%C3%ADa%20Anal.','_blank')">✆</button>
 
   <footer>
     Luciano Private Collection · Catálogo premium
