@@ -1,595 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luciano Private Collection</title>
-  <meta name="description" content="Catalogo premium de Luciano Private Collection" />
-  <style>
-    :root{
-      --bg:#070707;
-      --bg2:#0d0d0d;
-      --card:#131313;
-      --gold:#d4b06a;
-      --gold2:#b98b41;
-      --text:#f5eee5;
-      --muted:#cabfad;
-      --line:rgba(212,176,106,.18);
-      --wine:#6d1730;
-      --wa:#25d366;
-      --shadow:0 18px 48px rgba(0,0,0,.35);
-      --radius:22px;
-      --max:1200px;
-    }
+<meta charset="UTF-8">
+<title>Luciano Private Collection</title>
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top, rgba(212,176,106,.08), transparent 28%),
-        linear-gradient(180deg,var(--bg2),var(--bg));
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0d0d0d;
+    color: white;
+}
 
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .wrap{width:min(var(--max),calc(100% - 28px));margin:0 auto}
+header {
+    text-align: center;
+    padding: 30px;
+    background: #000;
+}
 
-    .hero{
-      padding:28px 0 38px;
-      border-bottom:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
-    }
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
 
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:20px;
-    }
+.boton {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
 
-    .brand-logo{
-      width:54px;
-      height:54px;
-      border-radius:14px;
-      object-fit:contain;
-      background:#0b0b0b;
-      border:1px solid var(--line);
-      padding:6px;
-    }
+.galeria img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.3s;
+}
 
-    .brand-name{
-      font-size:14px;
-      color:var(--muted);
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    .quick-nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .chip{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-      color:var(--muted);
-      font-size:14px;
-      transition:.18s ease;
-    }
-
-    .chip:hover{transform:translateY(-1px);color:var(--text)}
-
-    .hero-card{
-      display:grid;
-      grid-template-columns:150px 1fr;
-      gap:22px;
-      align-items:center;
-      padding:24px;
-      border:1px solid var(--line);
-      border-radius:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
-      box-shadow:var(--shadow);
-    }
-
-    .hero-logo{
-      width:100%;
-      max-width:150px;
-      margin:auto;
-      border-radius:22px;
-      border:1px solid var(--line);
-      background:#0b0b0b;
-      padding:10px;
-      object-fit:contain;
-    }
-
-    .eyebrow{
-      color:var(--gold);
-      letter-spacing:.24em;
-      text-transform:uppercase;
-      font-size:12px;
-      margin-bottom:8px;
-    }
-
-    h1{
-      margin:0;
-      font-size:clamp(34px,6vw,58px);
-      line-height:1;
-      color:var(--gold);
-      font-weight:800;
-    }
-
-    .sub{
-      margin:12px 0 0;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.6;
-      max-width:760px;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-
-    .btn,.btn-outline,.mini-btn,.filter-btn,.wa-float{
-      transition:.18s ease;
-    }
-
-    .btn:hover,.btn-outline:hover,.mini-btn:hover,.filter-btn:hover,.wa-float:hover{
-      transform:translateY(-1px);
-    }
-
-    .btn{
-      border:none;
-      border-radius:999px;
-      padding:14px 18px;
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      color:#111;
-      font-weight:800;
-      cursor:pointer;
-      box-shadow:var(--shadow);
-    }
-
-    .btn-outline{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:14px 18px;
-      background:transparent;
-      color:var(--text);
-      font-weight:700;
-      cursor:pointer;
-    }
-
-    section{padding:34px 0 8px}
-
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:14px;
-      margin-bottom:18px;
-    }
-
-    .section-head h2{
-      margin:0;
-      font-size:clamp(24px,4vw,34px);
-      color:var(--gold);
-    }
-
-    .section-head p{
-      margin:8px 0 0;
-      color:var(--muted);
-      max-width:780px;
-      line-height:1.55;
-    }
-
-    .cover{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      background:
-        linear-gradient(135deg, rgba(212,176,106,.10), rgba(212,176,106,0)),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      padding:28px;
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:24px;
-      align-items:center;
-    }
-
-    .cover h2{
-      margin:0 0 12px;
-      font-size:clamp(30px,5vw,50px);
-      color:var(--gold);
-      line-height:1.04;
-    }
-
-    .cover p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.6;
-      font-size:16px;
-    }
-
-    .cover-panel{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
-
-    .cover-box{
-      padding:16px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-    }
-
-    .cover-box strong{
-      display:block;
-      color:var(--gold);
-      margin-bottom:8px;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-    }
-
-    .toolbar{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-bottom:18px;
-    }
-
-    .search{
-      flex:1 1 260px;
-      min-width:220px;
-      padding:15px 16px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:#0d0d0d;
-      color:var(--text);
-      outline:none;
-      font-size:15px;
-    }
-
-    .search::placeholder{color:#9d958a}
-
-    .filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .filter-btn{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-      color:var(--muted);
-      font-weight:700;
-      cursor:pointer;
-    }
-
-    .filter-btn.active{
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      color:#111;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:18px;
-    }
-
-    .card{
-      display:flex;
-      flex-direction:column;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.008));
-      box-shadow:var(--shadow);
-    }
-
-    .card-image{
-      aspect-ratio:1/1;
-      background:#0b0b0b;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .card-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .card-body{
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      flex:1;
-    }
-
-    .tag{
-      display:inline-block;
-      width:fit-content;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      color:var(--gold);
-      background:rgba(212,176,106,.08);
-      border:1px solid var(--line);
-    }
-
-    .card h3{
-      margin:0;
-      font-size:21px;
-      line-height:1.14;
-    }
-
-    .desc,.meta{
-      margin:0;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:14px;
-    }
-
-    .price-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-top:auto;
-    }
-
-    .price{
-      font-size:26px;
-      font-weight:800;
-      color:var(--gold);
-    }
-
-    .mini-btn{
-      width:100%;
-      border:none;
-      border-radius:14px;
-      padding:13px 14px;
-      background:var(--wine);
-      color:#fff;
-      font-weight:700;
-      cursor:pointer;
-      margin-top:4px;
-    }
-
-    .empty{
-      padding:20px;
-      border:1px dashed var(--line);
-      border-radius:18px;
-      color:var(--muted);
-      text-align:center;
-      display:none;
-    }
-
-    .footer{
-      margin-top:40px;
-      padding:24px 0 42px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      text-align:center;
-      font-size:14px;
-    }
-
-    .wa-float{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      width:58px;
-      height:58px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      background:var(--wa);
-      color:white;
-      font-size:28px;
-      font-weight:700;
-      box-shadow:var(--shadow);
-      border:none;
-      cursor:pointer;
-      z-index:20;
-    }
-
-    @media (max-width:980px){
-      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .cover{grid-template-columns:1fr}
-    }
-
-    @media (max-width:680px){
-      .hero-card{grid-template-columns:1fr;text-align:center}
-      .cover-panel{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .topbar,.hero-actions{justify-content:center}
-      .quick-nav{justify-content:center}
-      .section-head{display:block}
-    }
-  </style>
+.galeria img:hover {
+    transform: scale(1.05);
+}
+</style>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brand">
-          <img class="brand-logo" src="assets/logo.png" alt="Logo Luciano Private Collection" onerror="this.src=crearLogoFallback()" />
-          <div class="brand-name">Luciano Private Collection · Catalogo premium</div>
-        </div>
-        <div class="quick-nav">
-          <a class="chip" href="#catalogo">Catalogo</a>
-          <a class="chip" href="#combos">Combos</a>
-          <a class="chip" href="#productos">Productos</a>
-        </div>
-      </div>
 
-      <div class="hero-card">
-        <img class="hero-logo" src="assets/logo.png" alt="Luciano Private Collection" onerror="this.src=crearLogoFallback()" />
-        <div>
-          <div class="eyebrow">Elegante minimalista tipo lujo</div>
-          <h1>Luciano Private Collection</h1>
-          <p class="sub">Confianza, discrecion y placer. Catalogo completo con categorias reales, precios de tus PDFs, buscador funcional y botones de WhatsApp en cada producto.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#catalogo">Ver catalogo</a>
-            <button class="btn-outline" onclick="abrirWhatsApp('Hola, quiero asesoria para elegir un producto de Luciano Private Collection.')">Asesoria por WhatsApp</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+<header>
+    <h1>🔥 Luciano Private Collection 🔥</h1>
+    <a class="boton" href="https://wa.me/519XXXXXXXX">📲 Pedir por WhatsApp</a>
+</header>
 
-  <main class="wrap">
-    <section>
-      <div class="cover">
-        <div>
-          <h2>Catalogo premium completo listo para vender por WhatsApp</h2>
-          <p>Este catalogo usa imágenes reales si están en <code>assets/</code>. Si faltan, muestra una portada elegante automática para que nunca se vea vacío.</p>
-        </div>
-        <div class="cover-panel">
-          <div class="cover-box"><strong>Buscador</strong>Busca por nombre en tiempo real.</div>
-          <div class="cover-box"><strong>Filtros</strong>Filtra por categoria sin recargar.</div>
-          <div class="cover-box"><strong>WhatsApp</strong>Boton directo en cada producto.</div>
-          <div class="cover-box"><strong>Premium</strong>Negro, dorado y estilo boutique.</div>
-        </div>
-      </div>
-    </section>
+<div class="galeria">
 
-    <section id="catalogo">
-      <div class="section-head">
-        <div>
-          <h2>Explora el catalogo</h2>
-          <p>Busca por nombre o filtra por categoria. Los precios se mantienen exactos a tus PDFs en los productos incluidos.</p>
-        </div>
-      </div>
+<img src="ANAL PVP_pagina_1.png">
+<img src="ANAL PVP_pagina_2.png">
+<img src="ANAL PVP_pagina_3.png">
+<img src="ANAL PVP_pagina_4.png">
+<img src="ANAL PVP_pagina_5.png">
+<img src="ANAL PVP_pagina_6.png">
+<img src="ANAL PVP_pagina_7.png">
+<img src="ANAL PVP_pagina_8.png">
+<img src="ANAL PVP_pagina_9.png">
 
-      <div class="toolbar">
-        <input id="searchInput" class="search" type="text" placeholder="Buscar producto por nombre..." />
-        <div class="filters" id="filters"></div>
-      </div>
-    </section>
+<!-- luego puedes seguir agregando más -->
 
-    <section id="combos">
-      <div class="section-head">
-        <div>
-          <h2>Combos recomendados</h2>
-          <p>Combos de venta rapida para subir ticket promedio.</p>
-        </div>
-      </div>
-      <div class="grid" id="combosGrid"></div>
-    </section>
+</div>
 
-    <section id="productos">
-      <div class="section-head">
-        <div>
-          <h2>Productos por categoria</h2>
-          <p>Categorias reales tomadas de tus catálogos: Sugar Rush, Succionadores y App, Bolas y Balas, Lubricantes, Ellos, BDSM, Arneses y Anal.</p>
-        </div>
-      </div>
-      <div class="grid" id="productsGrid"></div>
-      <div class="empty" id="emptyState">No encontré productos con ese filtro o búsqueda.</div>
-    </section>
-
-    <footer class="footer">
-      Luciano Private Collection · Confianza, discrecion y placer
-    </footer>
-  </main>
-
-  <button class="wa-float" onclick="abrirWhatsApp('Hola, quiero ver el catalogo completo de Luciano Private Collection.')" aria-label="WhatsApp">✆</button>
-
-  <script>
-    const numeroWhatsApp = '593XXXXXXXXX';
-
-    const combos = [
-      { nombre:'Combo Inicio Perfecto', categoria:'Combos', precio:'$20', descripcion:'Lubricante + anillo vibrador.', detalle:'Ideal para clientes nuevos.', imagen:'assets/combo-inicio-perfecto.jpg' },
-      { nombre:'Combo Noche Intensa', categoria:'Combos', precio:'$48', descripcion:'Succionador + lubricante premium.', detalle:'Percepcion alta de valor.', imagen:'assets/combo-noche-intensa.jpg' },
-      { nombre:'Combo Dominio y Fantasia', categoria:'Combos', precio:'$44', descripcion:'Kit BDSM + juego para parejas.', detalle:'Excelente para experiencia completa.', imagen:'assets/combo-dominio-fantasia.jpg' }
-    ];
-
-    const productos = [
-      { nombre:'New Desire', categoria:'Sugar Rush', precio:'$30', descripcion:'Masturbador con vibracion incremental.', detalle:'REF 0044', imagen:'assets/sugar-new-desire.jpg' },
-      { nombre:'Bomba Verde', categoria:'Sugar Rush', precio:'$60', descripcion:'Bomba recargable.', detalle:'REF 0789', imagen:'assets/sugar-bomba-verde.jpg' },
-      { nombre:'Lyra Desire', categoria:'Sugar Rush', precio:'$50', descripcion:'Dildo hiper realista.', detalle:'REF P0042', imagen:'assets/sugar-lyra-desire.jpg' },
-
-      { nombre:'Clithorse', categoria:'Succionadores y App', precio:'$20', descripcion:'Succionador USB recargable.', detalle:'REF 1028', imagen:'assets/succ-clithorse.jpg' },
-      { nombre:'Jane', categoria:'Succionadores y App', precio:'$20', descripcion:'Succionador USB recargable.', detalle:'REF 1042', imagen:'assets/succ-jane.jpg' },
-      { nombre:'Lush 4', categoria:'Succionadores y App', precio:'$180', descripcion:'Conectividad con app.', detalle:'REF P0332', imagen:'assets/succ-lush4.jpg' },
-      { nombre:'Nexa', categoria:'Succionadores y App', precio:'$25', descripcion:'Vibrador recargable.', detalle:'REF P0101', imagen:'assets/succ-nexa.jpg' },
-      { nombre:'Twisted', categoria:'Succionadores y App', precio:'$60', descripcion:'Vibrador con app.', detalle:'REF P0320', imagen:'assets/succ-twisted.jpg' },
-      { nombre:'Rose App', categoria:'Succionadores y App', precio:'$40', descripcion:'Succionador con app.', detalle:'REF P000415', imagen:'assets/succ-rose-app.jpg' },
-      { nombre:'Nova App', categoria:'Succionadores y App', precio:'$40', descripcion:'Vibrador anal con app.', detalle:'REF P000416', imagen:'assets/anal-nova-app.jpg' },
-
-      { nombre:'Ides', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bolas chinas / kegel.', detalle:'REF 0806', imagen:'assets/bb-ides.jpg' },
-      { nombre:'Rosa New', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bolas chinas / kegel.', detalle:'REF 0018', imagen:'assets/bb-rosa-new.jpg' },
-      { nombre:'Bala Sol', categoria:'Bolas y Balas', precio:'$15', descripcion:'Con vibracion / 2 pilas AA.', detalle:'REF 0928', imagen:'assets/bb-bala-sol.jpg' },
-      { nombre:'Hela', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bala vibradora USB.', detalle:'REF 0787', imagen:'assets/bb-hela.jpg' },
-
-      { nombre:'Lampiña Corporal', categoria:'Lubricantes', precio:'$4', descripcion:'Crema depilatoria 30 g.', detalle:'REF 7444302616554', imagen:'assets/lub-lampina.jpg' },
-      { nombre:'Lubricantes de Agua', categoria:'Lubricantes', precio:'$8', descripcion:'Sabores calientes.', detalle:'20 ml', imagen:'assets/lub-agua.jpg' },
-      { nombre:'Cool Ice', categoria:'Lubricantes', precio:'$8', descripcion:'Lubricante intimo frio.', detalle:'20 ml', imagen:'assets/lub-coolice.jpg' },
-      { nombre:'Natural', categoria:'Lubricantes', precio:'$8', descripcion:'Lubricante 20 ml.', detalle:'REF 0318', imagen:'assets/lub-natural.jpg' },
-      { nombre:'Water JO', categoria:'Lubricantes', precio:'$15', descripcion:'Lubricante premium.', detalle:'30 ml', imagen:'assets/lub-waterjo.jpg' },
-
-      { nombre:'Anillo Vibrador Economico', categoria:'Ellos', precio:'$5', descripcion:'Anillo vibrador.', detalle:'REF 0011', imagen:'assets/ellos-anillo-economico.jpg' },
-      { nombre:'Ricky', categoria:'Ellos', precio:'$25', descripcion:'Anillo vibrador USB.', detalle:'REF 1035', imagen:'assets/ellos-ricky.jpg' },
-      { nombre:'Soul', categoria:'Ellos', precio:'$18', descripcion:'Anillo vibrador USB.', detalle:'REF 1049', imagen:'assets/ellos-soul.jpg' },
-      { nombre:'Penny', categoria:'Ellos', precio:'$15', descripcion:'Masturbador.', detalle:'REF P0054', imagen:'assets/ellos-penny.jpg' },
-      { nombre:'Kuba', categoria:'Ellos', precio:'$25', descripcion:'Masturbador.', detalle:'REF P0062', imagen:'assets/ellos-kuba.jpg' },
-
-      { nombre:'Fetiche Sumision', categoria:'BDSM', precio:'$39', descripcion:'Fetiche con cuello acolchado.', detalle:'REF 0776', imagen:'assets/bdsm-sumision.jpg' },
-      { nombre:'Agape Rosado', categoria:'BDSM', precio:'$24', descripcion:'Kit BDSM cuerina.', detalle:'REF 1047', imagen:'assets/bdsm-agape-rosado.jpg' },
-      { nombre:'Lujuria', categoria:'BDSM', precio:'$40', descripcion:'Kit BDSM tela.', detalle:'REF 0770', imagen:'assets/bdsm-lujuria.jpg' },
-
-      { nombre:'Pasion Dual', categoria:'Arneses', precio:'$50', descripcion:'Arnes sin hueco.', detalle:'REF 0609', imagen:'assets/arnes-pasion-dual.jpg' },
-      { nombre:'Extra suave 5.7', categoria:'Arneses', precio:'$35', descripcion:'Arnes con hueco.', detalle:'REF 0576', imagen:'assets/arnes-extra-suave.jpg' },
-      { nombre:'Universal', categoria:'Arneses', precio:'$25', descripcion:'Compatible con dildo con ventosa.', detalle:'REF 0280', imagen:'assets/arnes-universal.jpg' },
-      { nombre:'Rino', categoria:'Arneses', precio:'$39', descripcion:'Arnes sin hueco.', detalle:'REF 0779', imagen:'assets/arnes-rino.jpg' },
-
-      { nombre:'Ducha Anal Fino', categoria:'Anal', precio:'$30', descripcion:'Ducha anal.', detalle:'REF 0568', imagen:'assets/anal-ducha-fino.jpg' },
-      { nombre:'Baxter', categoria:'Anal', precio:'$20', descripcion:'Plug anal.', detalle:'REF P0061', imagen:'assets/anal-baxter.jpg' },
-      { nombre:'Ragnar', categoria:'Anal', precio:'$55', descripcion:'Vibrador anal.', detalle:'REF P0315', imagen:'assets/anal-ragnar.jpg' },
-      { nombre:'Kit Anal Fantasia', categoria:'Anal', precio:'$19', descripcion:'Kit anal no vibra.', detalle:'REF 0329', imagen:'assets/anal-kit-fantasia.jpg' }
-    ];
-
-    const categories = ['Todo','Combos','Sugar Rush','Succionadores y App','Bolas y Balas','Lubricantes','Ellos','BDSM','Arneses','Anal'];
-
-    function abrirWhatsApp(mensaje){
-      const url = 'https://wa.me/' + numeroWhatsApp + '?text=' + encodeURIComponent(mensaje);
-      window.open(url, '_blank');
-    }
-
-    function crearLogoFallback(){
-      const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600">
-          <rect width="100%" height="100%" rx="40" fill="#0b0b0b"/>
-          <text x="50%" y="42%" text-anchor="middle" fill="#d4b06a" font-size="112" font-family="Georgia, serif">LPC</text>
-          <text x="50%" y="58%" text-anchor="middle" fill="#f5eee5" font-size="30" font-family="Arial">Private Collection</text>
-  </svg>
+</body>
+</html>
