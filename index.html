@@ -3,191 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Categoría Anal - Luciano</title>
+<title>Categoría Anal</title>
 
 <style>
-
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#0b0b0b;
-  color:#fff;
+    margin:0;
+    font-family:Arial;
+    background:#0a0a0a;
+    color:#fff;
 }
 
-/* TITULO */
-.titulo{
-  text-align:center;
-  padding:30px 20px;
+h1{
+    text-align:center;
+    padding:20px;
+    color:#f5c76b;
 }
 
-.titulo h1{
-  color:#d4b06a;
-  font-size:32px;
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+    padding:15px;
 }
 
-/* GRID */
-.productos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-  padding:20px;
-}
-
-/* CARD */
 .card{
-  background:#111;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid rgba(212,176,106,.2);
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
+    background:#111;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 
-/* IMAGEN */
-.img-box{
-  width:100%;
-  height:360px;
-  background:#d9efea;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px;
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    background:#222;
 }
 
-.img-box img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
+.info{
+    padding:10px;
 }
 
-/* TEXTO */
-.card h3{
-  padding:15px;
-  margin:0;
-  font-size:20px;
+.title{
+    font-size:13px;
+    font-weight:bold;
 }
 
-.precio{
-  color:#d4b06a;
-  font-size:28px;
-  font-weight:bold;
-  padding:0 15px 10px;
+.price{
+    color:#f5c76b;
+    font-size:18px;
+    margin:8px 0;
 }
 
-/* BOTON */
 .btn{
-  display:block;
-  margin:0 15px 20px;
-  text-align:center;
-  background:#25d366;
-  padding:14px;
-  border-radius:12px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
+    display:block;
+    text-align:center;
+    background:#25D366;
+    padding:10px;
+    border-radius:10px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
-
-.btn:hover{
-  background:#1ebe5d;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="titulo">
-  <h1>🔥 Categoría Anal</h1>
-</div>
+<h1>🔥 Categoría Anal</h1>
 
-<div class="productos">
+<div class="container" id="productos"></div>
 
-<!-- PRODUCTOS -->
+<script>
+const productos = [
+{img:"anal/IMG-20260320-WA0000.jpg", nombre:"Plug Anal Básico", precio:13},
+{img:"anal/IMG-20260320-WA0001.jpg", nombre:"Plug Silicona Pequeño", precio:13},
+{img:"anal/IMG-20260320-WA0002.jpg", nombre:"Plug Silicona Redondo", precio:13},
+{img:"anal/IMG-20260320-WA0003.jpg", nombre:"Rosario Anal", precio:15},
+{img:"anal/IMG-20260320-WA0004.jpg", nombre:"Plug Anal Baxter", precio:20},
+{img:"anal/IMG-20260320-WA0005.jpg", nombre:"Kit Anal Fantasía", precio:19},
+{img:"anal/IMG-20260320-WA0006.jpg", nombre:"Kit Anal Dark Night", precio:35},
+{img:"anal/IMG-20260320-WA0007.jpg", nombre:"Kit Anal Nessy", precio:35},
+{img:"anal/IMG-20260320-WA0008.jpg", nombre:"Plug Jack Vibrador", precio:45},
+{img:"anal/IMG-20260320-WA0009.jpg", nombre:"Vibrador Ragnar", precio:55}
+];
 
-<div class="card">
-  <div class="img-box"><img src="images/plug-silicona-redondo-pequeno.jpg"></div>
-  <h3>Plug Silicona Redondo Pequeño</h3>
-  <p class="precio">$13</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Plug%20Silicona%20Redondo%20Pequeño" class="btn">Comprar ahora</a>
-</div>
+const contenedor = document.getElementById("productos");
 
-<div class="card">
-  <div class="img-box"><img src="images/plug-silicona-redondo-mediano.jpg"></div>
-  <h3>Plug Silicona Redondo Mediano</h3>
-  <p class="precio">$15</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Plug%20Silicona%20Redondo%20Mediano" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/plug-silicona-redondo-grande.jpg"></div>
-  <h3>Plug Silicona Redondo Grande</h3>
-  <p class="precio">$18</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Plug%20Silicona%20Redondo%20Grande" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/plug-silicona-corazon-pequeno.jpg"></div>
-  <h3>Plug Silicona Corazón Pequeño</h3>
-  <p class="precio">$13</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Plug%20Silicona%20Corazón%20Pequeño" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/plug-silicona-corazon-grande.jpg"></div>
-  <h3>Plug Silicona Corazón Grande</h3>
-  <p class="precio">$18</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Plug%20Silicona%20Corazón%20Grande" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/plug-anal-pleasure.jpg"></div>
-  <h3>Plug Anal Pleasure</h3>
-  <p class="precio">$10</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Plug%20Anal%20Pleasure" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/rosario-anal.jpg"></div>
-  <h3>Rosario Anal</h3>
-  <p class="precio">$15</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Rosario%20Anal" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/squirtle.jpg"></div>
-  <h3>Squirtle Vibrador</h3>
-  <p class="precio">$45.50</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Squirtle%20Vibrador" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/vibrador-ragnar.jpg"></div>
-  <h3>Vibrador Ragnar</h3>
-  <p class="precio">$55</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Vibrador%20Ragnar" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/plug-electrico-jack.jpg"></div>
-  <h3>Plug Eléctrico Jack</h3>
-  <p class="precio">$45.50</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Plug%20Eléctrico%20Jack" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/rosario-anal-morado.jpg"></div>
-  <h3>Rosario Anal Morado</h3>
-  <p class="precio">$15</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Rosario%20Anal%20Morado" class="btn">Comprar ahora</a>
-</div>
-
-<div class="card">
-  <div class="img-box"><img src="images/consolador-mini.jpg"></div>
-  <h3>Consolador Mini 4.45</h3>
-  <p class="precio">$12</p>
-  <a href="https://wa.me/593992064254?text=Hola%20quiero%20el%20Consolador%20Mini" class="btn">Comprar ahora</a>
-</div>
-
-</div>
+productos.forEach(p => {
+    contenedor.innerHTML += `
+    <div class="card">
+        <img src="${p.img}">
+        <div class="info">
+            <div class="title">${p.nombre}</div>
+            <div class="price">$${p.precio}</div>
+            <a class="btn" href="https://wa.me/593992064254?text=Hola quiero ${encodeURIComponent(p.nombre)}">
+            Comprar ahora
+            </a>
+        </div>
+    </div>
+    `;
+});
+</script>
 
 </body>
 </html>
