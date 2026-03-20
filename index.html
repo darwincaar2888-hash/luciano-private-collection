@@ -1,632 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luciano Private Collection</title>
-  <meta name="description" content="Catálogo premium de Luciano Private Collection" />
-  <style>
-    :root{
-      --bg:#070707;
-      --bg2:#0d0d0d;
-      --card:#141414;
-      --gold:#d4b06a;
-      --gold2:#b98b41;
-      --text:#f6efe6;
-      --muted:#cabfad;
-      --line:rgba(212,176,106,.18);
-      --wa:#25d366;
-      --shadow:0 18px 48px rgba(0,0,0,.35);
-      --radius:22px;
-      --max:1320px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luciano Private Collection</title>
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top, rgba(212,176,106,.08), transparent 28%),
-        linear-gradient(180deg,var(--bg2),var(--bg));
-    }
+<style>
 
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .wrap{width:min(var(--max), calc(100% - 28px)); margin:0 auto;}
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0b0b0b;
+  color:#fff;
+}
 
-    header{
-      padding:28px 0 38px;
-      border-bottom:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
-    }
+/* HERO */
+.hero{
+  padding:40px 20px;
+  text-align:center;
+}
 
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:20px;
-    }
+.hero h1{
+  color:#d4b06a;
+  font-size:36px;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
+.hero p{
+  color:#ccc;
+  max-width:500px;
+  margin:auto;
+}
 
-    .brand img{
-      width:60px;
-      height:60px;
-      object-fit:contain;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:#0b0b0b;
-      padding:6px;
-    }
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:bold;
+  text-decoration:none;
+}
 
-    .brand small{
-      display:block;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      font-size:12px;
-    }
+.btn-gold{
+  background:#d4b06a;
+  color:#000;
+}
 
-    .hero{
-      display:grid;
-      grid-template-columns:1.12fr .88fr;
-      gap:22px;
-      align-items:center;
-      border:1px solid var(--line);
-      border-radius:30px;
-      padding:26px;
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      box-shadow:var(--shadow);
-    }
+/* CATEGORIA */
+.categoria{
+  padding:30px 20px;
+}
 
-    .store-name{
-      margin:0;
-      font-size:clamp(34px, 6vw, 60px);
-      line-height:1.03;
-      color:var(--gold);
-      font-weight:800;
-    }
+.categoria h2{
+  color:#d4b06a;
+  font-size:28px;
+}
 
-    .slogan{
-      margin:10px 0 0;
-      color:var(--text);
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      font-size:12px;
-    }
+/* PRODUCTOS */
+.productos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
 
-    .hero p{
-      color:var(--muted);
-      line-height:1.7;
-      font-size:16px;
-      margin:18px 0 0;
-    }
+.card{
+  background:#111;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(212,176,106,.2);
+}
 
-    .hero-side{
-      display:grid;
-      gap:12px;
-    }
+.card img{
+  width:100%;
+}
 
-    .hero-box{
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:18px;
-      background:rgba(255,255,255,.02);
-    }
+.card h3{
+  padding:10px;
+  font-size:18px;
+}
 
-    .hero-box strong{
-      display:block;
-      color:var(--gold);
-      margin-bottom:8px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:12px;
-    }
+.precio{
+  color:#d4b06a;
+  font-size:24px;
+  font-weight:bold;
+  padding:0 10px;
+}
 
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:20px;
-    }
+/* BOTON WHATSAPP */
+.btn-wsp{
+  display:block;
+  margin:10px;
+  text-align:center;
+  background:#25d366;
+  padding:12px;
+  border-radius:10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    .btn{
-      border:none;
-      border-radius:999px;
-      padding:14px 18px;
-      font-weight:800;
-      cursor:pointer;
-      display:inline-block;
-      transition:.2s ease;
-    }
+.btn-wsp:hover{
+  background:#1ebe5d;
+}
 
-    .btn:hover,
-    .mini-btn:hover,
-    .filter-btn:hover{
-      transform:translateY(-1px);
-    }
-
-    .btn-gold{
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      color:#111;
-    }
-
-    .btn-wa{
-      background:var(--wa);
-      color:#fff;
-    }
-
-    section{padding:34px 0 10px}
-
-    .section-head{margin-bottom:18px}
-    .section-head h2{
-      margin:0;
-      color:var(--gold);
-      font-size:clamp(24px, 4vw, 34px);
-    }
-    .section-head p{
-      margin:10px 0 0;
-      color:var(--muted);
-      line-height:1.6;
-    }
-
-    .product-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:18px;
-    }
-
-    .product-card{
-      display:flex;
-      flex-direction:column;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.008));
-      box-shadow:var(--shadow);
-    }
-
-    .card-image{
-      aspect-ratio:1/1;
-      background:#0b0b0b;
-      overflow:hidden;
-    }
-
-    .card-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .card-body{
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      flex:1;
-    }
-
-    .tag{
-      display:inline-block;
-      width:fit-content;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      color:var(--gold);
-      background:rgba(212,176,106,.08);
-      border:1px solid var(--line);
-    }
-
-    .card-body h3{
-      margin:0;
-      font-size:20px;
-      line-height:1.18;
-    }
-
-    .desc{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.55;
-    }
-
-    .price-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-top:auto;
-    }
-
-    .price{
-      font-size:24px;
-      font-weight:800;
-      color:var(--gold);
-    }
-
-    .card-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:4px;
-    }
-
-    .mini-btn{
-      flex:1;
-      min-width:130px;
-      border:none;
-      border-radius:12px;
-      padding:12px 14px;
-      font-weight:700;
-      cursor:pointer;
-      transition:.2s ease;
-      text-align:center;
-    }
-
-    .mini-wa{
-      background:var(--wa);
-      color:#fff;
-    }
-
-    .mini-view{
-      background:#222;
-      color:#fff;
-      border:1px solid var(--line);
-    }
-
-    .toolbar{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-bottom:18px;
-    }
-
-    .search{
-      flex:1 1 260px;
-      min-width:240px;
-      border:1px solid var(--line);
-      background:#101010;
-      color:#fff;
-      border-radius:16px;
-      padding:15px 16px;
-      outline:none;
-      font-size:15px;
-    }
-
-    .filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .filter-btn{
-      border:1px solid var(--line);
-      background:#111;
-      color:var(--muted);
-      border-radius:999px;
-      padding:10px 14px;
-      cursor:pointer;
-      font-weight:700;
-      transition:.2s ease;
-    }
-
-    .filter-btn.active{
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      color:#111;
-      border-color:transparent;
-    }
-
-    .empty{
-      display:none;
-      text-align:center;
-      color:var(--muted);
-      border:1px dashed var(--line);
-      border-radius:18px;
-      padding:18px;
-      margin-top:12px;
-    }
-
-    footer{
-      margin-top:36px;
-      padding:26px 0 40px;
-      border-top:1px solid var(--line);
-      text-align:center;
-      color:var(--muted);
-    }
-
-    .wa-float{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      width:60px;
-      height:60px;
-      border:none;
-      border-radius:50%;
-      background:var(--wa);
-      color:#fff;
-      font-size:30px;
-      font-weight:800;
-      box-shadow:var(--shadow);
-      cursor:pointer;
-      z-index:50;
-    }
-
-    @media (max-width:1200px){
-      .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-      .hero{grid-template-columns:1fr}
-    }
-
-    @media (max-width:800px){
-      .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-
-    @media (max-width:560px){
-      .product-grid{grid-template-columns:1fr}
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brand">
-          <img src="assets/logo.png" alt="Logo Luciano Private Collection" onerror="this.style.display='none'">
-          <div>
-            <small>Tienda premium</small>
-            <strong>Luciano Private Collection</strong>
-          </div>
-        </div>
-      </div>
 
-      <div class="hero">
-        <div>
-          <h1 class="store-name">Luciano Private Collection</h1>
-          <p class="slogan">Confianza, discreción y placer</p>
-          <p>
-            Explora categorías, busca productos, revisa cada producto individual y compra por WhatsApp con mensajes listos para cerrar ventas.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-gold" href="#productos">Ver productos</a>
-            <a class="btn btn-wa" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20asesor%C3%ADa%20para%20elegir%20un%20producto%20de%20Luciano%20Private%20Collection." target="_blank">Asesoría por WhatsApp</a>
-          </div>
-        </div>
-        <div class="hero-side">
-          <div class="hero-box">
-            <strong>Estilo premium</strong>
-            Negro, dorado, limpio, elegante y pensado para vender por WhatsApp.
-          </div>
-          <div class="hero-box">
-            <strong>Venta rápida</strong>
-            Cada producto tiene su propio botón directo de acción.
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+<!-- HERO -->
+<section class="hero">
+  <h1>Luciano Private Collection</h1>
+  <p>Explora productos premium y compra directo por WhatsApp con mensajes listos para cerrar ventas.</p>
+  <a href="#anal" class="btn btn-gold">Ver productos</a>
+</section>
 
-  <main class="wrap">
-    <section id="productos">
-      <div class="section-head">
-        <h2>Productos</h2>
-        <p>Busca por nombre, categoría o descripción. Cada tarjeta lleva su WhatsApp directo.</p>
-      </div>
+<!-- CATEGORIA ANAL -->
+<section id="anal" class="categoria">
 
-      <div class="toolbar">
-        <input id="searchInput" class="search" type="text" placeholder="Buscar producto..." />
-        <div class="filters" id="filters"></div>
-      </div>
+<h2>🔥 Categoría Anal</h2>
 
-      <div class="product-grid" id="productGrid">
+<div class="productos">
 
-        <article class="product-card" data-category="Anal" data-name="Ducha Anal Fino" data-desc="Silicona pico fino 30">
-          <div class="card-image">
-            <img src="ANAL PVP_pagina_2.png" alt="Ducha Anal Fino">
-          </div>
-          <div class="card-body">
-            <span class="tag">Anal</span>
-            <h3>Ducha Anal Fino</h3>
-            <p class="desc">Silicona + pico fino.</p>
-            <div class="price-row"><div class="price">$30</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Ducha%20Anal%20Fino%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="ANAL PVP_pagina_2.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<!-- PRODUCTOS -->
 
-        <article class="product-card" data-category="Anal" data-name="Bomba Anal" data-desc="Vibracion usb recargable 30">
-          <div class="card-image">
-            <img src="ANAL PVP_pagina_2.png" alt="Bomba Anal">
-          </div>
-          <div class="card-body">
-            <span class="tag">Anal</span>
-            <h3>Bomba Anal</h3>
-            <p class="desc">Con vibración USB recargable.</p>
-            <div class="price-row"><div class="price">$30</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Bomba%20Anal%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="ANAL PVP_pagina_2.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/plug-silicona-mediano.jpg">
+<h3>Plug Silicona Mediano</h3>
+<p class="precio">$15</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Plug Silicona Mediano, aún está disponible?" class="btn-wsp">Comprar ahora</a>
+</div>
 
-        <article class="product-card" data-category="Anal" data-name="Plug Anal Baxter" data-desc="Plug anal destacado 20">
-          <div class="card-image">
-            <img src="ANAL PVP_pagina_4.png" alt="Plug Anal Baxter">
-          </div>
-          <div class="card-body">
-            <span class="tag">Anal</span>
-            <h3>Plug Anal Baxter</h3>
-            <p class="desc">Plug anal destacado y muy visual.</p>
-            <div class="price-row"><div class="price">$20</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Plug%20Anal%20Baxter%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="ANAL PVP_pagina_4.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/plug-silicona-grande.jpg">
+<h3>Plug Silicona Grande</h3>
+<p class="precio">$18</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Plug Silicona Grande, lo tienen disponible?" class="btn-wsp">Comprar ahora</a>
+</div>
 
-        <article class="product-card" data-category="Anal" data-name="Rosario Anal" data-desc="Entrada accesible upsell 15">
-          <div class="card-image">
-            <img src="ANAL PVP_pagina_8.png" alt="Rosario Anal">
-          </div>
-          <div class="card-body">
-            <span class="tag">Anal</span>
-            <h3>Rosario Anal</h3>
-            <p class="desc">Entrada accesible, ideal para upsell.</p>
-            <div class="price-row"><div class="price">$15</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Rosario%20Anal%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="ANAL PVP_pagina_8.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/plug-anal-pleasure.jpg">
+<h3>Plug Anal Pleasure</h3>
+<p class="precio">$10</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Plug Anal Pleasure, me lo puedes reservar?" class="btn-wsp">Comprar ahora</a>
+</div>
 
-        <article class="product-card" data-category="Lubricantes" data-name="Natural" data-desc="Lubricante clasico 8">
-          <div class="card-image">
-            <img src="LUBRICANTES PVP_pagina_2.png" alt="Natural">
-          </div>
-          <div class="card-body">
-            <span class="tag">Lubricantes</span>
-            <h3>Natural</h3>
-            <p class="desc">Lubricante clásico de salida rápida.</p>
-            <div class="price-row"><div class="price">$8</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Natural%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="LUBRICANTES PVP_pagina_2.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/rosario-anal.jpg">
+<h3>Rosario Anal</h3>
+<p class="precio">$15</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Rosario Anal, cómo hago el pago?" class="btn-wsp">Comprar ahora</a>
+</div>
 
-        <article class="product-card" data-category="Lubricantes" data-name="Water JO" data-desc="Lubricante premium 15">
-          <div class="card-image">
-            <img src="LUBRICANTES PVP_pagina_6.png" alt="Water JO">
-          </div>
-          <div class="card-body">
-            <span class="tag">Lubricantes</span>
-            <h3>Water JO</h3>
-            <p class="desc">Lubricante premium.</p>
-            <div class="price-row"><div class="price">$15</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Water%20JO%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="LUBRICANTES PVP_pagina_6.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/vibrador-ragnar.jpg">
+<h3>Vibrador Ragnar</h3>
+<p class="precio">$55</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Vibrador Ragnar, tienes envío inmediato?" class="btn-wsp">Comprar ahora</a>
+</div>
 
-        <article class="product-card" data-category="Ellos" data-name="Anillo Vibrador Economico" data-desc="Entrada alta rotacion 5">
-          <div class="card-image">
-            <img src="ELLOS PVP_pagina_1.png" alt="Anillo Vibrador Económico">
-          </div>
-          <div class="card-body">
-            <span class="tag">Ellos</span>
-            <h3>Anillo Vibrador Económico</h3>
-            <p class="desc">Producto de entrada de alta rotación.</p>
-            <div class="price-row"><div class="price">$5</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Anillo%20Vibrador%20Econ%C3%B3mico%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="ELLOS PVP_pagina_1.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/plug-electrico-jack.jpg">
+<h3>Plug Eléctrico Jack</h3>
+<p class="precio">$45.50</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Plug Jack, aún tienen stock?" class="btn-wsp">Comprar ahora</a>
+</div>
 
-        <article class="product-card" data-category="BDSM" data-name="Fetiche Sumision" data-desc="Cuello acolchado 39">
-          <div class="card-image">
-            <img src="BDSM PVP_pagina_1.png" alt="Fetiche Sumisión">
-          </div>
-          <div class="card-body">
-            <span class="tag">BDSM</span>
-            <h3>Fetiche Sumisión</h3>
-            <p class="desc">Fetiche con cuello acolchado.</p>
-            <div class="price-row"><div class="price">$39</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Fetiche%20Sumisi%C3%B3n%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="BDSM PVP_pagina_1.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/doble-doung.jpg">
+<h3>Doble Doung</h3>
+<p class="precio">$19</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Doble Doung, me interesa comprar hoy mismo" class="btn-wsp">Comprar ahora</a>
+</div>
 
-        <article class="product-card" data-category="Arneses" data-name="Pasion Dual" data-desc="Arnes sin hueco 50">
-          <div class="card-image">
-            <img src="ARNESES PVP_pagina_1.png" alt="Pasion Dual">
-          </div>
-          <div class="card-body">
-            <span class="tag">Arneses</span>
-            <h3>Pasion Dual</h3>
-            <p class="desc">Arnés sin hueco.</p>
-            <div class="price-row"><div class="price">$50</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Pasion%20Dual%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="ARNESES PVP_pagina_1.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/kit-dark-night.jpg">
+<h3>Kit Dark Night</h3>
+<p class="precio">$35</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Kit Dark Night, me puedes confirmar disponibilidad?" class="btn-wsp">Comprar ahora</a>
+</div>
 
-        <article class="product-card" data-category="Succionadores y App" data-name="Jane" data-desc="Succionador usb 20">
-          <div class="card-image">
-            <img src="SUCCIONADORES Y APP PVP_pagina_2.png" alt="Jane">
-          </div>
-          <div class="card-body">
-            <span class="tag">Succionadores y App</span>
-            <h3>Jane</h3>
-            <p class="desc">Succionador USB recargable.</p>
-            <div class="price-row"><div class="price">$20</div></div>
-            <div class="card-actions">
-              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Jane%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
-              <a class="mini-btn mini-view" target="_blank" href="SUCCIONADORES Y APP PVP_pagina_2.png">Ver imagen</a>
-            </div>
-          </div>
-        </article>
+<div class="card">
+<img src="images/kit-fantasia.jpg">
+<h3>Kit Fantasía</h3>
+<p class="precio">$19</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Kit Fantasía, cómo hago el pedido?" class="btn-wsp">Comprar ahora</a>
+</div>
 
-      </div>
+<div class="card">
+<img src="images/kit-nessy.jpg">
+<h3>Kit Nessy</h3>
+<p class="precio">$35</p>
+<a href="https://wa.me/593XXXXXXXXX?text=Hola quiero el Kit Nessy, me interesa comprar ahora mismo" class="btn-wsp">Comprar ahora</a>
+</div>
 
-      <div class="empty" id="emptyState">No se encontraron productos con ese filtro.</div>
-    </section>
-  </main>
+</div>
 
-  <footer>
-    Luciano Private Collection · Confianza, discreción y placer
-  </footer>
+</section>
 
-  <button class="wa-float" onclick="window.open('https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20ver%20el%20cat%C3%A1logo%20completo%20de%20Luciano%20Private%20Collection.','_blank')" aria-label="WhatsApp">✆</button>
-
-  <script>
-    const categorias = ['Todo','Anal','Lubricantes','Ellos','BDSM','Arneses','Succionadores y App'];
-    const filtersEl = document.getElementById('filters');
-    const cards = Array.from(document.querySelectorAll('.product-card'));
-    const emptyState = document.getElementById('emptyState');
-    const searchInput = document.getElementById('searchInput');
-    let categoriaActiva = 'Todo';
-
-    categorias.forEach(nombre => {
-      const btn = document.createElement('button');
-      btn.className = 'filter-btn' + (nombre === 'Todo' ? ' active' : '');
-      btn.textContent = nombre;
-      btn.onclick = function(){
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        categoriaActiva = nombre;
-        filtrar();
-      };
-      filtersEl.appendChild(btn);
-    });
-
-    function filtrar(){
-      const term = searchInput.value.trim().toLowerCase();
-      let visibles = 0;
-
-      cards.forEach(card => {
-        const cat = (card.dataset.category || '').toLowerCase();
-        const name = (card.dataset.name || '').toLowerCase();
-        const
+</body>
+</html>
