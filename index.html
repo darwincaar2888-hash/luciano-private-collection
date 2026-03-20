@@ -1,526 +1,76 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luciano Private Collection | Categoría Anal</title>
-  <style>
-    :root{
-      --bg:#070707;
-      --card:#121212;
-      --gold:#d4b06a;
-      --gold-dark:#b88e4a;
-      --text:#f6efe6;
-      --muted:#cfc6ba;
-      --line:rgba(212,176,106,.18);
-      --wa:#25d366;
-      --shadow:0 18px 48px rgba(0,0,0,.35);
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(212,176,106,.08), transparent 28%),
-        linear-gradient(180deg, #0b0b0b, var(--bg));
-      color:var(--text);
-    }
-
-    a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
-
-    .wrap{
-      width:min(1200px, calc(100% - 20px));
-      margin:auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:40;
-      backdrop-filter:blur(10px);
-      background:rgba(8,8,8,.9);
-      border-bottom:1px solid var(--line);
-    }
-
-    .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:14px 0;
-      flex-wrap:wrap;
-    }
-
-    .brand small{
-      display:block;
-      color:var(--muted);
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      font-size:11px;
-      margin-bottom:4px;
-    }
-
-    .brand strong{
-      color:var(--gold);
-      font-size:18px;
-    }
-
-    .top-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .mini-btn{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#111;
-      color:var(--text);
-      font-weight:700;
-      font-size:14px;
-    }
-
-    .mini-btn.wa{
-      background:var(--wa);
-      border-color:transparent;
-      color:#fff;
-    }
-
-    .hero{
-      padding:22px 0 16px;
-      text-align:center;
-    }
-
-    .hero h1{
-      margin:0 0 12px;
-      color:var(--gold);
-      font-size:clamp(30px, 7vw, 56px);
-      line-height:1.05;
-    }
-
-    .hero-banner{
-      max-width:360px;
-      margin:0 auto 14px;
-      background:#d9efea;
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-    }
-
-    .hero-banner img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-    }
-
-    .hero p{
-      margin:0 auto;
-      max-width:760px;
-      color:var(--muted);
-      line-height:1.6;
-      font-size:15px;
-    }
-
-    .tools{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin:18px 0 12px;
-    }
-
-    .search{
-      flex:1 1 260px;
-      min-width:220px;
-      background:#111;
-      color:#fff;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px 16px;
-      font-size:15px;
-      outline:none;
-    }
-
-    .chips{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .chip{
-      border:1px solid var(--line);
-      background:#111;
-      color:var(--muted);
-      padding:10px 14px;
-      border-radius:999px;
-      cursor:pointer;
-      font-weight:700;
-      font-size:14px;
-    }
-
-    .chip.active{
-      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-      color:#111;
-      border-color:transparent;
-    }
-
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:12px;
-      flex-wrap:wrap;
-      margin:10px 0 16px;
-    }
-
-    .section-head h2{
-      margin:0;
-      color:var(--gold);
-      font-size:clamp(22px, 5vw, 34px);
-    }
-
-    .section-head p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:18px;
-      padding-bottom:34px;
-    }
-
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.008));
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-    }
-
-    .img-box{
-      width:100%;
-      height:320px;
-      background:#d9efea;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:14px;
-    }
-
-    .img-box img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      object-position:center;
-    }
-
-    .card-body{
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      flex:1;
-    }
-
-    .tag{
-      display:inline-block;
-      width:fit-content;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      color:var(--gold);
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      background:rgba(212,176,106,.08);
-    }
-
-    .title{
-      margin:0;
-      font-size:22px;
-      line-height:1.15;
-    }
-
-    .meta{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.45;
-    }
-
-    .price{
-      color:var(--gold);
-      font-size:34px;
-      font-weight:800;
-      margin-top:auto;
-    }
-
-    .btn{
-      display:block;
-      text-align:center;
-      background:var(--wa);
-      color:#fff;
-      font-weight:800;
-      padding:14px 16px;
-      border-radius:14px;
-      margin-top:8px;
-      font-size:18px;
-    }
-
-    .empty{
-      display:none;
-      text-align:center;
-      color:var(--muted);
-      border:1px dashed var(--line);
-      border-radius:18px;
-      padding:18px;
-      margin-bottom:24px;
-    }
-
-    .payments{
-      padding:6px 0 36px;
-    }
-
-    .payments h3{
-      color:var(--gold);
-      font-size:28px;
-      margin:0 0 10px;
-    }
-
-    .payments > p{
-      color:var(--muted);
-      line-height:1.6;
-      margin:0 0 18px;
-    }
-
-    .banks{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:16px;
-    }
-
-    .bank{
-      background:#111;
-      border:1px solid var(--line);
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-
-    .bank-head{
-      padding:16px 18px;
-      font-weight:800;
-      color:#fff;
-      font-size:22px;
-    }
-
-    .bank.pichincha .bank-head{background:#1d4d9b;}
-    .bank.guayaquil .bank-head{background:#00a651;}
-
-    .bank-body{
-      padding:18px;
-      color:var(--text);
-      line-height:1.7;
-    }
-
-    .note{
-      margin-top:16px;
-      padding:18px;
-      border-radius:18px;
-      background:#111;
-      border:1px solid var(--line);
-      color:var(--muted);
-    }
-
-    footer{
-      padding:22px 0 34px;
-      color:var(--muted);
-      text-align:center;
-      border-top:1px solid var(--line);
-    }
-
-    @media (max-width:640px){
-      .img-box{height:300px}
-      .title{font-size:20px}
-      .price{font-size:30px}
-      .hero-banner{max-width:300px}
-    }
-  </style>
-</head>
-<body>
-
-  <div class="topbar">
-    <div class="wrap topbar-inner">
-      <div class="brand">
-        <small>Luciano Private Collection</small>
-        <strong>Categoría Anal</strong>
-      </div>
-      <div class="top-actions">
-        <a class="mini-btn" href="#catalogo">Ver catálogo</a>
-        <a class="mini-btn wa" target="_blank" href="https://wa.me/593992064254?text=Hola%2C%20quiero%20asesor%C3%ADa%20sobre%20la%20categor%C3%ADa%20Anal.">WhatsApp</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <section class="hero">
-      <h1>🔥 Categoría Anal</h1>
-
-      <div class="hero-banner">
-        <img src="anal/IMG-20260320-WA0001.jpg" alt="Anales Cómplices">
-      </div>
-
-      <p>
-        Explora los productos de la categoría anal, filtra por tipo y compra directo por WhatsApp.
-      </p>
-    </section>
-
-    <section id="catalogo">
-      <div class="tools">
-        <input id="searchInput" class="search" type="text" placeholder="Buscar producto..." />
-        <div class="chips" id="chips"></div>
-      </div>
-
-      <div class="section-head">
-        <h2>Productos disponibles</h2>
-        <p>Versión revisada y corregida</p>
-      </div>
-
-      <div class="grid" id="productos"></div>
-      <div class="empty" id="emptyState">No se encontraron productos con ese filtro.</div>
-    </section>
-
-    <section class="payments" id="pagos">
-      <h3>Métodos de pago</h3>
-      <p>PARA ADQUIRIR CUALQUIERA DE NUESTROS PRODUCTOS PUEDE REALIZAR TRANSFERENCIA O DEPÓSITO A LOS SIGUIENTES NÚMEROS DE CUENTAS 🧾💸</p>
-
-      <div class="banks">
-        <div class="bank pichincha">
-          <div class="bank-head">🏦 Banco Pichincha 💰</div>
-          <div class="bank-body">
-            💳 DARWIN CAÑAR<br>
-            <strong>#Cuenta:</strong> 2206498570<br>
-            <strong>Cuenta:</strong> Ahorros<br>
-            <strong>Cédula:</strong> 1716552888
-          </div>
-        </div>
-
-        <div class="bank guayaquil">
-          <div class="bank-head">🏦 Banco Guayaquil 💰</div>
-          <div class="bank-body">
-            💳 DARWIN CAÑAR<br>
-            <strong>#Cuenta:</strong> 20380913<br>
-            <strong>Cuenta:</strong> Ahorros
-          </div>
-        </div>
-      </div>
-
-      <div class="note">
-        📤 <strong>Enviar foto o captura de la transacción</strong><br><br>
-        En cuanto esté confirmado el pago se procede al envío del producto por Servientrega para generar privacidad y seguridad del cliente. Recuerde que todos nuestros productos tienen garantía.
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    Luciano Private Collection · Catálogo premium
-  </footer>
-
-  <script>
-    const productos = [
-      {img:"anal/IMG-20260320-WA0000.jpg", nombre:"Plug Anal Baxter", precio:"20", tipo:"Plugs", mensaje:"Hola, quiero comprar Plug Anal Baxter."},
-      {img:"anal/IMG-20260320-WA0002.jpg", nombre:"Cola de Zorro Blanco", precio:"18", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Zorro Blanco."},
-      {img:"anal/IMG-20260320-WA0003.jpg", nombre:"Cola de Zorro Negro", precio:"18", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Zorro Negro."},
-      {img:"anal/IMG-20260320-WA0004.jpg", nombre:"Cola de Zorro Café", precio:"25", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Zorro Café."},
-      {img:"anal/IMG-20260320-WA0005.jpg", nombre:"Cola de Zorro Rainbow", precio:"30", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Zorro Rainbow."},
-      {img:"anal/IMG-20260320-WA0006.jpg", nombre:"Ducha Anal Fino", precio:"30", tipo:"Duchas", mensaje:"Hola, quiero comprar Ducha Anal Fino."},
-      {img:"anal/IMG-20260320-WA0007.jpg", nombre:"Bomba Anal", precio:"30", tipo:"Duchas", mensaje:"Hola, quiero comprar Bomba Anal."},
-      {img:"anal/IMG-20260320-WA0008.jpg", nombre:"Cola de Conejo Roja", precio:"18", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Conejo Roja."},
-      {img:"anal/IMG-20260320-WA0009.jpg", nombre:"Cola de Conejo Rosada", precio:"18", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Conejo Rosada."},
-      {img:"anal/IMG-20260320-WA0010.jpg", nombre:"Cola de Conejo Morada", precio:"18", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Conejo Morada."},
-      {img:"anal/IMG-20260320-WA0011.jpg", nombre:"Cola de Conejo Blanca", precio:"18", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Conejo Blanca."},
-      {img:"anal/IMG-20260320-WA0012.jpg", nombre:"Cola de Conejo Negra", precio:"18", tipo:"Colas", mensaje:"Hola, quiero comprar Cola de Conejo Negra."},
-      {img:"anal/IMG-20260320-WA0013.jpg", nombre:"Plug Metálico Corazón Grande", precio:"18", tipo:"Plugs metálicos", mensaje:"Hola, quiero comprar Plug Metálico Corazón Grande."},
-      {img:"anal/IMG-20260320-WA0014.jpg", nombre:"Plug Metálico Corazón Pequeño", precio:"13", tipo:"Plugs metálicos", mensaje:"Hola, quiero comprar Plug Metálico Corazón Pequeño."},
-      {img:"anal/IMG-20260320-WA0015.jpg", nombre:"Plug Metálico Corazón Mediano", precio:"15", tipo:"Plugs metálicos", mensaje:"Hola, quiero comprar Plug Metálico Corazón Mediano."},
-      {img:"anal/IMG-20260320-WA0016.jpg", nombre:"Plug Metálico Redondo Grande", precio:"18", tipo:"Plugs metálicos", mensaje:"Hola, quiero comprar Plug Metálico Redondo Grande."},
-      {img:"anal/IMG-20260320-WA0017.jpg", nombre:"Plug Metálico Redondo Mediano", precio:"15", tipo:"Plugs metálicos", mensaje:"Hola, quiero comprar Plug Metálico Redondo Mediano."},
-      {img:"anal/IMG-20260320-WA0018.jpg", nombre:"Plug Metálico Redondo Pequeño", precio:"13", tipo:"Plugs metálicos", mensaje:"Hola, quiero comprar Plug Metálico Redondo Pequeño."},
-      {img:"anal/IMG-20260320-WA0019.jpg", nombre:"Plug Silicona Redondo Grande", precio:"18", tipo:"Plugs silicona", mensaje:"Hola, quiero comprar Plug Silicona Redondo Grande."}
-    ];
-
-    const tipos = ["Todo","Colas","Plugs","Plugs metálicos","Plugs silicona","Duchas"];
-    const grid = document.getElementById("productos");
-    const chips = document.getElementById("chips");
-    const searchInput = document.getElementById("searchInput");
-    const emptyState = document.getElementById("emptyState");
-
-    let filtroActivo = "Todo";
-
-    function renderChips(){
-      chips.innerHTML = "";
-      tipos.forEach(tipo=>{
-        const btn = document.createElement("button");
-        btn.className = "chip" + (tipo === filtroActivo ? " active" : "");
-        btn.textContent = tipo;
-        btn.onclick = ()=>{
-          filtroActivo = tipo;
-          renderChips();
-          renderProductos();
-        };
-        chips.appendChild(btn);
-      });
-    }
-
-    function renderProductos(){
-      const texto = searchInput.value.trim().toLowerCase();
-
-      const filtrados = productos.filter(p=>{
-        const okTipo = filtroActivo === "Todo" || p.tipo === filtroActivo;
-        const okTexto =
-          p.nombre.toLowerCase().includes(texto) ||
-          p.tipo.toLowerCase().includes(texto) ||
-          p.precio.toLowerCase().includes(texto);
-        return okTipo && okTexto;
-      });
-
-      grid.innerHTML = "";
-
-      filtrados.forEach(p=>{
-        const card = document.createElement("article");
-        card.className = "card";
-        card.innerHTML = `
-          <div class="img-box">
-            <img src="${p.img}" alt="${p.nombre}">
-          </div>
-          <div class="card-body">
-            <span class="tag">${p.tipo}</span>
-            <h3 class="title">${p.nombre}</h3>
-            <div class="meta">Compra rápida por WhatsApp.</div>
-            <div class="price">$${p.precio}</div>
-            <a class="btn" target="_blank" href="https://wa.me/593992064254?text=${encodeURIComponent(p.mensaje)}">Comprar ahora</a>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-
-      emptyState.style.display = filtrados.length ? "none" : "block";
-    }
-
-    searchInput.addEventListener("input", renderProductos);
-
-    renderChips();
-    renderProductos();
-  </script>
-</body>
-</html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luciano Private Collection</title><style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b0b0b;
+  color:#fff;
+}
+
+.header{
+  padding:20px;
+}
+
+h1{color:#d4af37;}
+
+.chips{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:10px;
+}
+
+.chip{
+  padding:8px 14px;
+  border-radius:20px;
+  background:#1a1a1a;
+  border:1px solid #333;
+  color:#fff;
+}
+
+.chip.active{
+  background:#25d366;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+  padding:20px;
+}
+
+.card{
+  background:#111;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid #222;
+}
+
+.img-box{
+  background:#cfe0dc;
+  padding:20px;
+}
+
+.img-box img{
+  width:100%;
+}
+
+.card-body{
+  padding:20px;
+}
+
+.tag{
+  font-size:12px;
+  color:#d4af37;
+}
+
+.title{
+  font-size:20px;
+  margin:10px 0;
+}
+
+.price{
+  font-size
