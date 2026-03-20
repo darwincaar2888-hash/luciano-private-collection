@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luciano Private Collection</title>
-  <meta name="description" content="Catálogo premium de Luciano Private Collection" />
+  <meta name="description" content="Catalogo premium de Luciano Private Collection" />
   <style>
     :root{
       --bg:#070707;
@@ -113,6 +113,7 @@
       border:1px solid var(--line);
       background:#0b0b0b;
       padding:10px;
+      object-fit:contain;
     }
 
     .eyebrow{
@@ -291,7 +292,6 @@
     .filter-btn.active{
       background:linear-gradient(135deg,var(--gold),var(--gold2));
       color:#111;
-      border-color:transparent;
     }
 
     .grid{
@@ -314,6 +314,9 @@
       aspect-ratio:1/1;
       background:#0b0b0b;
       overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .card-image img{
@@ -469,7 +472,7 @@
       <div class="cover">
         <div>
           <h2>Catalogo premium completo listo para vender por WhatsApp</h2>
-          <p>Mientras subes fotos reales, este catalogo usa portadas simuladas elegantes para que no se vea vacío. Luego podemos reemplazar cada imagen por las reales de tus PDFs.</p>
+          <p>Este catalogo usa imágenes reales si están en <code>assets/</code>. Si faltan, muestra una portada elegante automática para que nunca se vea vacío.</p>
         </div>
         <div class="cover-panel">
           <div class="cover-box"><strong>Buscador</strong>Busca por nombre en tiempo real.</div>
@@ -526,81 +529,67 @@
     const numeroWhatsApp = '593XXXXXXXXX';
 
     const combos = [
-      {
-        nombre: 'Combo Inicio Perfecto',
-        categoria: 'Combos',
-        precio: '$20',
-        descripcion: 'Lubricante + anillo vibrador.',
-        detalle: 'Ideal para clientes nuevos.'
-      },
-      {
-        nombre: 'Combo Noche Intensa',
-        categoria: 'Combos',
-        precio: '$48',
-        descripcion: 'Succionador + lubricante premium.',
-        detalle: 'Percepcion alta de valor.'
-      },
-      {
-        nombre: 'Combo Dominio y Fantasia',
-        categoria: 'Combos',
-        precio: '$44',
-        descripcion: 'Kit BDSM + juego para parejas.',
-        detalle: 'Excelente para experiencia completa.'
-      }
+      { nombre:'Combo Inicio Perfecto', categoria:'Combos', precio:'$20', descripcion:'Lubricante + anillo vibrador.', detalle:'Ideal para clientes nuevos.', imagen:'assets/combo-inicio-perfecto.jpg' },
+      { nombre:'Combo Noche Intensa', categoria:'Combos', precio:'$48', descripcion:'Succionador + lubricante premium.', detalle:'Percepcion alta de valor.', imagen:'assets/combo-noche-intensa.jpg' },
+      { nombre:'Combo Dominio y Fantasia', categoria:'Combos', precio:'$44', descripcion:'Kit BDSM + juego para parejas.', detalle:'Excelente para experiencia completa.', imagen:'assets/combo-dominio-fantasia.jpg' }
     ];
 
     const productos = [
-      { nombre:'New Desire', categoria:'Sugar Rush', precio:'$30', descripcion:'Masturbador con vibracion incremental.', detalle:'REF 0044' },
-      { nombre:'Bomba Verde', categoria:'Sugar Rush', precio:'$60', descripcion:'Bomba recargable.', detalle:'REF 0789' },
-      { nombre:'Lyra Desire', categoria:'Sugar Rush', precio:'$50', descripcion:'Dildo hiper realista.', detalle:'REF P0042' },
+      { nombre:'New Desire', categoria:'Sugar Rush', precio:'$30', descripcion:'Masturbador con vibracion incremental.', detalle:'REF 0044', imagen:'assets/sugar-new-desire.jpg' },
+      { nombre:'Bomba Verde', categoria:'Sugar Rush', precio:'$60', descripcion:'Bomba recargable.', detalle:'REF 0789', imagen:'assets/sugar-bomba-verde.jpg' },
+      { nombre:'Lyra Desire', categoria:'Sugar Rush', precio:'$50', descripcion:'Dildo hiper realista.', detalle:'REF P0042', imagen:'assets/sugar-lyra-desire.jpg' },
 
-      { nombre:'Clithorse', categoria:'Succionadores y App', precio:'$20', descripcion:'Succionador USB recargable.', detalle:'REF 1028' },
-      { nombre:'Jane', categoria:'Succionadores y App', precio:'$20', descripcion:'Succionador USB recargable.', detalle:'REF 1042' },
-      { nombre:'Lush 4', categoria:'Succionadores y App', precio:'$180', descripcion:'Conectividad con app.', detalle:'REF P0332' },
-      { nombre:'Nexa', categoria:'Succionadores y App', precio:'$25', descripcion:'Vibrador recargable.', detalle:'REF P0101' },
-      { nombre:'Luxe App', categoria:'Succionadores y App', precio:'$35', descripcion:'Vibrador con app.', detalle:'REF P000414' },
-      { nombre:'Amadeus', categoria:'Succionadores y App', precio:'$50', descripcion:'Vibrador dual recargable.', detalle:'REF 1013' },
-      { nombre:'Clitpulse Desire', categoria:'Succionadores y App', precio:'$30', descripcion:'Succionador recargable.', detalle:'REF 1029' },
-      { nombre:'Ragnar', categoria:'Succionadores y App', precio:'$55', descripcion:'Vibrador con app.', detalle:'REF P0315' },
-      { nombre:'Shibui', categoria:'Succionadores y App', precio:'$50', descripcion:'Vibrador con app.', detalle:'REF P0313' },
-      { nombre:'Twisted', categoria:'Succionadores y App', precio:'$60', descripcion:'Vibrador con app.', detalle:'REF P0320' },
-      { nombre:'Hyper App', categoria:'Succionadores y App', precio:'$35', descripcion:'Vibrador con app.', detalle:'REF P000412' },
-      { nombre:'Bliss App', categoria:'Succionadores y App', precio:'$35', descripcion:'Vibrador con app.', detalle:'REF P000413' },
-      { nombre:'Rose App', categoria:'Succionadores y App', precio:'$40', descripcion:'Succionador con app.', detalle:'REF P000415' },
-      { nombre:'Nova App', categoria:'Succionadores y App', precio:'$40', descripcion:'Vibrador anal con app.', detalle:'REF P000416' },
-      { nombre:'Joyride App', categoria:'Succionadores y App', precio:'$40', descripcion:'Anillo con app.', detalle:'REF P000417' },
-      { nombre:'Quantum', categoria:'Succionadores y App', precio:'$50', descripcion:'Vibrador realista con app.', detalle:'REF P000418' },
+      { nombre:'Clithorse', categoria:'Succionadores y App', precio:'$20', descripcion:'Succionador USB recargable.', detalle:'REF 1028', imagen:'assets/succ-clithorse.jpg' },
+      { nombre:'Jane', categoria:'Succionadores y App', precio:'$20', descripcion:'Succionador USB recargable.', detalle:'REF 1042', imagen:'assets/succ-jane.jpg' },
+      { nombre:'Lush 4', categoria:'Succionadores y App', precio:'$180', descripcion:'Conectividad con app.', detalle:'REF P0332', imagen:'assets/succ-lush4.jpg' },
+      { nombre:'Nexa', categoria:'Succionadores y App', precio:'$25', descripcion:'Vibrador recargable.', detalle:'REF P0101', imagen:'assets/succ-nexa.jpg' },
+      { nombre:'Twisted', categoria:'Succionadores y App', precio:'$60', descripcion:'Vibrador con app.', detalle:'REF P0320', imagen:'assets/succ-twisted.jpg' },
+      { nombre:'Rose App', categoria:'Succionadores y App', precio:'$40', descripcion:'Succionador con app.', detalle:'REF P000415', imagen:'assets/succ-rose-app.jpg' },
+      { nombre:'Nova App', categoria:'Succionadores y App', precio:'$40', descripcion:'Vibrador anal con app.', detalle:'REF P000416', imagen:'assets/anal-nova-app.jpg' },
 
-      { nombre:'Ides', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bolas chinas / kegel.', detalle:'REF 0806' },
-      { nombre:'Rosa New', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bolas chinas / kegel.', detalle:'REF 0018' },
-      { nombre:'Bala Sol', categoria:'Bolas y Balas', precio:'$15', descripcion:'Con vibracion / 2 pilas AA.', detalle:'REF 0928' },
-      { nombre:'Hela', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bala vibradora USB.', detalle:'REF 0787' },
-      { nombre:'Eggy', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bala vibradora / 2 pilas AAA.', detalle:'REF 0511' },
-      { nombre:'iAN', categoria:'Bolas y Balas', precio:'$8', descripcion:'Con vibracion / 1 pila AAA.', detalle:'REF 0757' },
-      { nombre:'Moly', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bala vibradora / 2 pilas AAA.', detalle:'REF P0069' },
-      { nombre:'Aurora', categoria:'Bolas y Balas', precio:'$30', descripcion:'Bala vibradora USB.', detalle:'REF 1041' },
-      { nombre:'Lanza', categoria:'Bolas y Balas', precio:'$8', descripcion:'Bala vibradora / 1 pila AAA.', detalle:'REF 0017' },
+      { nombre:'Ides', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bolas chinas / kegel.', detalle:'REF 0806', imagen:'assets/bb-ides.jpg' },
+      { nombre:'Rosa New', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bolas chinas / kegel.', detalle:'REF 0018', imagen:'assets/bb-rosa-new.jpg' },
+      { nombre:'Bala Sol', categoria:'Bolas y Balas', precio:'$15', descripcion:'Con vibracion / 2 pilas AA.', detalle:'REF 0928', imagen:'assets/bb-bala-sol.jpg' },
+      { nombre:'Hela', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bala vibradora USB.', detalle:'REF 0787', imagen:'assets/bb-hela.jpg' },
 
-      { nombre:'Lampiña Corporal', categoria:'Lubricantes', precio:'$4', descripcion:'Crema depilatoria 30 g.', detalle:'REF 7444302616554' },
-      { nombre:'Lubricantes de Agua', categoria:'Lubricantes', precio:'$8', descripcion:'Sabores calientes.', detalle:'20 ml' },
-      { nombre:'Cool Ice', categoria:'Lubricantes', precio:'$8', descripcion:'Lubricante intimo frio.', detalle:'20 ml' },
-      { nombre:'Natural', categoria:'Lubricantes', precio:'$8', descripcion:'Lubricante 20 ml.', detalle:'REF 0318' },
-      { nombre:'Aceite Caliente Naranja Chocolate', categoria:'Lubricantes', precio:'$8', descripcion:'Aceite caliente.', detalle:'REF 0675' },
-      { nombre:'Aceite Caliente Uva', categoria:'Lubricantes', precio:'$8', descripcion:'Aceite caliente.', detalle:'REF 0911' },
-      { nombre:'Tequila Electrizante', categoria:'Lubricantes', precio:'$20', descripcion:'Lubricante caliente.', detalle:'REF P0130' },
-      { nombre:'Mango Electrizante', categoria:'Lubricantes', precio:'$20', descripcion:'Lubricante caliente.', detalle:'REF 0918' },
-      { nombre:'Water JO', categoria:'Lubricantes', precio:'$15', descripcion:'Lubricante premium.', detalle:'30 ml' },
-      { nombre:'Neutro Gigante', categoria:'Lubricantes', precio:'$20', descripcion:'Lubricante neutro.', detalle:'250 ml' },
-      { nombre:'Goodhead Sachet', categoria:'Lubricantes', precio:'$4', descripcion:'Lubricante intimo sachet.', detalle:'REF 0910' },
-      { nombre:'Frequency', categoria:'Lubricantes', precio:'$15', descripcion:'Vibrador liquido.', detalle:'REF P0350' },
+      { nombre:'Lampiña Corporal', categoria:'Lubricantes', precio:'$4', descripcion:'Crema depilatoria 30 g.', detalle:'REF 7444302616554', imagen:'assets/lub-lampina.jpg' },
+      { nombre:'Lubricantes de Agua', categoria:'Lubricantes', precio:'$8', descripcion:'Sabores calientes.', detalle:'20 ml', imagen:'assets/lub-agua.jpg' },
+      { nombre:'Cool Ice', categoria:'Lubricantes', precio:'$8', descripcion:'Lubricante intimo frio.', detalle:'20 ml', imagen:'assets/lub-coolice.jpg' },
+      { nombre:'Natural', categoria:'Lubricantes', precio:'$8', descripcion:'Lubricante 20 ml.', detalle:'REF 0318', imagen:'assets/lub-natural.jpg' },
+      { nombre:'Water JO', categoria:'Lubricantes', precio:'$15', descripcion:'Lubricante premium.', detalle:'30 ml', imagen:'assets/lub-waterjo.jpg' },
 
-      { nombre:'Anillo Vibrador Económico', categoria:'Ellos', precio:'$5', descripcion:'Anillo vibrador.', detalle:'REF 0011' },
-      { nombre:'Florssi', categoria:'Ellos', precio:'$6', descripcion:'Anillo vibrador.', detalle:'REF 0922' },
-      { nombre:'Ricky', categoria:'Ellos', precio:'$25', descripcion:'Anillo vibrador USB.', detalle:'REF 1035' },
-      { nombre:'Soul', categoria:'Ellos', precio:'$18', descripcion:'Anillo vibrador USB.', detalle:'REF 1049' },
-      { nombre:'Stay Hard Liso', categoria:'Ellos', precio:'$8', descripcion:'Anillo para pene.', detalle:'REF 0565' },
-      { nombre:'Stay Hard Estriado', categoria:'Ellos', precio:'$8', descripcion:'Anillo para pene.', detalle:'REF 759746000125' },
-      { nombre:'Penny', categoria:'Ellos', precio:'$15', descripcion:'Masturbador.', detalle:'REF P0054' },
-      { nombre:'Kuba', categoria:'Ellos', precio:'$25', descripcion:'Masturbador.', detalle:'REF P0062' },
-      { nombre:'Karman', categoria:'Ellos', precio:'$20', descripcion:'Masturbador.', detalle:'REF 1020' },
-      { nombre:'Belle', categoria:'Ellos', precio:'$16', descripcion:'Mas
+      { nombre:'Anillo Vibrador Economico', categoria:'Ellos', precio:'$5', descripcion:'Anillo vibrador.', detalle:'REF 0011', imagen:'assets/ellos-anillo-economico.jpg' },
+      { nombre:'Ricky', categoria:'Ellos', precio:'$25', descripcion:'Anillo vibrador USB.', detalle:'REF 1035', imagen:'assets/ellos-ricky.jpg' },
+      { nombre:'Soul', categoria:'Ellos', precio:'$18', descripcion:'Anillo vibrador USB.', detalle:'REF 1049', imagen:'assets/ellos-soul.jpg' },
+      { nombre:'Penny', categoria:'Ellos', precio:'$15', descripcion:'Masturbador.', detalle:'REF P0054', imagen:'assets/ellos-penny.jpg' },
+      { nombre:'Kuba', categoria:'Ellos', precio:'$25', descripcion:'Masturbador.', detalle:'REF P0062', imagen:'assets/ellos-kuba.jpg' },
+
+      { nombre:'Fetiche Sumision', categoria:'BDSM', precio:'$39', descripcion:'Fetiche con cuello acolchado.', detalle:'REF 0776', imagen:'assets/bdsm-sumision.jpg' },
+      { nombre:'Agape Rosado', categoria:'BDSM', precio:'$24', descripcion:'Kit BDSM cuerina.', detalle:'REF 1047', imagen:'assets/bdsm-agape-rosado.jpg' },
+      { nombre:'Lujuria', categoria:'BDSM', precio:'$40', descripcion:'Kit BDSM tela.', detalle:'REF 0770', imagen:'assets/bdsm-lujuria.jpg' },
+
+      { nombre:'Pasion Dual', categoria:'Arneses', precio:'$50', descripcion:'Arnes sin hueco.', detalle:'REF 0609', imagen:'assets/arnes-pasion-dual.jpg' },
+      { nombre:'Extra suave 5.7', categoria:'Arneses', precio:'$35', descripcion:'Arnes con hueco.', detalle:'REF 0576', imagen:'assets/arnes-extra-suave.jpg' },
+      { nombre:'Universal', categoria:'Arneses', precio:'$25', descripcion:'Compatible con dildo con ventosa.', detalle:'REF 0280', imagen:'assets/arnes-universal.jpg' },
+      { nombre:'Rino', categoria:'Arneses', precio:'$39', descripcion:'Arnes sin hueco.', detalle:'REF 0779', imagen:'assets/arnes-rino.jpg' },
+
+      { nombre:'Ducha Anal Fino', categoria:'Anal', precio:'$30', descripcion:'Ducha anal.', detalle:'REF 0568', imagen:'assets/anal-ducha-fino.jpg' },
+      { nombre:'Baxter', categoria:'Anal', precio:'$20', descripcion:'Plug anal.', detalle:'REF P0061', imagen:'assets/anal-baxter.jpg' },
+      { nombre:'Ragnar', categoria:'Anal', precio:'$55', descripcion:'Vibrador anal.', detalle:'REF P0315', imagen:'assets/anal-ragnar.jpg' },
+      { nombre:'Kit Anal Fantasia', categoria:'Anal', precio:'$19', descripcion:'Kit anal no vibra.', detalle:'REF 0329', imagen:'assets/anal-kit-fantasia.jpg' }
+    ];
+
+    const categories = ['Todo','Combos','Sugar Rush','Succionadores y App','Bolas y Balas','Lubricantes','Ellos','BDSM','Arneses','Anal'];
+
+    function abrirWhatsApp(mensaje){
+      const url = 'https://wa.me/' + numeroWhatsApp + '?text=' + encodeURIComponent(mensaje);
+      window.open(url, '_blank');
+    }
+
+    function crearLogoFallback(){
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600">
+          <rect width="100%" height="100%" rx="40" fill="#0b0b0b"/>
+          <text x="50%" y="42%" text-anchor="middle" fill="#d4b06a" font-size="112" font-family="Georgia, serif">LPC</text>
+          <text x="50%" y="58%" text-anchor="middle" fill="#f5eee5" font-size="30" font-family="Arial">Private Collection</text>
+  </svg>
