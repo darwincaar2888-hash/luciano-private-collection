@@ -279,6 +279,7 @@
       font-weight:700;
       cursor:pointer;
       transition:.2s ease;
+      text-align:center;
     }
 
     .mini-wa{
@@ -447,7 +448,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-gold" href="#productos">Ver productos</a>
-            <button class="btn btn-wa" onclick="abrirWhatsApp('Hola, quiero asesoría para elegir un producto de Luciano Private Collection.')">Asesoría por WhatsApp</button>
+            <a class="btn btn-wa" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20asesor%C3%ADa%20para%20elegir%20un%20producto%20de%20Luciano%20Private%20Collection." target="_blank">Asesoría por WhatsApp</a>
           </div>
         </div>
         <div class="hero-side">
@@ -470,7 +471,63 @@
         <h2>Combos destacados</h2>
         <p>Ofertas listas para vender más rápido y aumentar el valor de cada pedido.</p>
       </div>
-      <div class="combo-grid" id="comboGrid"></div>
+      <div class="combo-grid">
+        <article class="combo-card" data-category="Combos" data-name="Combo Inicio Perfecto" data-desc="Lubricante anillo vibrador producto entrada">
+          <div class="card-image"><img src="LUBRICANTES PVP_pagina_2.png" alt="Combo Inicio Perfecto"></div>
+          <div class="card-body">
+            <span class="tag">Combos</span>
+            <h3>Combo Inicio Perfecto</h3>
+            <p class="desc">Lubricante + anillo vibrador + producto de entrada. Ideal para clientes nuevos.</p>
+            <div class="price-row"><div class="price">$38</div><div class="old-price">$45</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20el%20Combo%20Inicio%20Perfecto%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('LUBRICANTES PVP_pagina_2.png')">Ver imagen</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="combo-card" data-category="Combos" data-name="Combo Noche Intensa" data-desc="Jane lubricante premium">
+          <div class="card-image"><img src="SUCCIONADORES Y APP PVP_pagina_2.png" alt="Combo Noche Intensa"></div>
+          <div class="card-body">
+            <span class="tag">Combos</span>
+            <h3>Combo Noche Intensa</h3>
+            <p class="desc">Jane + lubricante premium. Perfecto para ticket medio alto.</p>
+            <div class="price-row"><div class="price">$70</div><div class="old-price">$85</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20el%20Combo%20Noche%20Intensa%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('SUCCIONADORES Y APP PVP_pagina_2.png')">Ver imagen</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="combo-card" data-category="Combos" data-name="Combo Anal Premium" data-desc="Plug Anal Baxter lubricante complemento anal">
+          <div class="card-image"><img src="ANAL PVP_pagina_4.png" alt="Combo Anal Premium"></div>
+          <div class="card-body">
+            <span class="tag">Combos</span>
+            <h3>Combo Anal Premium</h3>
+            <p class="desc">Plug Anal Baxter + lubricante + complemento anal.</p>
+            <div class="price-row"><div class="price">$58</div><div class="old-price">$70</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20el%20Combo%20Anal%20Premium%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('ANAL PVP_pagina_4.png')">Ver imagen</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="combo-card" data-category="Combos" data-name="Combo BDSM Exploración" data-desc="Kit Fetiche Bunny Negro accesorio vendedor">
+          <div class="card-image"><img src="BDSM PVP_pagina_8.png" alt="Combo BDSM Exploración"></div>
+          <div class="card-body">
+            <span class="tag">Combos</span>
+            <h3>Combo BDSM Exploración</h3>
+            <p class="desc">Kit Fetiche Bunny Negro + accesorio visualmente vendedor.</p>
+            <div class="price-row"><div class="price">$65</div><div class="old-price">$78</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20el%20Combo%20BDSM%20Exploraci%C3%B3n%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('BDSM PVP_pagina_8.png')">Ver imagen</button>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="productos">
@@ -484,202 +541,89 @@
         <div class="filters" id="filters"></div>
       </div>
 
-      <div class="product-grid" id="productGrid"></div>
-      <div class="empty" id="emptyState">No se encontraron productos con ese filtro.</div>
-    </section>
-  </main>
-
-  <footer>
-    Luciano Private Collection · Confianza, discreción y placer
-  </footer>
-
-  <button class="wa-float" onclick="abrirWhatsApp('Hola, quiero ver el catálogo completo de Luciano Private Collection.')" aria-label="WhatsApp">✆</button>
-
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-inner">
-      <button class="close-btn" id="closeLightbox">×</button>
-      <img id="lightboxImg" src="" alt="Vista ampliada" />
-    </div>
-  </div>
-
-  <script>
-    const numeroWhatsApp = '593XXXXXXXXX';
-
-    const combos = [
-      {
-        nombre: 'Combo Inicio Perfecto',
-        categoria: 'Combos',
-        precio: '$38',
-        antes: '$45',
-        descripcion: 'Lubricante + anillo vibrador + producto de entrada. Ideal para clientes nuevos.',
-        imagen: 'LUBRICANTES PVP_pagina_2.png'
-      },
-      {
-        nombre: 'Combo Noche Intensa',
-        categoria: 'Combos',
-        precio: '$70',
-        antes: '$85',
-        descripcion: 'Jane + lubricante premium. Perfecto para ticket medio alto.',
-        imagen: 'SUCCIONADORES Y APP PVP_pagina_2.png'
-      },
-      {
-        nombre: 'Combo Anal Premium',
-        categoria: 'Combos',
-        precio: '$58',
-        antes: '$70',
-        descripcion: 'Plug Anal Baxter + lubricante + complemento anal.',
-        imagen: 'ANAL PVP_pagina_4.png'
-      },
-      {
-        nombre: 'Combo BDSM Exploración',
-        categoria: 'Combos',
-        precio: '$65',
-        antes: '$78',
-        descripcion: 'Kit Fetiche Bunny Negro + accesorio visualmente vendedor.',
-        imagen: 'BDSM PVP_pagina_8.png'
-      }
-    ];
-
-    const productos = [
-      { nombre:'Ducha Anal Fino', categoria:'Anal', precio:'$30', descripcion:'Silicona + pico fino.', imagen:'ANAL PVP_pagina_2.png' },
-      { nombre:'Bomba Anal', categoria:'Anal', precio:'$30', descripcion:'Con vibración USB recargable.', imagen:'ANAL PVP_pagina_2.png' },
-      { nombre:'Plug Anal Baxter', categoria:'Anal', precio:'$20', descripcion:'Plug anal destacado y muy visual.', imagen:'ANAL PVP_pagina_4.png' },
-      { nombre:'Cola de Zorro Café', categoria:'Anal', precio:'$25', descripcion:'Producto llamativo para ticket medio.', imagen:'ANAL PVP_pagina_3.png' },
-      { nombre:'Rosario Anal', categoria:'Anal', precio:'$15', descripcion:'Entrada accesible, ideal para upsell.', imagen:'ANAL PVP_pagina_8.png' },
-      { nombre:'Squirtle', categoria:'Anal', precio:'$45.50', descripcion:'Con vibración USB.', imagen:'ANAL PVP_pagina_9.png' },
-
-      { nombre:'Rosa New', categoria:'Bolas y Balas', precio:'$15', descripcion:'Bolas chinas / kegel.', imagen:'BOLAS Y BALAS PVP_pagina_1.png' },
-      { nombre:'Aurora', categoria:'Bolas y Balas', precio:'$30', descripcion:'Bala vibradora USB.', imagen:'BOLAS Y BALAS PVP_pagina_5.png' },
-
-      { nombre:'Natural', categoria:'Lubricantes', precio:'$8', descripcion:'Lubricante clásico de salida rápida.', imagen:'LUBRICANTES PVP_pagina_2.png' },
-      { nombre:'Water JO', categoria:'Lubricantes', precio:'$15', descripcion:'Lubricante premium.', imagen:'LUBRICANTES PVP_pagina_6.png' },
-      { nombre:'Neutro Gigante', categoria:'Lubricantes', precio:'$20', descripcion:'Formato grande, ideal para upsell.', imagen:'LUBRICANTES PVP_pagina_8.png' },
-
-      { nombre:'Anillo Vibrador Económico', categoria:'Ellos', precio:'$5', descripcion:'Producto de entrada de alta rotación.', imagen:'ELLOS PVP_pagina_1.png' },
-      { nombre:'Penny', categoria:'Ellos', precio:'$15', descripcion:'Masturbador.', imagen:'ELLOS PVP_pagina_6.png' },
-      { nombre:'Kuba', categoria:'Ellos', precio:'$25', descripcion:'Masturbador.', imagen:'ELLOS PVP_pagina_7.png' },
-      { nombre:'Ophira', categoria:'Ellos', precio:'$60', descripcion:'Masturbador premium.', imagen:'ELLOS PVP_pagina_10.png' },
-
-      { nombre:'Fetiche Sumisión', categoria:'BDSM', precio:'$39', descripcion:'Fetiche con cuello acolchado.', imagen:'BDSM PVP_pagina_1.png' },
-      { nombre:'Kit Fetiche Bunny Negro', categoria:'BDSM', precio:'$39', descripcion:'Kit BDSM visualmente vendedor.', imagen:'BDSM PVP_pagina_8.png' },
-      { nombre:'Agape Rosado', categoria:'BDSM', precio:'$24', descripcion:'Kit BDSM cuerina.', imagen:'BDSM PVP_pagina_12.png' },
-
-      { nombre:'Pasion Dual', categoria:'Arneses', precio:'$50', descripcion:'Arnés sin hueco.', imagen:'ARNESES PVP_pagina_1.png' },
-      { nombre:'Universal', categoria:'Arneses', precio:'$25', descripcion:'Compatible con ventosa.', imagen:'ARNESES PVP_pagina_2.png' },
-
-      { nombre:'Jane', categoria:'Succionadores y App', precio:'$20', descripcion:'Succionador USB recargable.', imagen:'SUCCIONADORES Y APP PVP_pagina_2.png' },
-      { nombre:'Lush 4', categoria:'Succionadores y App', precio:'$180', descripcion:'Producto premium con app.', imagen:'SUCCIONADORES Y APP PVP_pagina_7.png' },
-      { nombre:'Rose App', categoria:'Succionadores y App', precio:'$40', descripcion:'Succionador con app.', imagen:'SUCCIONADORES Y APP PVP_pagina_11.png' },
-
-      { nombre:'New Desire', categoria:'Sugar Rush', precio:'$30', descripcion:'Masturbador con vibración incremental.', imagen:'Sugar Rush PVP_pagina_2.png' },
-      { nombre:'Bomba Verde', categoria:'Sugar Rush', precio:'$60', descripcion:'Bomba recargable.', imagen:'Sugar Rush PVP_pagina_4.png' },
-
-      { nombre:'Vibrador Amadeus', categoria:'Vibradores y Dildos', precio:'$50', descripcion:'Vibrador visual premium.', imagen:'VIBRADORES Y DILDOS_pagina_3.png' }
-    ];
-
-    const categorias = ['Todo', ...new Set(productos.map(p => p.categoria))];
-
-    const filtersEl = document.getElementById('filters');
-    const productGrid = document.getElementById('productGrid');
-    const comboGrid = document.getElementById('comboGrid');
-    const searchInput = document.getElementById('searchInput');
-    const emptyState = document.getElementById('emptyState');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const closeLightbox = document.getElementById('closeLightbox');
-
-    let categoriaActiva = 'Todo';
-
-    function abrirWhatsApp(texto) {
-      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
-      window.open(url, '_blank');
-    }
-
-    function abrirImagen(src) {
-      lightboxImg.src = src;
-      lightbox.classList.add('open');
-    }
-
-    function cerrarImagen() {
-      lightbox.classList.remove('open');
-      lightboxImg.src = '';
-    }
-
-    closeLightbox.addEventListener('click', cerrarImagen);
-    lightbox.addEventListener('click', function(e) {
-      if (e.target === lightbox) cerrarImagen();
-    });
-
-    function crearFiltros() {
-      categorias.forEach(nombre => {
-        const btn = document.createElement('button');
-        btn.className = 'filter-btn' + (nombre === 'Todo' ? ' active' : '');
-        btn.textContent = nombre;
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          categoriaActiva = nombre;
-          renderProductos();
-        });
-        filtersEl.appendChild(btn);
-      });
-    }
-
-    function crearCard(item, esCombo = false) {
-      const card = document.createElement('article');
-      card.className = esCombo ? 'combo-card' : 'product-card';
-
-      const mensaje = esCombo
-        ? `Hola, quiero el ${item.nombre} de Luciano Private Collection.`
-        : `Hola, quiero comprar ${item.nombre} (${item.categoria}) de Luciano Private Collection.`;
-
-      card.innerHTML = `
-        <div class="card-image">
-          <img src="${item.imagen}" alt="${item.nombre}">
-        </div>
-        <div class="card-body">
-          <span class="tag">${item.categoria}</span>
-          <h3>${item.nombre}</h3>
-          <p class="desc">${item.descripcion}</p>
-          <div class="price-row">
-            <div class="price">${item.precio}</div>
-            ${item.antes ? `<div class="old-price">${item.antes}</div>` : ''}
+      <div class="product-grid" id="productGrid">
+        <article class="product-card" data-category="Anal" data-name="Ducha Anal Fino" data-desc="Silicona pico fino 30">
+          <div class="card-image"><img src="ANAL PVP_pagina_2.png" alt="Ducha Anal Fino"></div>
+          <div class="card-body">
+            <span class="tag">Anal</span>
+            <h3>Ducha Anal Fino</h3>
+            <p class="desc">Silicona + pico fino.</p>
+            <div class="price-row"><div class="price">$30</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Ducha%20Anal%20Fino%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('ANAL PVP_pagina_2.png')">Ver imagen</button>
+            </div>
           </div>
-          <div class="card-actions">
-            <button class="mini-btn mini-wa">WhatsApp</button>
-            <button class="mini-btn mini-view">Ver imagen</button>
+        </article>
+
+        <article class="product-card" data-category="Anal" data-name="Bomba Anal" data-desc="Vibracion usb recargable 30">
+          <div class="card-image"><img src="ANAL PVP_pagina_2.png" alt="Bomba Anal"></div>
+          <div class="card-body">
+            <span class="tag">Anal</span>
+            <h3>Bomba Anal</h3>
+            <p class="desc">Con vibración USB recargable.</p>
+            <div class="price-row"><div class="price">$30</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Bomba%20Anal%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('ANAL PVP_pagina_2.png')">Ver imagen</button>
+            </div>
           </div>
-        </div>
-      `;
+        </article>
 
-      const img = card.querySelector('img');
-      img.addEventListener('click', function() {
-        abrirImagen(item.imagen);
-      });
+        <article class="product-card" data-category="Anal" data-name="Plug Anal Baxter" data-desc="Plug anal destacado 20">
+          <div class="card-image"><img src="ANAL PVP_pagina_4.png" alt="Plug Anal Baxter"></div>
+          <div class="card-body">
+            <span class="tag">Anal</span>
+            <h3>Plug Anal Baxter</h3>
+            <p class="desc">Plug anal destacado y muy visual.</p>
+            <div class="price-row"><div class="price">$20</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Plug%20Anal%20Baxter%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('ANAL PVP_pagina_4.png')">Ver imagen</button>
+            </div>
+          </div>
+        </article>
 
-      card.querySelector('.mini-wa').addEventListener('click', function() {
-        abrirWhatsApp(mensaje);
-      });
+        <article class="product-card" data-category="Anal" data-name="Rosario Anal" data-desc="Entrada accesible upsell 15">
+          <div class="card-image"><img src="ANAL PVP_pagina_8.png" alt="Rosario Anal"></div>
+          <div class="card-body">
+            <span class="tag">Anal</span>
+            <h3>Rosario Anal</h3>
+            <p class="desc">Entrada accesible, ideal para upsell.</p>
+            <div class="price-row"><div class="price">$15</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Rosario%20Anal%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('ANAL PVP_pagina_8.png')">Ver imagen</button>
+            </div>
+          </div>
+        </article>
 
-      card.querySelector('.mini-view').addEventListener('click', function() {
-        abrirImagen(item.imagen);
-      });
+        <article class="product-card" data-category="Bolas y Balas" data-name="Rosa New" data-desc="Bolas chinas kegel 15">
+          <div class="card-image"><img src="BOLAS Y BALAS PVP_pagina_1.png" alt="Rosa New"></div>
+          <div class="card-body">
+            <span class="tag">Bolas y Balas</span>
+            <h3>Rosa New</h3>
+            <p class="desc">Bolas chinas / kegel.</p>
+            <div class="price-row"><div class="price">$15</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Rosa%20New%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('BOLAS Y BALAS PVP_pagina_1.png')">Ver imagen</button>
+            </div>
+          </div>
+        </article>
 
-      return card;
-    }
+        <article class="product-card" data-category="Bolas y Balas" data-name="Aurora" data-desc="Bala vibradora usb 30">
+          <div class="card-image"><img src="BOLAS Y BALAS PVP_pagina_5.png" alt="Aurora"></div>
+          <div class="card-body">
+            <span class="tag">Bolas y Balas</span>
+            <h3>Aurora</h3>
+            <p class="desc">Bala vibradora USB.</p>
+            <div class="price-row"><div class="price">$30</div></div>
+            <div class="card-actions">
+              <a class="mini-btn mini-wa" target="_blank" href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20comprar%20Aurora%20de%20Luciano%20Private%20Collection.">WhatsApp</a>
+              <button class="mini-btn mini-view" onclick="abrirImagen('BOLAS Y BALAS PVP_pagina_5.png')">Ver imagen</button>
+            </div>
+          </div>
+        </article>
 
-    function renderCombos() {
-      comboGrid.innerHTML = '';
-      combos.forEach(item => comboGrid.appendChild(crearCard(item, true)));
-    }
-
-    function renderProductos() {
-      const term = searchInput.value.trim().toLowerCase();
-      productGrid.innerHTML = '';
-
-      const filtrados = productos.filter(item => {
-        const okCategoria = categoriaActiva === 'Todo' || item.categoria === categoriaActiva;
-        const okBusqueda =
-          item.nombre.toLowerCase().includes(term) ||
-          item.categoria.toLowerCase().includes(term) ||
-          
+        <article class="product-card" data-category="Lubricantes" data-name="Natural" data-desc="Lubricante cla
