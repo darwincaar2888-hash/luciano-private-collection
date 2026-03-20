@@ -87,26 +87,27 @@
       box-shadow:var(--shadow);
     }
 
-    .eyebrow{
-      color:var(--gold);
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      font-size:12px;
-      margin-bottom:10px;
-    }
-
-    h1{
+    .store-name{
       margin:0;
       font-size:clamp(34px, 6vw, 60px);
       line-height:1.03;
       color:var(--gold);
+      font-weight:800;
+    }
+
+    .slogan{
+      margin:10px 0 0;
+      color:var(--text);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:12px;
     }
 
     .hero p{
       color:var(--muted);
       line-height:1.7;
       font-size:16px;
-      margin:14px 0 0;
+      margin:18px 0 0;
     }
 
     .hero-side{
@@ -134,7 +135,7 @@
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:18px;
+      margin-top:20px;
     }
 
     .btn{
@@ -144,6 +145,13 @@
       font-weight:800;
       cursor:pointer;
       display:inline-block;
+      transition:.2s ease;
+    }
+
+    .btn:hover,
+    .mini-btn:hover,
+    .filter-btn:hover{
+      transform:translateY(-1px);
     }
 
     .btn-gold{
@@ -192,6 +200,7 @@
       aspect-ratio:1/1;
       background:#0b0b0b;
       overflow:hidden;
+      cursor:pointer;
     }
 
     .card-image img{
@@ -269,6 +278,7 @@
       padding:12px 14px;
       font-weight:700;
       cursor:pointer;
+      transition:.2s ease;
     }
 
     .mini-wa{
@@ -316,6 +326,7 @@
       padding:10px 14px;
       cursor:pointer;
       font-weight:700;
+      transition:.2s ease;
     }
 
     .filter-btn.active{
@@ -421,7 +432,7 @@
         <div class="brand">
           <img src="assets/logo.png" alt="Logo Luciano Private Collection" onerror="this.style.display='none'">
           <div>
-            <small>Catálogo premium</small>
+            <small>Tienda premium</small>
             <strong>Luciano Private Collection</strong>
           </div>
         </div>
@@ -429,10 +440,10 @@
 
       <div class="hero">
         <div>
-          <div class="eyebrow">Confianza, discreción y placer</div>
-          <h1>Tienda premium con diseño elegante y compra directa por WhatsApp</h1>
+          <h1 class="store-name">Luciano Private Collection</h1>
+          <p class="slogan">Confianza, discreción y placer</p>
           <p>
-            Explora categorías, busca productos, revisa combos destacados y compra por WhatsApp con mensajes listos para cerrar ventas. Esta versión ya se ve como tienda real y la puedes seguir ampliando.
+            Explora categorías, busca productos, revisa combos destacados y compra por WhatsApp con mensajes listos para cerrar ventas.
           </p>
           <div class="hero-actions">
             <a class="btn btn-gold" href="#productos">Ver productos</a>
@@ -479,7 +490,7 @@
   </main>
 
   <footer>
-    Luciano Private Collection · Tienda premium lista para vender por WhatsApp
+    Luciano Private Collection · Confianza, discreción y placer
   </footer>
 
   <button class="wa-float" onclick="abrirWhatsApp('Hola, quiero ver el catálogo completo de Luciano Private Collection.')" aria-label="WhatsApp">✆</button>
@@ -508,7 +519,7 @@
         categoria: 'Combos',
         precio: '$70',
         antes: '$85',
-        descripcion: 'Succionador + lubricante premium. Perfecto para ticket medio alto.',
+        descripcion: 'Jane + lubricante premium. Perfecto para ticket medio alto.',
         imagen: 'SUCCIONADORES Y APP PVP_pagina_2.png'
       },
       {
@@ -516,7 +527,7 @@
         categoria: 'Combos',
         precio: '$58',
         antes: '$70',
-        descripcion: 'Plug + lubricante + accesorio complementario.',
+        descripcion: 'Plug Anal Baxter + lubricante + complemento anal.',
         imagen: 'ANAL PVP_pagina_4.png'
       },
       {
@@ -524,7 +535,7 @@
         categoria: 'Combos',
         precio: '$65',
         antes: '$78',
-        descripcion: 'Kit BDSM + accesorio visualmente vendedor.',
+        descripcion: 'Kit Fetiche Bunny Negro + accesorio visualmente vendedor.',
         imagen: 'BDSM PVP_pagina_8.png'
       }
     ];
@@ -671,20 +682,4 @@
         const okBusqueda =
           item.nombre.toLowerCase().includes(term) ||
           item.categoria.toLowerCase().includes(term) ||
-          item.precio.toLowerCase().includes(term) ||
-          item.descripcion.toLowerCase().includes(term);
-        return okCategoria && okBusqueda;
-      });
-
-      filtrados.forEach(item => productGrid.appendChild(crearCard(item, false)));
-      emptyState.style.display = filtrados.length ? 'none' : 'block';
-    }
-
-    searchInput.addEventListener('input', renderProductos);
-
-    crearFiltros();
-    renderCombos();
-    renderProductos();
-  </script>
-</body>
-</html>
+          
