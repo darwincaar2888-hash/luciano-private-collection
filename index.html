@@ -1,549 +1,133 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luciano Private Collection | Categoría Anal</title>
-  <style>
-    :root{
-      --bg:#070707;
-      --panel:#111111;
-      --card:#121212;
-      --gold:#d4b06a;
-      --gold-2:#b98f4d;
-      --text:#f5f0e8;
-      --muted:#c9c1b5;
-      --line:rgba(212,176,106,.16);
-      --wa:#25d366;
-      --mint:#d7e6e2;
-      --shadow:0 18px 45px rgba(0,0,0,.35);
-    }
+<section style="background:#0b0b0b; color:white; padding:20px; font-family:sans-serif;">
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top center, rgba(212,176,106,.10), transparent 26%),
-        linear-gradient(180deg, #080808 0%, #050505 100%);
-    }
+  <h2 style="color:#d4af37;">Categoría Anal</h2>
 
-    a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
-
-    .wrap{
-      width:min(1180px, calc(100% - 22px));
-      margin:auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:40;
-      backdrop-filter:blur(10px);
-      background:rgba(8,8,8,.92);
-      border-bottom:1px solid var(--line);
-    }
-
-    .topbar-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-      padding:16px 0;
-    }
-
-    .brand small{
-      display:block;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:var(--muted);
-      font-size:11px;
-      margin-bottom:4px;
-    }
-
-    .brand strong{
-      display:block;
-      color:var(--gold);
-      font-size:18px;
-    }
-
-    .top-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .mini-btn{
-      padding:12px 18px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#101010;
-      color:var(--text);
-      font-weight:800;
-      font-size:15px;
-    }
-
-    .mini-btn.wa{
-      background:var(--wa);
-      color:#fff;
-      border-color:transparent;
-    }
-
-    .hero{
-      padding:28px 0 10px;
-    }
-
-    .hero h1{
-      margin:0 0 10px;
-      font-size:clamp(34px, 7vw, 58px);
-      color:var(--gold);
-      line-height:1.02;
-    }
-
-    .hero p{
-      margin:0;
-      max-width:740px;
-      color:var(--muted);
-      line-height:1.6;
-      font-size:15px;
-    }
-
-    .tools{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin:22px 0 18px;
-      align-items:center;
-    }
-
-    .search{
-      flex:1 1 260px;
-      min-width:220px;
-      background:#101010;
-      color:#fff;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px 16px;
-      font-size:15px;
-      outline:none;
-    }
-
-    .chips{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .chip{
-      border:1px solid var(--line);
-      background:#101010;
-      color:var(--muted);
-      padding:11px 15px;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:800;
-      cursor:pointer;
-    }
-
-    .chip.active{
-      background:linear-gradient(135deg,var(--gold),var(--gold-2));
-      color:#111;
-      border-color:transparent;
-    }
-
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:14px;
-    }
-
-    .section-head h2{
-      margin:0;
-      color:var(--gold);
-      font-size:clamp(22px, 4.5vw, 34px);
-    }
-
-    .section-head p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-      gap:18px;
-      padding-bottom:34px;
-    }
-
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-    }
-
-    .img-box{
-      background:var(--mint);
-      height:360px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-    }
-
-    .img-box img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      object-position:center;
-      border-radius:8px;
-    }
-
-    .body{
-      padding:16px 16px 18px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      min-height:250px;
-    }
-
-    .tag{
-      display:inline-flex;
-      width:fit-content;
-      padding:7px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(212,176,106,.08);
-      color:var(--gold);
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    .title{
-      margin:0;
-      font-size:22px;
-      line-height:1.15;
-    }
-
-    .desc{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.45;
-      min-height:20px;
-    }
-
-    .price{
-      margin-top:auto;
-      color:var(--gold);
-      font-size:34px;
-      font-weight:900;
-    }
-
-    .buy{
-      margin-top:8px;
-      display:block;
-      text-align:center;
-      background:var(--wa);
-      color:#fff;
-      padding:15px 16px;
-      border-radius:14px;
-      font-size:18px;
-      font-weight:900;
-    }
-
-    .empty{
-      display:none;
-      margin:8px 0 20px;
-      padding:18px;
-      border:1px dashed var(--line);
-      border-radius:18px;
-      color:var(--muted);
-      text-align:center;
-      background:#101010;
-    }
-
-    .payments{
-      padding:10px 0 34px;
-    }
-
-    .payments h3{
-      color:var(--gold);
-      font-size:28px;
-      margin:0 0 10px;
-    }
-
-    .payments > p{
-      color:var(--muted);
-      margin:0 0 16px;
-      line-height:1.6;
-    }
-
-    .banks{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:16px;
-    }
-
-    .bank{
-      background:#111;
-      border:1px solid var(--line);
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-
-    .bank-head{
-      padding:16px 18px;
-      color:#fff;
-      font-weight:900;
-      font-size:22px;
-    }
-
-    .pichincha .bank-head{background:#1d4d9b}
-    .guayaquil .bank-head{background:#00a651}
-
-    .bank-body{
-      padding:18px;
-      line-height:1.7;
-      color:var(--text);
-    }
-
-    .note{
-      margin-top:16px;
-      padding:18px;
-      border-radius:18px;
-      background:#111;
-      border:1px solid var(--line);
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    footer{
-      border-top:1px solid var(--line);
-      padding:24px 0 34px;
-      text-align:center;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    @media (max-width:640px){
-      .img-box{height:320px}
-      .title{font-size:20px}
-      .price{font-size:30px}
-    }
-  </style>
-</head>
-<body>
-
-  <div class="topbar">
-    <div class="wrap topbar-inner">
-      <div class="brand">
-        <small>Luciano Private Collection</small>
-        <strong>Categoría Anal</strong>
-      </div>
-      <div class="top-actions">
-        <a class="mini-btn" href="#catalogo">Ver catálogo</a>
-        <a class="mini-btn wa" target="_blank" href="https://wa.me/593992064254?text=Hola%2C%20quiero%20asesor%C3%ADa%20sobre%20la%20categor%C3%ADa%20Anal.">WhatsApp</a>
-      </div>
-    </div>
+  <!-- BOTONES SUPERIORES -->
+  <div style="display:flex; gap:10px; margin-bottom:20px;">
+    <button style="padding:10px 15px; border-radius:20px; border:none;">Ver catálogo</button>
+    <button style="padding:10px 15px; border-radius:20px; background:#25D366; color:white; border:none;">WhatsApp</button>
   </div>
 
-  <div class="wrap">
-    <section class="hero">
-      <h1>🔥 Categoría Anal</h1>
-      <p>
-        Explora los productos de la categoría anal, filtra por tipo y compra directo por WhatsApp.
-      </p>
-    </section>
+  <!-- MENSAJE CONFIANZA ARRIBA -->
+  <p style="font-size:14px; margin-bottom:20px;">
+    📦 Envío discreto | 🔒 Compra segura | 🚚 Envíos por Servientrega | 💬 Atención rápida por WhatsApp
+  </p>
 
-    <section id="catalogo">
-      <div class="tools">
-        <input id="searchInput" class="search" type="text" placeholder="Buscar producto..." />
-        <div id="chips" class="chips"></div>
-      </div>
-
-      <div class="section-head">
-        <h2>Productos disponibles</h2>
-        <p>Catálogo corregido</p>
-      </div>
-
-      <div id="productos" class="grid"></div>
-      <div id="emptyState" class="empty">No se encontraron productos con ese filtro.</div>
-    </section>
-
-    <section class="payments">
-      <h3>Métodos de pago</h3>
-      <p>PARA ADQUIRIR CUALQUIERA DE NUESTROS PRODUCTOS PUEDE REALIZAR TRANSFERENCIA O DEPÓSITO A LOS SIGUIENTES NÚMEROS DE CUENTAS 🧾💸</p>
-
-      <div class="banks">
-        <div class="bank pichincha">
-          <div class="bank-head">🏦 Banco Pichincha 💰</div>
-          <div class="bank-body">
-            💳 DARWIN CAÑAR<br>
-            <strong>#Cuenta:</strong> 2206498570<br>
-            <strong>Cuenta:</strong> Ahorros<br>
-            <strong>Cédula:</strong> 1716552888
-          </div>
-        </div>
-
-        <div class="bank guayaquil">
-          <div class="bank-head">🏦 Banco Guayaquil 💰</div>
-          <div class="bank-body">
-            💳 DARWIN CAÑAR<br>
-            <strong>#Cuenta:</strong> 20380913<br>
-            <strong>Cuenta:</strong> Ahorros
-          </div>
-        </div>
-      </div>
-
-      <div class="note">
-        📤 <strong>Enviar foto o captura de la transacción</strong><br><br>
-        En cuanto esté confirmado el pago se procede al envío del producto por Servientrega para generar privacidad y seguridad del cliente. Recuerde que todos nuestros productos tienen garantía.
-      </div>
-    </section>
+  <!-- PRODUCTO -->
+  <div style="margin-bottom:30px;">
+    <h3>Plug Silicona Redondo Grande</h3>
+    <p>$18</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
   </div>
 
-  <footer>
-    Luciano Private Collection · Catálogo premium
-  </footer>
+  <div style="margin-bottom:30px;">
+    <h3>Plug Silicona Redondo Mediano</h3>
+    <p>$15</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-  <script>
-    const phone = "593992064254";
+  <div style="margin-bottom:30px;">
+    <h3>Plug Silicona Redondo Pequeño</h3>
+    <p>$13</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-    const productos = [
-      { img:"anal/IMG-20260320-WA0000.jpg", nombre:"Cola de Zorro Blanco", precio:"18", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0001.jpg", nombre:"Plug Anal Baxter", precio:"20", tipo:"Plugs", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0003.jpg", nombre:"Cola de Zorro Negro", precio:"18", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0004.jpg", nombre:"Cola de Zorro Café", precio:"25", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0005.jpg", nombre:"Cola de Zorro Rainbow", precio:"30", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
+  <div style="margin-bottom:30px;">
+    <h3>Plug Silicona Corazón Grande</h3>
+    <p>$18</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-      { img:"anal/IMG-20260320-WA0006.jpg", nombre:"Ducha Anal Fino", precio:"30", tipo:"Duchas", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0007.jpg", nombre:"Bomba Anal", precio:"30", tipo:"Duchas", desc:"Compra rápida por WhatsApp." },
+  <div style="margin-bottom:30px;">
+    <h3>Rosario Anal</h3>
+    <p>$15</p>
+    <small>No vibra</small>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-      { img:"anal/IMG-20260320-WA0008.jpg", nombre:"Cola de Conejo Roja", precio:"18", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0009.jpg", nombre:"Cola de Conejo Rosada", precio:"18", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0010.jpg", nombre:"Cola de Conejo Morada", precio:"18", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0011.jpg", nombre:"Cola de Conejo Blanca", precio:"18", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0012.jpg", nombre:"Cola de Conejo Negra", precio:"18", tipo:"Colas", desc:"Compra rápida por WhatsApp." },
+  <div style="margin-bottom:30px;">
+    <h3>Squirtle (USB Recargable)</h3>
+    <p>$45.50</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-      { img:"anal/IMG-20260320-WA0013.jpg", nombre:"Plug Metálico Corazón Grande", precio:"18", tipo:"Plugs metálicos", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0014.jpg", nombre:"Plug Metálico Corazón Pequeño", precio:"13", tipo:"Plugs metálicos", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0015.jpg", nombre:"Plug Metálico Corazón Mediano", precio:"15", tipo:"Plugs metálicos", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0016.jpg", nombre:"Plug Metálico Redondo Grande", precio:"18", tipo:"Plugs metálicos", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0017.jpg", nombre:"Plug Metálico Redondo Mediano", precio:"15", tipo:"Plugs metálicos", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0018.jpg", nombre:"Plug Metálico Redondo Pequeño", precio:"13", tipo:"Plugs metálicos", desc:"Compra rápida por WhatsApp." },
+  <div style="margin-bottom:30px;">
+    <h3>Vibrador Amadeus</h3>
+    <p>$50</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-      { img:"anal/IMG-20260320-WA0019.jpg", nombre:"Plug Silicona Redondo Mediano", precio:"15", tipo:"Plugs silicona", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0020.jpg", nombre:"Plug Silicona Redondo Grande", precio:"18", tipo:"Plugs silicona", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0021.jpg", nombre:"Plug Silicona Corazón Grande", precio:"18", tipo:"Plugs silicona", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0022.jpg", nombre:"Plug Silicona Redondo Pequeño", precio:"13", tipo:"Plugs silicona", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0023.jpg", nombre:"Plug Silicona Corazón Pequeño", precio:"13", tipo:"Plugs silicona", desc:"Compra rápida por WhatsApp." },
+  <div style="margin-bottom:30px;">
+    <h3>Vibrador Ragnar</h3>
+    <p>$55</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-      { img:"anal/IMG-20260320-WA0024.jpg", nombre:"Plug Anal Pleasure", precio:"10", tipo:"Plugs", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0025.jpg", nombre:"Squirtle", precio:"45.50", tipo:"Vibradores", desc:"Con vibración / USB recargable." },
-      { img:"anal/IMG-20260320-WA0026.jpg", nombre:"Rosario Anal", precio:"15", tipo:"Rosarios", desc:"No vibra." },
-      { img:"anal/IMG-20260320-WA0027.jpg", nombre:"Consolador Mini 4.45", precio:"12", tipo:"Consoladores", desc:"Compra rápida por WhatsApp." },
+  <div style="margin-bottom:30px;">
+    <h3>Plug Eléctrico Jack</h3>
+    <p>$45.50</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-      { img:"anal/IMG-20260320-WA0028.jpg", nombre:"Vibrador Ragnar", precio:"55", tipo:"Vibradores", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0029.jpg", nombre:"Plug Eléctrico Jack", precio:"45.50", tipo:"Vibradores", desc:"Con vibración." },
-      { img:"anal/IMG-20260320-WA0030.jpg", nombre:"Doble Doung", precio:"19", tipo:"Consoladores", desc:"Compra rápida por WhatsApp." },
-      { img:"anal/IMG-20260320-WA0031.jpg", nombre:"Kit Anal Dark Night", precio:"35", tipo:"Kits", desc:"No vibra." },
-      { img:"anal/IMG-20260320-WA0032.jpg", nombre:"Kit Anal Fantasía", precio:"19", tipo:"Kits", desc:"No vibra." },
-      { img:"anal/IMG-20260320-WA0033.jpg", nombre:"Kit Anal Nessy", precio:"35", tipo:"Kits", desc:"2 pilas AA." }
-    ];
+  <div style="margin-bottom:30px;">
+    <h3>Vibrador Anal Nova App</h3>
+    <p>$40</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-    const tipos = [
-      "Todo",
-      "Colas",
-      "Duchas",
-      "Plugs",
-      "Plugs metálicos",
-      "Plugs silicona",
-      "Rosarios",
-      "Vibradores",
-      "Consoladores",
-      "Kits"
-    ];
+  <div style="margin-bottom:30px;">
+    <h3>Evil Teaser Negro</h3>
+    <p>$30</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-    const productosEl = document.getElementById("productos");
-    const chipsEl = document.getElementById("chips");
-    const searchInput = document.getElementById("searchInput");
-    const emptyState = document.getElementById("emptyState");
+  <div style="margin-bottom:30px;">
+    <h3>Consolador Mini 4.45</h3>
+    <p>$12</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-    let filtroActivo = "Todo";
+  <div style="margin-bottom:30px;">
+    <h3>Doble Doung</h3>
+    <p>$19</p>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-    function waLink(nombre, precio){
-      const texto = `Hola, quiero comprar ${nombre} por $${precio}. ¿Está disponible?`;
-      return `https://wa.me/${phone}?text=${encodeURIComponent(texto)}`;
-    }
+  <div style="margin-bottom:30px;">
+    <h3>Kit Anal Dark Night</h3>
+    <p>$35</p>
+    <small>No vibra</small>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-    function renderChips(){
-      chipsEl.innerHTML = "";
-      tipos.forEach(tipo=>{
-        const b = document.createElement("button");
-        b.className = "chip" + (tipo === filtroActivo ? " active" : "");
-        b.textContent = tipo;
-        b.onclick = () => {
-          filtroActivo = tipo;
-          renderChips();
-          renderProductos();
-        };
-        chipsEl.appendChild(b);
-      });
-    }
+  <div style="margin-bottom:30px;">
+    <h3>Kit Anal Fantasía</h3>
+    <p>$19</p>
+    <small>No vibra</small>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-    function renderProductos(){
-      const q = searchInput.value.trim().toLowerCase();
+  <div style="margin-bottom:30px;">
+    <h3>Kit Anal Nessy</h3>
+    <p>$35</p>
+    <small>2 pilas AA</small>
+    <button style="background:#25D366; padding:12px; border:none; color:white; width:100%; border-radius:10px;">Comprar ahora</button>
+    <p>📦 Envío discreto<br>🔒 Compra segura<br>🚚 Servientrega<br>💬 Atención rápida por WhatsApp</p>
+  </div>
 
-      const filtrados = productos.filter(p => {
-        const okTipo = filtroActivo === "Todo" || p.tipo === filtroActivo;
-        const okTexto =
-          p.nombre.toLowerCase().includes(q) ||
-          p.tipo.toLowerCase().includes(q) ||
-          p.precio.toLowerCase().includes(q);
-        return okTipo && okTexto;
-      });
-
-      productosEl.innerHTML = "";
-
-      filtrados.forEach(p=>{
-        const card = document.createElement("article");
-        card.className = "card";
-        card.innerHTML = `
-          <div class="img-box">
-            <img src="${p.img}?v=20" alt="${p.nombre}">
-          </div>
-          <div class="body">
-            <span class="tag">${p.tipo}</span>
-            <h3 class="title">${p.nombre}</h3>
-            <div class="desc">${p.desc}</div>
-            <div class="price">$${p.precio}</div>
-            <a class="buy" target="_blank" href="${waLink(p.nombre, p.precio)}">Comprar ahora</a>
-          </div>
-        `;
-        productosEl.appendChild(card);
-      });
-
-      emptyState.style.display = filtrados.length ? "none" : "block";
-    }
-
-    searchInput.addEventListener("input", renderProductos);
-
-    renderChips();
-    renderProductos();
-  </script>
-</body>
-</html>
+</section>
