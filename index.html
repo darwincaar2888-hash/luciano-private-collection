@@ -1,151 +1,651 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luciano Private Collection</title>
-
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#000;
-  color:#fff;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:#111;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.card img{
-  width:100%;
-  background:#d9e3e1;
-}
-
-.content{
-  padding:15px;
-}
-
-.price{
-  color:#d4af5a;
-  font-size:28px;
-  font-weight:bold;
-}
-
-.btn{
-  display:block;
-  text-align:center;
-  background:#25D366;
-  color:#fff;
-  padding:12px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-  margin-top:10px;
-}
-
-.info{
-  font-size:14px;
-  margin-top:10px;
-}
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luciano Private Collection</title>
+  <meta name="description" content="Catálogo completo Luciano Private Collection - Categoría Anal" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+    .hero {
+      padding: 10px 0 24px;
+    }
+    .brand {
+      font-size: 48px;
+      line-height: 1.05;
+      font-weight: 800;
+      margin: 0 0 24px;
+    }
+    .title {
+      font-size: 32px;
+      margin: 0 0 16px;
+      font-weight: 800;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 18px;
+    }
+    .top-btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .btn-catalogo {
+      background: #fff;
+      color: #000;
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+    .top-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 16px;
+      color: #e8e8e8;
+      margin-bottom: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background: #0b0b0b;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #161616;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .image-wrap {
+      background: #d8e3e0;
+      padding: 18px;
+    }
+    .image-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      object-fit: contain;
+      background: #d8e3e0;
+      aspect-ratio: 4 / 5;
+    }
+    .content {
+      padding: 20px;
+    }
+    .badge {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #15110a;
+      color: #d4af5a;
+      border: 1px solid rgba(212,175,90,.22);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .product-name {
+      font-size: 24px;
+      line-height: 1.15;
+      margin: 0 0 12px;
+      font-weight: 800;
+    }
+    .price {
+      font-size: 42px;
+      font-weight: 800;
+      color: #d4af5a;
+      margin: 0 0 14px;
+    }
+    .details {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #e9e9e9;
+      margin-bottom: 12px;
+    }
+    .details div { margin-bottom: 2px; }
+    .ref {
+      font-size: 16px;
+      font-weight: 700;
+      color: #d6d6d6;
+      margin-bottom: 16px;
+      letter-spacing: .02em;
+    }
+    .buy-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #2ed665;
+      color: #fff;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: 800;
+      padding: 18px 16px;
+      border-radius: 18px;
+      margin-bottom: 16px;
+    }
+    .buy-btn:hover {
+      background: #25c45a;
+    }
+    .shipping {
+      font-size: 18px;
+      line-height: 1.55;
+      color: #ededed;
+    }
+    @media (max-width: 640px) {
+      .brand { font-size: 34px; }
+      .title { font-size: 26px; }
+      .product-name { font-size: 22px; }
+      .price { font-size: 34px; }
+      .details, .shipping { font-size: 16px; }
+      .buy-btn { font-size: 24px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <section class="hero">
+      <h1 class="brand">Luciano Private<br>Collection</h1>
+      <h2 class="title">Categoría Anal</h2>
 
-<div class="container">
+      <div class="buttons">
+        <a href="#catalogo" class="top-btn btn-catalogo">Ver catálogo</a>
+        <a
+          href="https://wa.me/593992064254?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20cat%C3%A1logo%20de%20la%20categor%C3%ADa%20anal."
+          class="top-btn btn-whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >WhatsApp</a>
+      </div>
 
-<h1>Luciano Private Collection</h1>
-<h2>Categoría Anal</h2>
+      <div class="top-info">
+        <span>📦 Envío discreto</span>
+        <span>🔒 Compra segura</span>
+        <span>🚚 Envíos por Servientrega por discreción del cliente</span>
+        <span>💬 Atención rápida por WhatsApp</span>
+      </div>
+    </section>
 
-<div class="grid">
+    <section id="catalogo" class="grid"></section>
+  </div>
 
-<!-- PRODUCTO 1 -->
-<div class="card">
-<img src="plug-silicona-redondo-grande.jpg">
-<div class="content">
-<h3>Plug Silicona Redondo Grande</h3>
-<div class="price">$18,00</div>
-<div class="info">
-Total: 9cm<br>
-Ancho: 4cm<br>
-Insertable: 8cm<br>
-REF: 0557
-</div>
-<a class="btn" href="https://wa.me/593992064254?text=Hola quiero comprar Plug Silicona Redondo Grande" target="_blank">Comprar ahora</a>
-<div class="info">
-📦 Envío discreto<br>
-🔒 Compra segura<br>
-🚚 Servientrega<br>
-💬 WhatsApp
-</div>
-</div>
-</div>
+  <script>
+    const whatsappNumber = "593992064254";
 
-<!-- PRODUCTO 2 -->
-<div class="card">
-<img src="plug-silicona-redondo-mediano.jpg">
-<div class="content">
-<h3>Plug Silicona Redondo Mediano</h3>
-<div class="price">$15,00</div>
-<div class="info">
-Total: 8cm<br>
-Ancho: 3.5cm<br>
-Insertable: 6cm<br>
-REF: 0556
-</div>
-<a class="btn" href="https://wa.me/593992064254?text=Hola quiero comprar Plug Silicona Redondo Mediano" target="_blank">Comprar ahora</a>
-</div>
-</div>
+    const products = [
+      {
+        image: "plug-anal-baxter.jpg",
+        name: "Plug Anal Baxter",
+        price: "$20,00",
+        reference: "P0061",
+        details: [
+          "📏 Total: 16 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 13 cm"
+        ]
+      },
+      {
+        image: "plug-anal-pleasure.jpg",
+        name: "Plug Anal Pleasure",
+        price: "$10,00",
+        reference: "6926426917002",
+        details: [
+          "📏 Total: 11,7 cm",
+          "📏 Ancho: 2,5 cm",
+          "📏 Insertable: 9,5 cm"
+        ]
+      },
+      {
+        image: "plug-cola-conejo-blanca.jpg",
+        name: "Cola de Conejo Blanca",
+        price: "$18,00",
+        reference: "0698",
+        details: [
+          "📏 Total: 11 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 6 cm"
+        ]
+      },
+      {
+        image: "plug-cola-conejo-morada.jpg",
+        name: "Cola de Conejo Morada",
+        price: "$18,00",
+        reference: "0700",
+        details: [
+          "📏 Total: 11 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 6 cm"
+        ]
+      },
+      {
+        image: "plug-cola-conejo-negra.jpg",
+        name: "Cola de Conejo Negra",
+        price: "$18,00",
+        reference: "0696",
+        details: [
+          "📏 Total: 11 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 6 cm"
+        ]
+      },
+      {
+        image: "plug-cola-conejo-roja.jpg",
+        name: "Cola de Conejo Roja",
+        price: "$18,00",
+        reference: "0697",
+        details: [
+          "📏 Total: 11 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 6 cm"
+        ]
+      },
+      {
+        image: "plug-cola-conejo-rosada.jpg",
+        name: "Cola de Conejo Rosada",
+        price: "$18,00",
+        reference: "0699",
+        details: [
+          "📏 Total: 11 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 6 cm"
+        ]
+      },
+      {
+        image: "plug-cola-zorro-blanco.jpg",
+        name: "Cola de Zorro Blanco",
+        price: "$18,00",
+        reference: "0005",
+        details: [
+          "📏 Total: 38 cm",
+          "📏 Ancho: 4,5 cm",
+          "📏 Insertable: 3,3 cm"
+        ]
+      },
+      {
+        image: "plug-cola-zorro-cafe.jpg",
+        name: "Cola de Zorro Café",
+        price: "$25,00",
+        reference: "0004",
+        details: [
+          "📏 Total: 38 cm",
+          "📏 Ancho: 4,5 cm",
+          "📏 Insertable: 3,3 cm"
+        ]
+      },
+      {
+        image: "plug-cola-zorro-negro.jpg",
+        name: "Cola de Zorro Negro",
+        price: "$18,00",
+        reference: "0701",
+        details: [
+          "📏 Total: 38 cm",
+          "📏 Ancho: 4,5 cm",
+          "📏 Insertable: 3,3 cm"
+        ]
+      },
+      {
+        image: "plug-cola-zorro-rainbow.jpg",
+        name: "Cola de Zorro Rainbow",
+        price: "$30,00",
+        reference: "0693",
+        details: [
+          "📏 Total: 38 cm",
+          "📏 Ancho: 4,5 cm",
+          "📏 Insertable: 3,3 cm"
+        ]
+      },
+      {
+        image: "plug-electrico-jack.jpg",
+        name: "Plug Eléctrico Jack",
+        price: "$45,50",
+        reference: "1022",
+        details: [
+          "📏 Total: 15 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 13 cm",
+          "⚡ Con vibración"
+        ]
+      },
+      {
+        image: "plug-metalico-corazon-grande.jpg",
+        name: "Plug Metálico Corazón Grande",
+        price: "$18,00",
+        reference: "0489",
+        details: [
+          "📏 Total: 9 cm",
+          "📏 Ancho: 4 cm",
+          "📏 Insertable: 8 cm"
+        ]
+      },
+      {
+        image: "plug-metalico-corazon-mediano.jpg",
+        name: "Plug Metálico Corazón Mediano",
+        price: "$15,00",
+        reference: "0488",
+        details: [
+          "📏 Total: 8 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 6 cm"
+        ]
+      },
+      {
+        image: "plug-metalico-corazon-pequeno.jpg",
+        name: "Plug Metálico Corazón Pequeño",
+        price: "$13,00",
+        reference: "0487",
+        details: [
+          "📏 Total: 6,8 cm",
+          "📏 Ancho: 3 cm",
+          "📏 Insertable: 3,6 cm"
+        ]
+      },
+      {
+        image: "plug-metalico-redondo-grande.jpg",
+        name: "Plug Metálico Redondo Grande",
+        price: "$18,00",
+        reference: "0008",
+        details: [
+          "📏 Total: 9 cm",
+          "📏 Ancho: 4 cm",
+          "📏 Insertable: 8 cm"
+        ]
+      },
+      {
+        image: "plug-metalico-redondo-mediano.jpg",
+        name: "Plug Metálico Redondo Mediano",
+        price: "$15,00",
+        reference: "0009",
+        details: [
+          "📏 Total: 8 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 6 cm"
+        ]
+      },
+      {
+        image: "plug-metalico-redondo-pequeno.jpg",
+        name: "Plug Metálico Redondo Pequeño",
+        price: "$13,00",
+        reference: "0010",
+        details: [
+          "📏 Total: 6,8 cm",
+          "📏 Ancho: 3 cm",
+          "📏 Insertable: 3,6 cm"
+        ]
+      },
+      {
+        image: "plug-silicona-corazon-grande.jpg",
+        name: "Plug Silicona Corazón Grande",
+        price: "$18,00",
+        reference: "0693",
+        details: [
+          "📏 Total: 9 cm",
+          "📏 Ancho: 4 cm",
+          "📏 Insertable: 8 cm"
+        ]
+      },
+      {
+        image: "plug-silicona-corazon-pequeno.jpg",
+        name: "Plug Silicona Corazón Pequeño",
+        price: "$13,00",
+        reference: "0695",
+        details: [
+          "📏 Total: 6,8 cm",
+          "📏 Ancho: 3 cm",
+          "📏 Insertable: 3,6 cm"
+        ]
+      },
+      {
+        image: "plug-silicona-redondo-grande.jpg",
+        name: "Plug Silicona Redondo Grande",
+        price: "$18,00",
+        reference: "0557",
+        details: [
+          "📏 Total: 9 cm",
+          "📏 Ancho: 4 cm",
+          "📏 Insertable: 8 cm"
+        ]
+      },
+      {
+        image: "plug-silicona-redondo-mediano.jpg",
+        name: "Plug Silicona Redondo Mediano",
+        price: "$15,00",
+        reference: "0556",
+        details: [
+          "📏 Total: 8 cm",
+          "📏 Ancho: 3,5 cm",
+          "📏 Insertable: 6 cm"
+        ]
+      },
+      {
+        image: "plug-silicona-redondo-pequeno.jpg",
+        name: "Plug Silicona Redondo Pequeño",
+        price: "$13,00",
+        reference: "0555",
+        details: [
+          "📏 Total: 6,8 cm",
+          "📏 Ancho: 3 cm",
+          "📏 Insertable: 3,6 cm"
+        ]
+      },
+      {
+        image: "rosario-anal.jpg",
+        name: "Rosario Anal",
+        price: "$15,00",
+        reference: "4989",
+        details: [
+          "📏 Total: 18,5 cm",
+          "📏 Ancho: 3 cm",
+          "📏 Insertable: 15 cm",
+          "ℹ️ No vibra"
+        ]
+      },
+      {
+        image: "squirtle-vibrador-usb-recargable.jpg",
+        name: "Squirtle",
+        price: "$45,50",
+        reference: "1023",
+        details: [
+          "📏 Total: 24 cm",
+          "📏 Ancho: 3 cm",
+          "📏 Insertable: 10 cm",
+          "⚡ Con vibración / USB recargable"
+        ]
+      },
+      {
+        image: "vibrador-amadeus-usb-recargable.jpg",
+        name: "Vibrador Amadeus",
+        price: "$50,00",
+        reference: "1013",
+        details: [
+          "📏 Vaginal: total 23 cm",
+          "📏 Vaginal: ancho 3,5 cm",
+          "📏 Vaginal: insertable 12 cm",
+          "📏 Anal: ancho 1 cm",
+          "📏 Anal: insertable 9 cm",
+          "⚡ Con vibración / USB recargable"
+        ]
+      },
+      {
+        image: "vibrador-anal-nova-app.jpg",
+        name: "Vibrador Anal Nova App",
+        price: "$40,00",
+        reference: "P0416",
+        details: [
+          "📏 Medida total: 10 cm",
+          "📏 Ancho: 3 cm",
+          "📏 Insertable: 6 cm",
+          "⚡ Control app"
+        ]
+      },
+      {
+        image: "vibrador-ragnar.jpg",
+        name: "Vibrador Ragnar",
+        price: "$55,00",
+        reference: "P0315",
+        details: [
+          "📏 Largo: 23 cm",
+          "📏 Ancho: 5,5 cm",
+          "📏 Insertable: 7 cm"
+        ]
+      },
+      {
+        image: "consolador-mini-445.jpg",
+        name: "Consolador Mini 4.45",
+        price: "$12,00",
+        reference: "0048",
+        details: [
+          "📏 Largo: 11,5 cm",
+          "📏 Ancho: 2,3 cm",
+          "📏 Insertable: 9,5 cm"
+        ]
+      },
+      {
+        image: "evil-teaser-negro.jpg",
+        name: "Evil Teaser Negro",
+        price: "$30,00",
+        reference: "P0430",
+        details: [
+          "📏 Total: 15 cm",
+          "📏 Ancho: 2,5 cm",
+          "🔋 3 pilas LR44"
+        ]
+      },
+      {
+        image: "ducha-anal-fino.jpg",
+        name: "Ducha Anal Fino",
+        price: "$30,00",
+        reference: "0568",
+        details: [
+          "📏 Total: 26 cm",
+          "📏 Ancho: 2 cm",
+          "🧴 Silicona / Plástico ABS"
+        ]
+      },
+      {
+        image: "bomba-anal.jpg",
+        name: "Bomba Anal",
+        price: "$30,00",
+        reference: "0283",
+        details: [
+          "📏 Total: 50 cm",
+          "📏 Ancho: 5,5 cm",
+          "📏 Insertable: 10,5 cm",
+          "⚡ Con vibración / USB recargable"
+        ]
+      },
+      {
+        image: "doble-doung.jpg",
+        name: "Doble Doung",
+        price: "$19,00",
+        reference: "0006",
+        details: [
+          "📏 Total: 28 cm",
+          "📏 Ancho: 3 cm",
+          "📏 Insertable: 28 cm"
+        ]
+      },
+      {
+        image: "kit-anal-fantasia.jpg",
+        name: "Kit Anal Fantasía",
+        price: "$19,00",
+        reference: "0329",
+        details: [
+          "📏 Grande: 9 cm x 3,5 cm",
+          "📏 Mediano: 9 cm x 3 cm",
+          "📏 Mediano pequeño: 7 cm x 2 cm",
+          "📏 Pequeño: 6 cm x 2 cm",
+          "ℹ️ No vibra"
+        ]
+      },
+      {
+        image: "kit-anal-dark-night.jpg",
+        name: "Kit Anal Dark Night",
+        price: "$35,00",
+        reference: "1026",
+        details: [
+          "📏 Medida total: 38 cm",
+          "📏 Medida plug: 4,5 cm",
+          "📏 Insertable: 3,3 cm de ancho",
+          "ℹ️ No vibra"
+        ]
+      },
+      {
+        image: "kit-anal-nessy.jpg",
+        name: "Kit Anal Nessy",
+        price: "$35,00",
+        reference: "P0055",
+        details: [
+          "📏 Bala: 17 cm x 3 cm",
+          "📏 Plug 1: 12 cm x 4 cm",
+          "📏 Plug 2: 12 cm x 3 cm",
+          "📏 Plug 3: 12 cm x 2 cm",
+          "📏 Plug 4: 9 cm x 1,5 cm",
+          "📏 Rosario: 29 cm x 2 cm",
+          "🔋 2 pilas AA"
+        ]
+      }
+    ];
 
-<!-- PRODUCTO 3 -->
-<div class="card">
-<img src="plug-silicona-redondo-pequeno.jpg">
-<div class="content">
-<h3>Plug Silicona Redondo Pequeño</h3>
-<div class="price">$13,00</div>
-<div class="info">
-Total: 6.8cm<br>
-Ancho: 3cm<br>
-Insertable: 3.6cm<br>
-REF: 0555
-</div>
-<a class="btn" href="https://wa.me/593992064254?text=Hola quiero comprar Plug Silicona Redondo Pequeño" target="_blank">Comprar ahora</a>
-</div>
-</div>
+    function buildMessage(product) {
+      const lines = [
+        "Hola, quiero comprar este producto:",
+        "",
+        "🛍️ " + product.name,
+        "💲 Precio: " + product.price,
+        ...product.details,
+        "🔖 Ref: " + product.reference,
+        "",
+        "¿Está disponible?"
+      ];
+      return "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(lines.join("\n"));
+    }
 
-<!-- PRODUCTO 4 -->
-<div class="card">
-<img src="kit-anal-nessy.jpg">
-<div class="content">
-<h3>Kit Anal Nessy</h3>
-<div class="price">$35,00</div>
-<div class="info">
-Bala: 17cm x 3cm<br>
-Rosario: 29cm x 2cm<br>
-REF: P0055
-</div>
-<a class="btn" href="https://wa.me/593992064254?text=Hola quiero comprar Kit Anal Nessy" target="_blank">Comprar ahora</a>
-</div>
-</div>
+    const catalogo = document.getElementById("catalogo");
 
-</div>
+    products.forEach(product => {
+      const card = document.createElement("article");
+      card.className = "card";
 
-</div>
+      card.innerHTML = `
+        <div class="image-wrap">
+          <img src="${product.image}" alt="${product.name}" loading="lazy">
+        </div>
+        <div class="content">
+          <div class="badge">LUCIANO PRIVATE COLLECTION</div>
+          <h3 class="product-name">${product.name}</h3>
+          <div class="price">${product.price}</div>
+          <div class="details">
+            ${product.details.map(d => `<div>${d}</div>`).join("")}
+          </div>
+          <div class="ref">REF: ${product.reference}</div>
+          <a class="buy-btn" href="${buildMessage(product)}" target="_blank" rel="noopener noreferrer">Comprar ahora</a>
+          <div class="shipping">
+            <div>📦 Envío discreto</div>
+            <div>🔒 Compra segura</div>
+            <div>🚚 Envíos por Servientrega por discreción del cliente</div>
+            <div>💬 Atención rápida por WhatsApp</div>
+          </div>
+        </div>
+      `;
 
+      catalogo.appendChild(card);
+    });
+  </script>
 </body>
 </html>
