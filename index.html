@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luciano Private Collection</title>
-  <meta name="description" content="Catálogo Luciano Private Collection" />
+  <meta name="description" content="Catálogo Luciano Private Collection">
   <style>
     * { box-sizing: border-box; }
 
@@ -242,9 +242,9 @@
   </div>
 
   <script>
-    const whatsappNumber = "593992064254";
+    var whatsappNumber = "593992064254";
 
-    const productosAnal = [
+    var productosAnal = [
       {
         image: "plug-anal-baxter.jpg",
         name: "Plug Anal Baxter",
@@ -658,7 +658,7 @@
       }
     ];
 
-    const productosArneses = [
+    var productosArneses = [
       {
         image: "arnes-extra-suave-5-7.jpg",
         name: "Arnés Extra Suave 5.7",
@@ -711,7 +711,7 @@
       }
     ];
 
-    const productosBdsm = [
+    var productosBdsm = [
       {
         image: "fetiche-sumision-cuello-acolchado.jpg",
         name: "Fetiche Sumisión",
@@ -778,38 +778,44 @@
     ];
 
     function buildMessage(product) {
-      const lines = [
-        "Hola, quiero comprar este producto:",
-        "",
-        "🛍️ " + product.name,
-        "💲 Precio: " + product.price,
-        ...product.details,
-        "🔖 Ref: " + product.reference,
-        "",
-        "¿Está disponible?"
-      ];
+      var lines = [];
+      var i;
+
+      lines.push("Hola, quiero comprar este producto:");
+      lines.push("");
+      lines.push("🛍️ " + product.name);
+      lines.push("💲 Precio: " + product.price);
+
+      for (i = 0; i < product.details.length; i++) {
+        lines.push(product.details[i]);
+      }
+
+      lines.push("🔖 Ref: " + product.reference);
+      lines.push("");
+      lines.push("¿Está disponible?");
+
       return "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(lines.join("\n"));
     }
 
     function renderProducts(products, containerId) {
-      const container = document.getElementById(containerId);
+      var container = document.getElementById(containerId);
+      var i, j, product, card, detailsHtml;
 
       if (!container) return;
 
-      products.forEach(product => {
-        const card = document.createElement("article");
+      for (i = 0; i < products.length; i++) {
+        product = products[i];
+        card = document.createElement("article");
         card.className = "card";
 
-        card.innerHTML = `
-          <div class="image-wrap">
-            <img src="${product.image}" alt="${product.name}" loading="lazy">
-          </div>
-          <div class="content">
-            <div class="badge">LUCIANO PRIVATE COLLECTION</div>
-            <h3 class="product-name">${product.name}</h3>
-            <div class="price">${product.price}</div>
-            <div class="details">
-              ${product.details.map(detail => `<div>${detail}</div>`).join("")}
-            </div>
-            <div class="ref">REF: ${product.reference}</div>
-            <a class="buy-btn" href="${buildMessage(product)}" target="_bla
+        detailsHtml = "";
+        for (j = 0; j < product.details.length; j++) {
+          detailsHtml += "<div>" + product.details[j] + "</div>";
+        }
+
+        card.innerHTML =
+          '<div class="image-wrap">' +
+            '<img src="' + product.image + '" alt="' + product.name + '" loading="lazy">' +
+          '</div>' +
+          '<div class="content">' +
+            '<div class="badge">LUCIANO PRIVATE 
