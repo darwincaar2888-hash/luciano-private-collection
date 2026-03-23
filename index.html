@@ -794,6 +794,8 @@
     function renderProducts(products, containerId) {
       const container = document.getElementById(containerId);
 
+      if (!container) return;
+
       products.forEach(product => {
         const card = document.createElement("article");
         card.className = "card";
@@ -810,4 +812,4 @@
               ${product.details.map(detail => `<div>${detail}</div>`).join("")}
             </div>
             <div class="ref">REF: ${product.reference}</div>
-            <a class="buy-btn" href="${buildMessage(product)}" target="_blank" rel="noopener noreferrer">C
+            <a class="buy-btn" href="${buildMessage(product)}" target="_bla
