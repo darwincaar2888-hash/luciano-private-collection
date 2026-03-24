@@ -6,8 +6,22 @@
 <title>Luciano Private Collection</title>
 
 <style>
-body{margin:0;background:#000;color:#fff;font-family:Arial;}
-.container{max-width:1200px;margin:auto;padding:20px;}
+body{
+margin:0;
+background:#000;
+color:#fff;
+font-family:Arial;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:15px;
+}
+
+h2{
+margin-top:30px;
+}
 
 .search{
 width:100%;
@@ -30,10 +44,7 @@ border-radius:20px;
 overflow:hidden;
 border:1px solid #1a1a1a;
 position:relative;
-transition:.3s;
 }
-
-.card:hover{transform:translateY(-5px);}
 
 .card img{
 width:100%;
@@ -62,29 +73,52 @@ border-radius:10px;
 font-size:12px;
 }
 
-.content{padding:15px;}
-.name{font-size:18px;font-weight:bold;}
-.price{color:#d4af5a;font-size:24px;}
-.old{text-decoration:line-through;font-size:14px;opacity:.5;}
+.content{
+padding:15px;
+}
 
-.buy,.details{
+.name{
+font-size:18px;
+font-weight:bold;
+}
+
+.price{
+color:#d4af5a;
+font-size:24px;
+}
+
+.old{
+text-decoration:line-through;
+opacity:.5;
+}
+
+.buy{
 display:block;
 text-align:center;
-padding:10px;
+background:#25D366;
+padding:12px;
 border-radius:10px;
-margin-top:8px;
+margin-top:10px;
+color:#fff;
 text-decoration:none;
 font-weight:bold;
 }
 
-.buy{background:#25D366;color:#fff;}
-.details{background:#222;color:#fff;}
+.details{
+display:block;
+text-align:center;
+background:#222;
+padding:10px;
+border-radius:10px;
+margin-top:8px;
+color:#fff;
+}
 
 .fav{
 position:absolute;
 bottom:10px;
 right:10px;
-font-size:20px;
+font-size:22px;
 cursor:pointer;
 }
 </style>
@@ -94,46 +128,77 @@ cursor:pointer;
 
 <div class="container">
 
-<input class="search" placeholder="🔎 Buscar..." onkeyup="buscar(this.value)">
+<input class="search" placeholder="🔎 Buscar producto..." onkeyup="buscar(this.value)">
 
-<div id="productos" class="grid"></div>
+<div id="tienda"></div>
 
 </div>
 
 <script>
 const numero="593992064254";
 
-/* PRODUCTOS CORREGIDOS */
+/* ================= PRODUCTOS ================= */
+
 const productos = [
 
-{n:"Kit Fetiche Bunny Negro",p:39,ref:"0029",img:"kit-fetiche-bunny-negro.jpg"},
-{n:"Kit Fetiche Bunny Rojo",p:39,ref:"0802",img:"kit-fetiche-bunny-rojo.jpg"},
-{n:"Kit Fetiche Vigoroso",p:40,ref:"0490",img:"kit-fetiche-vigoroso.jpg"},
-{n:"Kit Fetiche Perfecto",p:39,ref:"0031",img:"kit-fetiche-perfecto.jpg"},
-{n:"Kit Fetiche Ágape Rosado",p:24,ref:"1047",img:"kit-fetiche-agape-rosado.jpg"},
-{n:"Kit Fetiche Lujuria",p:40,ref:"0770",img:"kit-fetiche-lujuria.jpg"},
-{n:"Kit Fetiche Dark Night",p:35,ref:"1026",img:"kit-dark-night.jpg"},
+/* ================= KITS FETICHE ================= */
+{cat:"Kits Fetiche",n:"Kit Fetiche Bunny Negro",p:39,img:"kit-fetiche-bunny-negro.jpg"},
+{cat:"Kits Fetiche",n:"Kit Fetiche Bunny Rojo",p:39,img:"kit-fetiche-bunny-rojo.jpg"},
+{cat:"Kits Fetiche",n:"Kit Fetiche Vigoroso",p:40,img:"kit-fetiche-vigoroso.jpg"},
+{cat:"Kits Fetiche",n:"Kit Fetiche Perfecto",p:39,img:"kit-fetiche-perfecto.jpg"},
+{cat:"Kits Fetiche",n:"Kit Fetiche Ágape Rosado",p:24,img:"kit-fetiche-agape-rosado.jpg"},
+{cat:"Kits Fetiche",n:"Kit Fetiche Lujuria",p:40,img:"kit-fetiche-lujuria.jpg"},
+{cat:"Kits Fetiche",n:"Kit Fetiche Dark Night",p:35,img:"kit-dark-night.jpg"},
 
-{n:"Jaula de Pene",p:30,ref:"P0802",img:"jaula-pene-metal.jpg"},
+/* ================= BDSM ================= */
+{cat:"BDSM",n:"Jaula de Pene",p:30,img:"jaula-pene-metal.jpg"},
+{cat:"BDSM",n:"Columpio Techo Negro",p:40,img:"accesorio-columpio-techo-bdsm-negro.jpg"},
+{cat:"BDSM",n:"Columpio Techo Rojo",p:40,img:"accesorio-columpio-techo-bdsm-rojo.jpg"},
+{cat:"BDSM",n:"Paleta Spanking Cuero",p:20,img:"spanking-paleta-cuero-negro.jpg"},
+{cat:"BDSM",n:"Antifaz Cuero Negro",p:15,img:"accesorio-antifaz-cuero-negro.jpg"},
+{cat:"BDSM",n:"Plumas Cosquilleo",p:12,img:"accesorio-plumas-cosquilleo.jpg"},
+{cat:"BDSM",n:"Esposas Felpa",p:18,img:"esposas-felpa.jpg"},
 
-{n:"Dado Hexagonal Blanco",p:10,ref:"0560",img:"accesorio-dado-poses-hexagonal-blanco.jpg"},
-{n:"Dado Hexagonal Brilla",p:10,ref:"0561",img:"accesorio-dado-poses-hexagonal-brilla.jpg"},
-{n:"Dado Cuadrado Brilla",p:8,ref:"0569",img:"accesorio-dado-poses-cuadrado-brilla.jpg"},
+/* ================= ANAL ================= */
+{cat:"Anal",n:"Plug Anal Baxter",p:15,img:"plug-anal-baxter.jpg"},
+{cat:"Anal",n:"Plug Anal Pleasure",p:15,img:"plug-anal-pleasure.jpg"},
+{cat:"Anal",n:"Plug Cola Conejo Negra",p:18,img:"plug-cola-conejo-negra.jpg"},
+{cat:"Anal",n:"Plug Cola Conejo Roja",p:18,img:"plug-cola-conejo-roja.jpg"},
+{cat:"Anal",n:"Plug Cola Conejo Rosada",p:18,img:"plug-cola-conejo-rosada.jpg"},
+{cat:"Anal",n:"Plug Cola Conejo Blanca",p:18,img:"plug-cola-conejo-blanca.jpg"},
+{cat:"Anal",n:"Plug Cola Conejo Morada",p:18,img:"plug-cola-conejo-morada.jpg"},
+{cat:"Anal",n:"Rosario Anal",p:20,img:"rosario-anal.jpg"},
+{cat:"Anal",n:"Ducha Anal",p:15,img:"ducha-anal-fino.jpg"},
 
-{n:"Columpio Techo Negro",p:40,ref:"0493",img:"accesorio-columpio-techo-bdsm-negro.jpg"},
-{n:"Columpio Techo Rojo",p:40,ref:"0774",img:"accesorio-columpio-techo-bdsm-rojo.jpg"}
+/* ================= ARNESES ================= */
+{cat:"Arneses",n:"Arnés Universal Ajustable",p:30,img:"arnes-universal-ajustable.jpg"},
+{cat:"Arneses",n:"Arnés Pasión Dual",p:35,img:"arnes-pasion-dual.jpg"},
+{cat:"Arneses",n:"Arnés Rino Vibrador",p:38,img:"arnes-rino-vibrador.jpg"},
+{cat:"Arneses",n:"Arnés Extra Suave",p:32,img:"arnes-extra-suave-5-7.jpg"},
+
+/* ================= ACCESORIOS ================= */
+{cat:"BDSM",n:"Dado Hexagonal Blanco",p:10,img:"accesorio-dado-poses-hexagonal-blanco.jpg"},
+{cat:"BDSM",n:"Dado Hexagonal Brilla",p:10,img:"accesorio-dado-poses-hexagonal-brilla.jpg"},
+{cat:"BDSM",n:"Dado Cuadrado Brilla",p:8,img:"accesorio-dado-poses-cuadrado-brilla.jpg"}
 
 ];
 
-/* RENDER */
+/* ================= RENDER ================= */
+
 function render(lista){
-const cont=document.getElementById("productos");
-cont.innerHTML="";
+const tienda=document.getElementById("tienda");
+tienda.innerHTML="";
+
+let categorias=[...new Set(lista.map(p=>p.cat))];
+
+categorias.forEach(cat=>{
+tienda.innerHTML+=`<h2>${cat}</h2><div class="grid" id="${cat}"></div>`;
+});
 
 lista.forEach(p=>{
 
-let oferta=Math.random()>0.7;
-let stock=Math.random()>0.7;
+let oferta=Math.random()>0.75;
+let stock=Math.random()>0.75;
 
 let precio=p.p;
 let old="";
@@ -143,7 +208,8 @@ precio=(p.p*0.8).toFixed(2);
 old=`<div class="old">$${p.p}</div>`;
 }
 
-cont.innerHTML+=`
+document.getElementById(p.cat).innerHTML+=`
+
 <div class="card">
 
 ${oferta?'<div class="badge">OFERTA</div>':''}
@@ -157,8 +223,7 @@ ${old}
 <div class="price">$${precio}</div>
 
 <a class="buy" href="https://wa.me/${numero}?text=Quiero ${p.n}" target="_blank">Comprar</a>
-<a class="details" onclick="alert('${p.n} - Ref:${p.ref}')">Ver más</a>
-
+<div class="details">Ver más</div>
 </div>
 
 <div class="fav" onclick="this.style.color=this.style.color==='red'?'white':'red'">❤️</div>
@@ -166,9 +231,11 @@ ${old}
 </div>
 `;
 });
+
 }
 
-/* BUSCADOR */
+/* ================= BUSCADOR ================= */
+
 function buscar(txt){
 let f=productos.filter(p=>p.n.toLowerCase().includes(txt.toLowerCase()));
 render(f);
