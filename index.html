@@ -13,17 +13,20 @@ body{
   font-family:Arial;
 }
 
-/* CONTENEDOR */
 .container{
   max-width:1200px;
   margin:auto;
   padding:20px;
 }
 
-/* TITULOS */
-h2{
-  font-size:28px;
-  margin:40px 0 20px;
+/* BUSCADOR */
+.search{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:none;
+  margin-bottom:20px;
+  font-size:16px;
 }
 
 /* GRID */
@@ -39,15 +42,15 @@ h2{
   border-radius:20px;
   overflow:hidden;
   border:1px solid #1a1a1a;
+  position:relative;
   transition:.3s;
 }
 
 .card:hover{
   transform:translateY(-5px);
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
 }
 
-/* IMAGEN */
+/* IMG */
 .card img{
   width:100%;
   height:260px;
@@ -55,65 +58,61 @@ h2{
   background:#d8e3e0;
 }
 
-/* CONTENIDO */
+/* BADGES */
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:red;
+  padding:5px 10px;
+  border-radius:10px;
+  font-size:12px;
+}
+
+.stock{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ff9900;
+  padding:5px 10px;
+  border-radius:10px;
+  font-size:12px;
+}
+
+/* CONTENT */
 .content{
   padding:15px;
 }
 
-.name{
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:8px;
+.name{font-size:18px;font-weight:bold;}
+.price{color:#d4af5a;font-size:24px;}
+.old{
+  text-decoration:line-through;
+  font-size:14px;
+  opacity:.5;
 }
 
-.price{
-  color:#d4af5a;
-  font-size:26px;
-  font-weight:bold;
-}
-
-.ref{
-  font-size:13px;
-  opacity:.6;
-  margin:5px 0 10px;
-}
-
-/* BOTON */
-.buy{
+/* BOTONES */
+.buy, .details{
   display:block;
   text-align:center;
-  background:#25D366;
-  padding:12px;
-  border-radius:12px;
-  color:#fff;
-  font-weight:bold;
+  padding:10px;
+  border-radius:10px;
+  margin-top:8px;
   text-decoration:none;
-  transition:.2s;
-}
-
-.buy:hover{
-  background:#1ebe5d;
-}
-
-/* BOTON WHATSAPP FLOTANTE */
-.whatsapp-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 18px;
-  border-radius:50px;
   font-weight:bold;
-  text-decoration:none;
-  box-shadow:0 5px 15px rgba(0,0,0,.4);
 }
 
-/* BANNER */
-.banner{
-  width:100%;
-  border-radius:20px;
-  margin-bottom:15px;
+.buy{background:#25D366;color:#fff;}
+.details{background:#222;color:#fff;}
+
+/* FAVORITO */
+.fav{
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  font-size:20px;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -122,97 +121,97 @@ h2{
 
 <div class="container">
 
-<h2>Kits Fetiche</h2>
-<img src="banner-kits-fetiche.jpg" class="banner">
-<div id="kits" class="grid"></div>
+<input type="text" class="search" placeholder="🔎 Buscar producto..." onkeyup="buscar(this.value)">
 
-<h2>BDSM</h2>
-<img src="banner-bdsm-complices.jpg" class="banner">
-<div id="bdsm" class="grid"></div>
-
-<h2>Arneses</h2>
-<img src="banner-arneses.jpg" class="banner">
-<div id="arneses" class="grid"></div>
-
-<h2>Anal</h2>
-<img src="banner-anal-complices.jpg" class="banner">
-<div id="anal" class="grid"></div>
+<h2>Productos</h2>
+<div id="productos" class="grid"></div>
 
 </div>
-
-<!-- BOTON WHATSAPP -->
-<a class="whatsapp-float" href="https://wa.me/593992064254" target="_blank">WhatsApp</a>
 
 <script>
-const numero = "593992064254";
+const numero="593992064254";
 
-function card(p){
-return `
+/* =====================
+   PRODUCTOS COMPLETOS
+===================== */
+
+const productos = [
+{n:"Kit Fetiche Bunny Negro",p:39,ref:"0029",img:"kit-fetiche-bunny-negro.jpg"},
+{n:"Kit Fetiche Bunny Rojo",p:39,ref:"0802",img:"kit-fetiche-bunny-rojo.jpg"},
+{n:"Kit Fetiche Vigoroso",p:40,ref:"0490",img:"kit-fetiche-vigoroso.jpg"},
+{n:"Kit Fetiche Perfecto",p:39,ref:"0031",img:"kit-fetiche-perfecto.jpg"},
+{n:"Kit Fetiche Ágape Rosado",p:24,ref:"1047",img:"kit-fetiche-agape-rosado.jpg"},
+{n:"Kit Fetiche Lujuria",p:40,ref:"0770",img:"kit-fetiche-lujuria.jpg"},
+{n:"Kit Fetiche Dark Night",p:35,ref:"1026",img:"kit-fetiche-dark-night.jpg"},
+
+{n:"Jaula de Pene",p:30,ref:"P0802",img:"jaula-de-pene.jpg"},
+{n:"Dado Hexagonal Blanco",p:10,ref:"0560",img:"dado-poses-hexagonal-blanco.jpg"},
+{n:"Dado Hexagonal Brilla",p:10,ref:"0561",img:"dado-poses-hexagonal-brilla.jpg"},
+{n:"Dado Cuadrado Brilla",p:8,ref:"0569",img:"dado-poses-cuadrado-brilla.jpg"},
+
+{n:"Columpio Techo Negro",p:40,ref:"0493",img:"columpio-techo-negro.jpg"},
+{n:"Columpio Techo Rojo",p:40,ref:"0774",img:"columpio-techo-rojo.jpg"}
+];
+
+/* =====================
+   FUNCIONES
+===================== */
+
+function render(lista){
+const cont=document.getElementById("productos");
+cont.innerHTML="";
+
+lista.forEach(p=>{
+
+let oferta = Math.random()>0.7;
+let stock = Math.random()>0.7;
+
+let precioFinal = p.p;
+let old = "";
+
+if(oferta){
+  precioFinal = (p.p*0.8).toFixed(2);
+  old = `<div class="old">$${p.p}</div>`;
+}
+
+cont.innerHTML+=`
 <div class="card">
-<img src="${p.img}" onerror="this.style.display='none'">
+
+${oferta ? `<div class="badge">OFERTA</div>` : ""}
+${stock ? `<div class="stock">Últimas</div>` : ""}
+
+<img src="${p.img}" onerror="this.src='https://via.placeholder.com/300x300?text=Producto'">
+
 <div class="content">
-<div class="name">${p.nombre}</div>
-<div class="price">${p.precio}</div>
-<div class="ref">REF: ${p.ref}</div>
-<a class="buy" href="https://wa.me/${numero}?text=${encodeURIComponent("Hola quiero "+p.nombre+" Ref "+p.ref)}" target="_blank">
-Comprar
-</a>
+<div class="name">${p.n}</div>
+${old}
+<div class="price">$${precioFinal}</div>
+
+<a class="buy" href="https://wa.me/${numero}?text=Quiero ${p.n}" target="_blank">Comprar</a>
+<a class="details" onclick="alert('${p.n}\\nRef:${p.ref}')">Ver más</a>
+
 </div>
-</div>`;
+
+<div class="fav" onclick="favorito(this)">❤️</div>
+
+</div>
+`;
+});
 }
 
-/* =======================
-   KITS FETICHE
-======================= */
-const kits = [
-{nombre:"Kit Fetiche Bunny Negro", precio:"$39,00", ref:"0029", img:"kit-fetiche-bunny-negro.jpg"},
-{nombre:"Kit Fetiche Bunny Rojo", precio:"$39,00", ref:"0802", img:"kit-fetiche-bunny-rojo.jpg"},
-{nombre:"Kit Fetiche Vigoroso", precio:"$40,00", ref:"0490", img:"kit-fetiche-vigoroso.jpg"},
-{nombre:"Kit Fetiche Perfecto", precio:"$39,00", ref:"0031", img:"kit-fetiche-perfecto.jpg"},
-{nombre:"Kit Fetiche Ágape Rosado", precio:"$24,00", ref:"1047", img:"kit-fetiche-agape-rosado.jpg"},
-{nombre:"Kit Fetiche Lujuria", precio:"$40,00", ref:"0770", img:"kit-fetiche-lujuria.jpg"},
-{nombre:"Kit Fetiche Dark Night", precio:"$35,00", ref:"1026", img:"kit-fetiche-dark-night.jpg"}
-];
-
-/* =======================
-   BDSM
-======================= */
-const bdsm = [
-{nombre:"Jaula de Pene", precio:"$30,00", ref:"P0802", img:"jaula-de-pene.jpg"},
-{nombre:"Dado Poses Hexagonal Blanco", precio:"$10,00", ref:"0560", img:"dado-poses-hexagonal-blanco.jpg"},
-{nombre:"Dado Poses Hexagonal Brilla", precio:"$10,00", ref:"0561", img:"dado-poses-hexagonal-brilla.jpg"},
-{nombre:"Dado Poses Cuadrado Brilla", precio:"$8,00", ref:"0569", img:"dado-poses-cuadrado-brilla.jpg"},
-{nombre:"Columpio Techo Negro", precio:"$40,00", ref:"0493", img:"columpio-techo-negro.jpg"},
-{nombre:"Columpio Techo Rojo", precio:"$40,00", ref:"0774", img:"columpio-techo-rojo.jpg"}
-];
-
-/* =======================
-   ARNESES
-======================= */
-const arneses = [
-{nombre:"Arnés Universal Ajustable", precio:"$25,00", ref:"0280", img:"arnes-universal-ajustable.jpg"}
-];
-
-/* =======================
-   ANAL
-======================= */
-const anal = [
-{nombre:"Plug Anal Baxter", precio:"$20,00", ref:"P0061", img:"plug-anal-baxter.jpg"}
-];
-
-/* =======================
-   RENDER
-======================= */
-function render(lista,id){
-let html="";
-lista.forEach(p=> html+=card(p));
-document.getElementById(id).innerHTML = html;
+/* BUSCADOR */
+function buscar(txt){
+let filtrado = productos.filter(p=> p.n.toLowerCase().includes(txt.toLowerCase()));
+render(filtrado);
 }
 
-render(kits,"kits");
-render(bdsm,"bdsm");
-render(arneses,"arneses");
-render(anal,"anal");
+/* FAVORITOS */
+function favorito(el){
+el.style.color = el.style.color==="red" ? "white" : "red";
+}
+
+/* INIT */
+render(productos);
 
 </script>
 
