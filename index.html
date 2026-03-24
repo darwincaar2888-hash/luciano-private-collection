@@ -6,40 +6,14 @@
 <title>Luciano Private Collection</title>
 
 <style>
-body{
-margin:0;
-background:#000;
-color:#fff;
-font-family:Arial;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:15px;
-}
-
-h2{
-margin-top:30px;
-}
-
-.search{
-width:100%;
-padding:14px;
-border-radius:12px;
-border:none;
-margin-bottom:20px;
-font-size:16px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
+body{margin:0;background:#000;color:#fff;font-family:Arial}
+.container{max-width:1200px;margin:auto;padding:15px}
+h2{margin-top:40px}
+.search{width:100%;padding:15px;border-radius:12px;border:none;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 
 .card{
-background:#0b0b0b;
+background:#0c0c0c;
 border-radius:20px;
 overflow:hidden;
 border:1px solid #1a1a1a;
@@ -54,64 +28,39 @@ background:#d8e3e0;
 }
 
 .badge{
-position:absolute;
-top:10px;
-left:10px;
-background:red;
-padding:5px 10px;
-border-radius:10px;
-font-size:12px;
+position:absolute;top:10px;left:10px;
+background:red;padding:5px 10px;border-radius:10px;font-size:12px;
 }
 
 .stock{
-position:absolute;
-top:10px;
-right:10px;
-background:#ff9900;
-padding:5px 10px;
-border-radius:10px;
-font-size:12px;
+position:absolute;top:10px;right:10px;
+background:#ff9900;padding:5px 10px;border-radius:10px;font-size:12px;
 }
 
-.content{
-padding:15px;
-}
-
-.name{
-font-size:18px;
-font-weight:bold;
-}
-
-.price{
-color:#d4af5a;
-font-size:24px;
-}
-
-.old{
-text-decoration:line-through;
-opacity:.5;
-}
+.content{padding:15px}
+.name{font-size:18px;font-weight:bold}
+.price{color:#d4af5a;font-size:24px}
+.old{text-decoration:line-through;opacity:.5}
 
 .buy{
 display:block;
-text-align:center;
 background:#25D366;
 padding:12px;
 border-radius:10px;
+text-align:center;
 margin-top:10px;
-color:#fff;
 text-decoration:none;
+color:#fff;
 font-weight:bold;
 }
 
 .details{
 display:block;
-text-align:center;
 background:#222;
 padding:10px;
 border-radius:10px;
+text-align:center;
 margin-top:8px;
-color:#fff;
 }
 
 .fav{
@@ -137,27 +86,30 @@ cursor:pointer;
 <script>
 const numero="593992064254";
 
-/* ================= PRODUCTOS ================= */
+/* ================= PRODUCTOS REALES ================= */
 
 const productos = [
 
-/* ================= KITS FETICHE ================= */
+/* ================= KITS ================= */
+{cat:"Kits Fetiche",n:"Kit Fetiche Perfecto",p:39,img:"kit-fetiche-perfecto.jpg"},
+{cat:"Kits Fetiche",n:"Kit Fetiche Vigoroso",p:40,img:"kit-fetiche-vigoroso.jpg"},
 {cat:"Kits Fetiche",n:"Kit Fetiche Bunny Negro",p:39,img:"kit-fetiche-bunny-negro.jpg"},
 {cat:"Kits Fetiche",n:"Kit Fetiche Bunny Rojo",p:39,img:"kit-fetiche-bunny-rojo.jpg"},
-{cat:"Kits Fetiche",n:"Kit Fetiche Vigoroso",p:40,img:"kit-fetiche-vigoroso.jpg"},
-{cat:"Kits Fetiche",n:"Kit Fetiche Perfecto",p:39,img:"kit-fetiche-perfecto.jpg"},
 {cat:"Kits Fetiche",n:"Kit Fetiche Ágape Rosado",p:24,img:"kit-fetiche-agape-rosado.jpg"},
 {cat:"Kits Fetiche",n:"Kit Fetiche Lujuria",p:40,img:"kit-fetiche-lujuria.jpg"},
-{cat:"Kits Fetiche",n:"Kit Fetiche Dark Night",p:35,img:"kit-dark-night.jpg"},
+{cat:"Kits Fetiche",n:"Kit Dark Night",p:35,img:"kit-dark-night.jpg"},
 
 /* ================= BDSM ================= */
 {cat:"BDSM",n:"Jaula de Pene",p:30,img:"jaula-pene-metal.jpg"},
 {cat:"BDSM",n:"Columpio Techo Negro",p:40,img:"accesorio-columpio-techo-bdsm-negro.jpg"},
 {cat:"BDSM",n:"Columpio Techo Rojo",p:40,img:"accesorio-columpio-techo-bdsm-rojo.jpg"},
-{cat:"BDSM",n:"Paleta Spanking Cuero",p:20,img:"spanking-paleta-cuero-negro.jpg"},
 {cat:"BDSM",n:"Antifaz Cuero Negro",p:15,img:"accesorio-antifaz-cuero-negro.jpg"},
 {cat:"BDSM",n:"Plumas Cosquilleo",p:12,img:"accesorio-plumas-cosquilleo.jpg"},
 {cat:"BDSM",n:"Esposas Felpa",p:18,img:"esposas-felpa.jpg"},
+{cat:"BDSM",n:"Paleta Spanking",p:20,img:"spanking-paleta-cuero-negro.jpg"},
+{cat:"BDSM",n:"Dado Hexagonal Blanco",p:10,img:"accesorio-dado-poses-hexagonal-blanco.jpg"},
+{cat:"BDSM",n:"Dado Hexagonal Brilla",p:10,img:"accesorio-dado-poses-hexagonal-brilla.jpg"},
+{cat:"BDSM",n:"Dado Cuadrado Brilla",p:8,img:"accesorio-dado-poses-cuadrado-brilla.jpg"},
 
 /* ================= ANAL ================= */
 {cat:"Anal",n:"Plug Anal Baxter",p:15,img:"plug-anal-baxter.jpg"},
@@ -167,6 +119,22 @@ const productos = [
 {cat:"Anal",n:"Plug Cola Conejo Rosada",p:18,img:"plug-cola-conejo-rosada.jpg"},
 {cat:"Anal",n:"Plug Cola Conejo Blanca",p:18,img:"plug-cola-conejo-blanca.jpg"},
 {cat:"Anal",n:"Plug Cola Conejo Morada",p:18,img:"plug-cola-conejo-morada.jpg"},
+{cat:"Anal",n:"Plug Cola Zorro Negro",p:18,img:"plug-cola-zorro-negro.jpg"},
+{cat:"Anal",n:"Plug Cola Zorro Café",p:18,img:"plug-cola-zorro-cafe.jpg"},
+{cat:"Anal",n:"Plug Cola Zorro Blanco",p:18,img:"plug-cola-zorro-blanco.jpg"},
+{cat:"Anal",n:"Plug Cola Zorro Rainbow",p:18,img:"plug-cola-zorro-rainbow.jpg"},
+{cat:"Anal",n:"Plug Eléctrico Jack",p:20,img:"plug-electrico-jack.jpg"},
+{cat:"Anal",n:"Plug Metálico Corazón Grande",p:22,img:"plug-metalico-corazon-grande.jpg"},
+{cat:"Anal",n:"Plug Metálico Corazón Mediano",p:20,img:"plug-metalico-corazon-mediano.jpg"},
+{cat:"Anal",n:"Plug Metálico Corazón Pequeño",p:18,img:"plug-metalico-corazon-pequeno.jpg"},
+{cat:"Anal",n:"Plug Metálico Redondo Grande",p:22,img:"plug-metalico-redondo-grande.jpg"},
+{cat:"Anal",n:"Plug Metálico Redondo Mediano",p:20,img:"plug-metalico-redondo-mediano.jpg"},
+{cat:"Anal",n:"Plug Metálico Redondo Pequeño",p:18,img:"plug-metalico-redondo-pequeno.jpg"},
+{cat:"Anal",n:"Plug Silicona Corazón Grande",p:20,img:"plug-silicona-corazon-grande.jpg"},
+{cat:"Anal",n:"Plug Silicona Corazón Pequeño",p:18,img:"plug-silicona-corazon-pequeno.jpg"},
+{cat:"Anal",n:"Plug Silicona Redondo Grande",p:20,img:"plug-silicona-redondo-grande.jpg"},
+{cat:"Anal",n:"Plug Silicona Redondo Mediano",p:18,img:"plug-silicona-redondo-mediano.jpg"},
+{cat:"Anal",n:"Plug Silicona Redondo Pequeño",p:16,img:"plug-silicona-redondo-pequeno.jpg"},
 {cat:"Anal",n:"Rosario Anal",p:20,img:"rosario-anal.jpg"},
 {cat:"Anal",n:"Ducha Anal",p:15,img:"ducha-anal-fino.jpg"},
 
@@ -174,12 +142,7 @@ const productos = [
 {cat:"Arneses",n:"Arnés Universal Ajustable",p:30,img:"arnes-universal-ajustable.jpg"},
 {cat:"Arneses",n:"Arnés Pasión Dual",p:35,img:"arnes-pasion-dual.jpg"},
 {cat:"Arneses",n:"Arnés Rino Vibrador",p:38,img:"arnes-rino-vibrador.jpg"},
-{cat:"Arneses",n:"Arnés Extra Suave",p:32,img:"arnes-extra-suave-5-7.jpg"},
-
-/* ================= ACCESORIOS ================= */
-{cat:"BDSM",n:"Dado Hexagonal Blanco",p:10,img:"accesorio-dado-poses-hexagonal-blanco.jpg"},
-{cat:"BDSM",n:"Dado Hexagonal Brilla",p:10,img:"accesorio-dado-poses-hexagonal-brilla.jpg"},
-{cat:"BDSM",n:"Dado Cuadrado Brilla",p:8,img:"accesorio-dado-poses-cuadrado-brilla.jpg"}
+{cat:"Arneses",n:"Arnés Extra Suave",p:32,img:"arnes-extra-suave-5-7.jpg"}
 
 ];
 
@@ -234,14 +197,13 @@ ${old}
 
 }
 
-/* ================= BUSCADOR ================= */
+/* ================= BUSCAR ================= */
 
 function buscar(txt){
 let f=productos.filter(p=>p.n.toLowerCase().includes(txt.toLowerCase()));
 render(f);
 }
 
-/* INIT */
 render(productos);
 
 </script>
