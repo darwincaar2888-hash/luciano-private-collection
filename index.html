@@ -4,31 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luciano Private Collection</title>
-  <meta name="description" content="Catálogo premium Luciano Private Collection" />
+  <meta name="description" content="Catálogo Luciano Private Collection" />
   <style>
     * { box-sizing: border-box; }
 
     :root{
       --bg:#000000;
-      --panel:#0b0b0b;
-      --panel-2:#111111;
-      --line:#1f1f1f;
+      --card:#0b0b0b;
+      --line:#1b1b1b;
       --text:#ffffff;
       --muted:#bdbdbd;
       --gold:#d4af5a;
       --green:#2ed665;
-      --green-dark:#24c45a;
-      --red:#ff2f4f;
-      --orange:#ff9b1a;
+      --green-dark:#25c45a;
+      --dark-btn:#1a1a1a;
       --radius:24px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
 
-    html { scroll-behavior:smooth; }
+    html { scroll-behavior: smooth; }
 
     body{
       margin:0;
-      font-family:Arial,sans-serif;
+      font-family:Arial, sans-serif;
       background:var(--bg);
       color:var(--text);
     }
@@ -36,18 +33,18 @@
     .container{
       max-width:1280px;
       margin:0 auto;
-      padding:20px 16px 110px;
+      padding:24px 16px 60px;
     }
 
     .hero{
-      padding:8px 0 20px;
+      padding:10px 0 18px;
     }
 
     .brand{
       margin:0 0 8px;
       font-size:46px;
-      font-weight:900;
       line-height:1.03;
+      font-weight:900;
     }
 
     .subtitle{
@@ -56,7 +53,7 @@
       font-size:18px;
     }
 
-    .hero-actions{
+    .buttons{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
@@ -67,20 +64,20 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:52px;
-      padding:14px 24px;
+      min-height:54px;
+      padding:14px 26px;
       border-radius:999px;
       text-decoration:none;
       font-weight:800;
       font-size:18px;
     }
 
-    .btn-white{
+    .btn-catalogo{
       background:#ffffff;
       color:#000000;
     }
 
-    .btn-green{
+    .btn-whatsapp{
       background:var(--green);
       color:#ffffff;
     }
@@ -88,44 +85,33 @@
     .top-info{
       display:flex;
       flex-wrap:wrap;
-      gap:10px 16px;
-      color:#e7e7e7;
-      font-size:15px;
-      margin-bottom:12px;
+      gap:10px 18px;
+      font-size:16px;
+      color:#e8e8e8;
+      margin-bottom:16px;
+      line-height:1.45;
     }
 
-    .search-wrap{
-      position:sticky;
-      top:0;
-      z-index:30;
-      padding:10px 0 14px;
-      background:linear-gradient(180deg,#000 78%,rgba(0,0,0,0));
+    .search-box{
+      margin:10px 0 18px;
     }
 
-    .search{
+    .search-input{
       width:100%;
+      padding:16px 18px;
+      border-radius:20px;
       border:1px solid #232323;
       background:#0c0c0c;
-      color:#ffffff;
-      border-radius:20px;
-      padding:16px 18px;
-      font-size:17px;
+      color:#fff;
+      font-size:18px;
       outline:none;
-      margin-bottom:14px;
-    }
-
-    .toolbar{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      gap:12px;
-      align-items:center;
     }
 
     .chips{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
+      margin:0 0 22px;
     }
 
     .chip{
@@ -135,29 +121,17 @@
       padding:12px 18px;
       border-radius:999px;
       background:#151515;
-      color:#ffffff;
-      text-decoration:none;
       border:1px solid #262626;
-      font-weight:800;
+      color:#fff;
+      text-decoration:none;
       font-size:16px;
-    }
-
-    .stats{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .stats b{
-      color:#ffffff;
+      font-weight:800;
     }
 
     .section-title{
-      margin:34px 0 16px;
       font-size:34px;
       font-weight:900;
+      margin:36px 0 16px;
     }
 
     .banner{
@@ -168,45 +142,18 @@
       background:#d8e3e0;
     }
 
-    .top-sellers{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:16px;
-      margin-top:16px;
-    }
-
-    .top-box{
-      background:linear-gradient(180deg,#101010,#080808);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:16px;
-      box-shadow:var(--shadow);
-    }
-
-    .top-box h3{
-      margin:0 0 10px;
-      font-size:20px;
-    }
-
-    .top-box ol{
-      margin:0;
-      padding-left:18px;
-      color:#dddddd;
-      line-height:1.6;
-    }
-
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+      grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
       gap:22px;
     }
 
     .card{
-      background:var(--panel);
+      background:var(--card);
       border:1px solid var(--line);
       border-radius:28px;
       overflow:hidden;
-      box-shadow:var(--shadow);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
     }
 
     .image-wrap{
@@ -226,28 +173,26 @@
       position:absolute;
       top:12px;
       left:12px;
-      z-index:2;
-      background:var(--red);
-      color:#ffffff;
+      background:#ff2d2d;
+      color:#fff;
+      padding:8px 12px;
       font-size:12px;
       font-weight:900;
-      padding:8px 12px;
       border-radius:999px;
-      letter-spacing:.03em;
+      z-index:2;
     }
 
     .stock-flag{
       position:absolute;
       top:12px;
       right:12px;
-      z-index:2;
-      background:var(--orange);
-      color:#ffffff;
+      background:#ff9f1a;
+      color:#fff;
+      padding:8px 12px;
       font-size:12px;
       font-weight:900;
-      padding:8px 12px;
       border-radius:999px;
-      letter-spacing:.03em;
+      z-index:2;
     }
 
     .content{
@@ -269,7 +214,7 @@
 
     .product-name{
       margin:0 0 10px;
-      font-size:27px;
+      font-size:26px;
       line-height:1.08;
       font-weight:900;
     }
@@ -288,12 +233,15 @@
       font-weight:700;
     }
 
-    .meta{
+    .details{
       color:#e7e7e7;
       font-size:15px;
-      line-height:1.45;
+      line-height:1.55;
       margin-bottom:14px;
-      min-height:44px;
+    }
+
+    .details div{
+      margin-bottom:4px;
     }
 
     .actions{
@@ -302,13 +250,12 @@
     }
 
     .btn-buy,
-    .btn-cart,
     .btn-more{
       width:100%;
       border:none;
       border-radius:16px;
       padding:15px 14px;
-      font-size:21px;
+      font-size:20px;
       font-weight:900;
       cursor:pointer;
       text-decoration:none;
@@ -317,26 +264,16 @@
 
     .btn-buy{
       background:var(--green);
-      color:#ffffff;
+      color:#fff;
     }
 
     .btn-buy:hover{
       background:var(--green-dark);
     }
 
-    .btn-cart{
-      background:#1d1d1d;
-      color:#ffffff;
-    }
-
-    .btn-cart:disabled{
-      opacity:.55;
-      cursor:not-allowed;
-    }
-
     .btn-more{
-      background:#161616;
-      color:#ffffff;
+      background:var(--dark-btn);
+      color:#fff;
     }
 
     .shipping{
@@ -349,81 +286,36 @@
     }
 
     .empty{
-      background:#0f0f0f;
-      border:1px solid #1d1d1d;
-      color:#d8d8d8;
-      border-radius:18px;
       padding:18px;
+      border-radius:18px;
+      background:#101010;
+      border:1px solid #1d1d1d;
+      color:#d6d6d6;
     }
 
-    .cart-fab{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:70;
-      background:var(--green);
-      color:#ffffff;
-      border:none;
-      border-radius:999px;
-      padding:14px 18px;
-      font-size:18px;
-      font-weight:900;
-      box-shadow:0 14px 30px rgba(46,214,101,.35);
-      cursor:pointer;
-    }
-
-    .cart-count{
-      display:inline-flex;
-      justify-content:center;
-      align-items:center;
-      min-width:28px;
-      height:28px;
-      padding:0 8px;
-      margin-left:8px;
-      border-radius:999px;
-      background:#ffffff;
-      color:#000000;
-      font-size:14px;
-      font-weight:900;
-    }
-
-    .drawer,
     .modal{
       display:none;
       position:fixed;
       inset:0;
-      z-index:90;
+      z-index:100;
     }
 
-    .drawer.open,
     .modal.open{
       display:block;
     }
 
-    .overlay{
+    .modal-overlay{
       position:absolute;
       inset:0;
-      background:rgba(0,0,0,.66);
-    }
-
-    .drawer-panel{
-      position:absolute;
-      top:0;
-      right:0;
-      width:min(420px,100%);
-      height:100%;
-      background:#080808;
-      border-left:1px solid #1b1b1b;
-      padding:18px;
-      overflow:auto;
+      background:rgba(0,0,0,.72);
     }
 
     .modal-panel{
       position:absolute;
       left:50%;
       top:50%;
-      transform:translate(-50%,-50%);
-      width:min(820px,calc(100% - 24px));
+      transform:translate(-50%, -50%);
+      width:min(860px, calc(100% - 24px));
       max-height:calc(100% - 24px);
       overflow:auto;
       background:#090909;
@@ -432,139 +324,62 @@
       padding:18px;
     }
 
-    .drawer-head,
     .modal-head{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:10px;
       margin-bottom:14px;
     }
 
     .close-btn{
       border:none;
       background:#191919;
-      color:#ffffff;
+      color:#fff;
       border-radius:12px;
       padding:10px 14px;
       font-weight:800;
       cursor:pointer;
     }
 
-    .cart-item{
-      display:grid;
-      grid-template-columns:78px 1fr;
-      gap:12px;
-      background:#101010;
-      border:1px solid #1b1b1b;
-      border-radius:18px;
-      padding:10px;
-      margin-bottom:12px;
-    }
-
-    .cart-item img{
-      width:78px;
-      height:78px;
-      object-fit:cover;
-      background:#d8e3e0;
-      border-radius:14px;
-    }
-
-    .cart-item h4{
-      margin:0 0 6px;
-      font-size:17px;
-    }
-
-    .cart-line{
-      color:#dddddd;
-      font-size:14px;
-      margin-bottom:5px;
-    }
-
-    .qty{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      align-items:center;
-      margin-top:8px;
-    }
-
-    .qty button{
-      border:none;
-      background:#232323;
-      color:#ffffff;
-      border-radius:10px;
-      padding:8px 12px;
-      font-weight:900;
-      cursor:pointer;
-    }
-
-    .cart-footer{
-      position:sticky;
-      bottom:0;
-      background:linear-gradient(180deg,rgba(8,8,8,0),#080808 18%);
-      padding-top:18px;
-      margin-top:16px;
-    }
-
-    .total{
-      font-size:25px;
-      font-weight:900;
-      color:var(--gold);
-      margin-bottom:12px;
-    }
-
-    .btn-checkout{
-      width:100%;
-      border:none;
-      background:var(--green);
-      color:#ffffff;
-      border-radius:16px;
-      padding:16px;
-      font-size:20px;
-      font-weight:900;
-      cursor:pointer;
-    }
-
-    .helper{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-    }
-
-    .detail-grid{
+    .modal-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:18px;
     }
 
-    .detail-grid img{
+    .modal-grid img{
       width:100%;
+      display:block;
       border-radius:20px;
       background:#d8e3e0;
-      display:block;
     }
 
-    .list{
+    .modal-price{
+      color:var(--gold);
+      font-size:40px;
+      font-weight:900;
+      margin:8px 0 10px;
+    }
+
+    .modal-list{
       margin:12px 0 0;
       padding-left:20px;
-      color:#e4e4e4;
       line-height:1.6;
+      color:#e6e6e6;
     }
 
-    .muted{
-      color:var(--muted);
+    .hidden-card{
+      display:none !important;
     }
 
     @media (max-width:760px){
       .brand{ font-size:34px; }
+      .subtitle{ font-size:16px; }
       .section-title{ font-size:28px; }
       .product-name{ font-size:22px; }
       .price{ font-size:34px; }
-      .detail-grid{ grid-template-columns:1fr; }
-      .btn-buy,.btn-cart,.btn-more{ font-size:19px; }
-      .banner{ min-height:120px; }
+      .modal-grid{ grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -572,13 +387,13 @@
   <div class="container">
     <section class="hero">
       <h1 class="brand">Luciano Private<br>Collection</h1>
-      <p class="subtitle">Tienda premium real · carrito local · stock local · top ventas local</p>
+      <p class="subtitle">Tienda premium · catálogo real · productos organizados por categoría</p>
 
-      <div class="hero-actions">
-        <a href="#anal" class="top-btn btn-white">Ver catálogo</a>
+      <div class="buttons">
+        <a href="#anal" class="top-btn btn-catalogo">Ver catálogo</a>
         <a
           href="https://wa.me/593992064254?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20cat%C3%A1logo."
-          class="top-btn btn-green"
+          class="top-btn btn-whatsapp"
           target="_blank"
           rel="noopener noreferrer"
         >WhatsApp</a>
@@ -590,27 +405,17 @@
         <span>🚚 Envíos por Servientrega por discreción del cliente</span>
         <span>💬 Atención rápida por WhatsApp</span>
       </div>
-    </section>
 
-    <div class="search-wrap">
-      <input id="searchInput" class="search" type="text" placeholder="🔎 Buscar producto en vivo..." />
-      <div class="toolbar">
-        <div class="chips">
-          <a class="chip" href="#anal">Anal</a>
-          <a class="chip" href="#arneses">Arneses</a>
-          <a class="chip" href="#bdsm">BDSM</a>
-          <a class="chip" href="#kits-fetiche">Kits Fetiche</a>
-        </div>
-        <div class="stats">
-          <span>🧠 Top vendidos: <b id="topCount">0</b></span>
-          <span>🛒 Carrito: <b id="miniCartCount">0</b></span>
-        </div>
+      <div class="search-box">
+        <input id="searchInput" class="search-input" type="text" placeholder="🔎 Buscar producto en vivo..." />
       </div>
-    </div>
 
-    <section>
-      <h2 class="section-title">Productos más vendidos</h2>
-      <div id="topSellers" class="top-sellers"></div>
+      <div class="chips">
+        <a class="chip" href="#anal">Anal</a>
+        <a class="chip" href="#arneses">Arneses</a>
+        <a class="chip" href="#bdsm">BDSM</a>
+        <a class="chip" href="#kits-fetiche">Kits Fetiche</a>
+      </div>
     </section>
 
     <section id="anal">
@@ -638,34 +443,14 @@
     </section>
   </div>
 
-  <button id="openCartBtn" class="cart-fab">
-    🛒 Carrito <span id="cartCount" class="cart-count">0</span>
-  </button>
-
-  <div id="cartDrawer" class="drawer">
-    <div class="overlay" data-close-cart></div>
-    <div class="drawer-panel">
-      <div class="drawer-head">
-        <h3 style="margin:0;">🛒 Tu carrito</h3>
-        <button class="close-btn" data-close-cart>Cerrar</button>
-      </div>
-      <div id="cartItems"></div>
-      <div class="cart-footer">
-        <div id="cartTotal" class="total">$0,00</div>
-        <button id="checkoutBtn" class="btn-checkout">Finalizar pedido por WhatsApp</button>
-        <div class="helper">El carrito, stock y ventas se guardan en este navegador.</div>
-      </div>
-    </div>
-  </div>
-
   <div id="detailModal" class="modal">
-    <div class="overlay" data-close-detail></div>
+    <div class="modal-overlay" id="closeOverlay"></div>
     <div class="modal-panel">
       <div class="modal-head">
         <h3 style="margin:0;">Detalles del producto</h3>
-        <button class="close-btn" data-close-detail>Cerrar</button>
+        <button class="close-btn" id="closeModalBtn">Cerrar</button>
       </div>
-      <div id="detailContent"></div>
+      <div id="modalContent"></div>
     </div>
   </div>
 
@@ -674,26 +459,54 @@
 
     const products = [
       /* ANAL */
-      { id:"anal-1", category:"anal", image:"plug-anal-baxter.jpg", name:"Plug Anal Baxter", price:"20,00", priceNumber:20.00, reference:"P0061", details:["📏 Total: 16 cm","📏 Ancho: 3,5 cm","📏 Insertable: 13 cm"], offer:false },
-      { id:"anal-2", category:"anal", image:"plug-anal-pleasure.jpg", name:"Plug Anal Pleasure", price:"10,00", priceNumber:10.00, reference:"6926426917002", details:["📏 Total: 11,7 cm","📏 Ancho: 2,5 cm","📏 Insertable: 9,5 cm"], offer:false },
-      { id:"anal-3", category:"anal", image:"plug-cola-conejo-blanca.jpg", name:"Cola de Conejo Blanca", price:"18,00", priceNumber:18.00, reference:"0698", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"], offer:false },
-      { id:"anal-4", category:"anal", image:"plug-cola-conejo-morada.jpg", name:"Cola de Conejo Morada", price:"18,00", priceNumber:18.00, reference:"0700", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"], offer:false },
-      { id:"anal-5", category:"anal", image:"plug-cola-conejo-negra.jpg", name:"Cola de Conejo Negra", price:"18,00", priceNumber:18.00, reference:"0696", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"], offer:false },
-      { id:"anal-6", category:"anal", image:"plug-cola-conejo-roja.jpg", name:"Cola de Conejo Roja", price:"18,00", priceNumber:18.00, reference:"0697", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"], offer:false },
-      { id:"anal-7", category:"anal", image:"plug-cola-conejo-rosada.jpg", name:"Cola de Conejo Rosada", price:"18,00", priceNumber:18.00, reference:"0699", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"], offer:false },
-      { id:"anal-8", category:"anal", image:"plug-cola-zorro-blanco.jpg", name:"Cola de Zorro Blanco", price:"18,00", priceNumber:18.00, reference:"0005", details:["📏 Total: 38 cm","📏 Ancho: 4,5 cm","📏 Insertable: 3,3 cm"], offer:false },
-      { id:"anal-9", category:"anal", image:"plug-cola-zorro-cafe.jpg", name:"Cola de Zorro Café", price:"25,00", priceNumber:25.00, reference:"0004", details:["📏 Total: 38 cm","📏 Ancho: 4,5 cm","📏 Insertable: 3,3 cm"], offer:false },
-      { id:"anal-10", category:"anal", image:"plug-cola-zorro-negro.jpg", name:"Cola de Zorro Negro", price:"18,00", priceNumber:18.00, reference:"0701", details:["📏 Total: 38 cm","📏 Ancho: 4,5 cm","📏 Insertable: 3,3 cm"], offer:false },
-      { id:"anal-11", category:"anal", image:"plug-cola-zorro-rainbow.jpg", name:"Cola de Zorro Rainbow", price:"30,00", priceNumber:30.00, reference:"0693", details:["📏 Total: 38 cm","📏 Ancho: 4,5 cm","📏 Insertable: 3,3 cm"], offer:true },
-      { id:"anal-12", category:"anal", image:"plug-electrico-jack.jpg", name:"Plug Eléctrico Jack", price:"45,50", priceNumber:45.50, reference:"1022", details:["📏 Total: 15 cm","📏 Ancho: 3,5 cm","📏 Insertable: 13 cm","⚡ Con vibración"], offer:false },
-      { id:"anal-13", category:"anal", image:"plug-metalico-corazon-grande.jpg", name:"Plug Metálico Corazón Grande", price:"18,00", priceNumber:18.00, reference:"0489", details:["📏 Total: 9 cm","📏 Ancho: 4 cm","📏 Insertable: 8 cm"], offer:false },
-      { id:"anal-14", category:"anal", image:"plug-metalico-corazon-mediano.jpg", name:"Plug Metálico Corazón Mediano", price:"15,00", priceNumber:15.00, reference:"0488", details:["📏 Total: 8 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"], offer:false },
-      { id:"anal-15", category:"anal", image:"plug-metalico-corazon-pequeno.jpg", name:"Plug Metálico Corazón Pequeño", price:"13,00", priceNumber:13.00, reference:"0487", details:["📏 Total: 6,8 cm","📏 Ancho: 3 cm","📏 Insertable: 3,6 cm"], offer:false },
-      { id:"anal-16", category:"anal", image:"plug-metalico-redondo-grande.jpg", name:"Plug Metálico Redondo Grande", price:"18,00", priceNumber:18.00, reference:"0008", details:["📏 Total: 9 cm","📏 Ancho: 4 cm","📏 Insertable: 8 cm"], offer:false },
-      { id:"anal-17", category:"anal", image:"plug-metalico-redondo-mediano.jpg", name:"Plug Metálico Redondo Mediano", price:"15,00", priceNumber:15.00, reference:"0009", details:["📏 Total: 8 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"], offer:false },
-      { id:"anal-18", category:"anal", image:"plug-metalico-redondo-pequeno.jpg", name:"Plug Metálico Redondo Pequeño", price:"13,00", priceNumber:13.00, reference:"0010", details:["📏 Total: 6,8 cm","📏 Ancho: 3 cm","📏 Insertable: 3,6 cm"], offer:false },
-      { id:"anal-19", category:"anal", image:"plug-silicona-corazon-grande.jpg", name:"Plug Silicona Corazón Grande", price:"18,00", priceNumber:18.00, reference:"0693", details:["📏 Total: 9 cm","📏 Ancho: 4 cm","📏 Insertable: 8 cm"], offer:false },
-      { id:"anal-20", category:"anal", image:"plug-silicona-corazon-pequeno.jpg", name:"Plug Silicona Corazón Pequeño", price:"13,00", priceNumber:13.00, reference:"0695", details:["📏 Total: 6,8 cm","📏 Ancho: 3 cm","📏 Insertable: 3,6 cm"], offer:false },
-      { id:"anal-21", category:"anal", image:"plug-silicona-redondo-grande.jpg", name:"Plug Silicona Redondo Grande", price:"18,00", priceNumber:18.00, reference:"0557", details:["📏 Total: 9 cm","📏 Ancho: 4 cm","📏 Insertable: 8 cm"], offer:false },
-      { id:"anal-22", category:"anal", image:"plug-silicona-redondo-mediano.jpg", name:"Plug Silicona Redondo Mediano", price:"15,00", priceNumber:15.00, reference:"0556", details:["📏 Total: 8 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"], offer:false },
-      { id:"anal-23", category:"anal", image:"plug-silicona-redondo-pequeno.jpg", name:"Plug Silicona Redondo Pequeño", price:"13,00", priceNumber:13.00, reference:"0555", details:["📏 Total: 6,8 cm","📏 Ancho: 3 cm","📏 Inse
+      { id:"anal-1", category:"anal", image:"plug-anal-baxter.jpg", name:"Plug Anal Baxter", price:"20,00", reference:"P0061", details:["📏 Total: 16 cm","📏 Ancho: 3,5 cm","📏 Insertable: 13 cm"] },
+      { id:"anal-2", category:"anal", image:"plug-anal-pleasure.jpg", name:"Plug Anal Pleasure", price:"10,00", reference:"6926426917002", details:["📏 Total: 11,7 cm","📏 Ancho: 2,5 cm","📏 Insertable: 9,5 cm"] },
+      { id:"anal-3", category:"anal", image:"plug-cola-conejo-blanca.jpg", name:"Cola de Conejo Blanca", price:"18,00", reference:"0698", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"] },
+      { id:"anal-4", category:"anal", image:"plug-cola-conejo-morada.jpg", name:"Cola de Conejo Morada", price:"18,00", reference:"0700", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"] },
+      { id:"anal-5", category:"anal", image:"plug-cola-conejo-negra.jpg", name:"Cola de Conejo Negra", price:"18,00", reference:"0696", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"] },
+      { id:"anal-6", category:"anal", image:"plug-cola-conejo-roja.jpg", name:"Cola de Conejo Roja", price:"18,00", reference:"0697", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"] },
+      { id:"anal-7", category:"anal", image:"plug-cola-conejo-rosada.jpg", name:"Cola de Conejo Rosada", price:"18,00", reference:"0699", details:["📏 Total: 11 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"] },
+      { id:"anal-8", category:"anal", image:"plug-cola-zorro-blanco.jpg", name:"Cola de Zorro Blanco", price:"18,00", reference:"0005", details:["📏 Total: 38 cm","📏 Ancho: 4,5 cm","📏 Insertable: 3,3 cm"] },
+      { id:"anal-9", category:"anal", image:"plug-cola-zorro-cafe.jpg", name:"Cola de Zorro Café", price:"25,00", reference:"0004", details:["📏 Total: 38 cm","📏 Ancho: 4,5 cm","📏 Insertable: 3,3 cm"] },
+      { id:"anal-10", category:"anal", image:"plug-cola-zorro-negro.jpg", name:"Cola de Zorro Negro", price:"18,00", reference:"0701", details:["📏 Total: 38 cm","📏 Ancho: 4,5 cm","📏 Insertable: 3,3 cm"] },
+      { id:"anal-11", category:"anal", image:"plug-cola-zorro-rainbow.jpg", name:"Cola de Zorro Rainbow", price:"30,00", reference:"0693", details:["📏 Total: 38 cm","📏 Ancho: 4,5 cm","📏 Insertable: 3,3 cm"] },
+      { id:"anal-12", category:"anal", image:"plug-electrico-jack.jpg", name:"Plug Eléctrico Jack", price:"45,50", reference:"1022", details:["📏 Total: 15 cm","📏 Ancho: 3,5 cm","📏 Insertable: 13 cm","⚡ Con vibración"] },
+      { id:"anal-13", category:"anal", image:"plug-metalico-corazon-grande.jpg", name:"Plug Metálico Corazón Grande", price:"18,00", reference:"0489", details:["📏 Total: 9 cm","📏 Ancho: 4 cm","📏 Insertable: 8 cm"] },
+      { id:"anal-14", category:"anal", image:"plug-metalico-corazon-mediano.jpg", name:"Plug Metálico Corazón Mediano", price:"15,00", reference:"0488", details:["📏 Total: 8 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"] },
+      { id:"anal-15", category:"anal", image:"plug-metalico-corazon-pequeno.jpg", name:"Plug Metálico Corazón Pequeño", price:"13,00", reference:"0487", details:["📏 Total: 6,8 cm","📏 Ancho: 3 cm","📏 Insertable: 3,6 cm"] },
+      { id:"anal-16", category:"anal", image:"plug-metalico-redondo-grande.jpg", name:"Plug Metálico Redondo Grande", price:"18,00", reference:"0008", details:["📏 Total: 9 cm","📏 Ancho: 4 cm","📏 Insertable: 8 cm"] },
+      { id:"anal-17", category:"anal", image:"plug-metalico-redondo-mediano.jpg", name:"Plug Metálico Redondo Mediano", price:"15,00", reference:"0009", details:["📏 Total: 8 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"] },
+      { id:"anal-18", category:"anal", image:"plug-metalico-redondo-pequeno.jpg", name:"Plug Metálico Redondo Pequeño", price:"13,00", reference:"0010", details:["📏 Total: 6,8 cm","📏 Ancho: 3 cm","📏 Insertable: 3,6 cm"] },
+      { id:"anal-19", category:"anal", image:"plug-silicona-corazon-grande.jpg", name:"Plug Silicona Corazón Grande", price:"18,00", reference:"0693", details:["📏 Total: 9 cm","📏 Ancho: 4 cm","📏 Insertable: 8 cm"] },
+      { id:"anal-20", category:"anal", image:"plug-silicona-corazon-pequeno.jpg", name:"Plug Silicona Corazón Pequeño", price:"13,00", reference:"0695", details:["📏 Total: 6,8 cm","📏 Ancho: 3 cm","📏 Insertable: 3,6 cm"] },
+      { id:"anal-21", category:"anal", image:"plug-silicona-redondo-grande.jpg", name:"Plug Silicona Redondo Grande", price:"18,00", reference:"0557", details:["📏 Total: 9 cm","📏 Ancho: 4 cm","📏 Insertable: 8 cm"] },
+      { id:"anal-22", category:"anal", image:"plug-silicona-redondo-mediano.jpg", name:"Plug Silicona Redondo Mediano", price:"15,00", reference:"0556", details:["📏 Total: 8 cm","📏 Ancho: 3,5 cm","📏 Insertable: 6 cm"] },
+      { id:"anal-23", category:"anal", image:"plug-silicona-redondo-pequeno.jpg", name:"Plug Silicona Redondo Pequeño", price:"13,00", reference:"0555", details:["📏 Total: 6,8 cm","📏 Ancho: 3 cm","📏 Insertable: 3,6 cm"] },
+      { id:"anal-24", category:"anal", image:"rosario-anal.jpg", name:"Rosario Anal", price:"15,00", reference:"4989", details:["📏 Total: 18,5 cm","📏 Ancho: 3 cm","📏 Insertable: 15 cm","ℹ️ No vibra"] },
+      { id:"anal-25", category:"anal", image:"squirtle-vibrador-usb-recargable.jpg", name:"Squirtle", price:"45,50", reference:"1023", details:["📏 Total: 24 cm","📏 Ancho: 3 cm","📏 Insertable: 10 cm","⚡ Con vibración / USB recargable"] },
+      { id:"anal-26", category:"anal", image:"vibrador-amadeus-usb-recargable.jpg", name:"Vibrador Amadeus", price:"50,00", reference:"1013", details:["📏 Vaginal: total 23 cm","📏 Vaginal: ancho 3,5 cm","📏 Vaginal: insertable 12 cm","📏 Anal: ancho 1 cm","📏 Anal: insertable 9 cm","⚡ Con vibración / USB recargable"] },
+      { id:"anal-27", category:"anal", image:"vibrador-anal-nova-app.jpg", name:"Vibrador Anal Nova App", price:"40,00", reference:"P0416", details:["📏 Medida total: 10 cm","📏 Ancho: 3 cm","📏 Insertable: 6 cm","⚡ Control app"] },
+      { id:"anal-28", category:"anal", image:"vibrador-ragnar.jpg", name:"Vibrador Ragnar", price:"55,00", reference:"P0315", details:["📏 Largo: 23 cm","📏 Ancho: 5,5 cm","📏 Insertable: 7 cm"] },
+      { id:"anal-29", category:"anal", image:"consolador-mini-445.jpg", name:"Consolador Mini 4.45", price:"12,00", reference:"0048", details:["📏 Largo: 11,5 cm","📏 Ancho: 2,3 cm","📏 Insertable: 9,5 cm"] },
+      { id:"anal-30", category:"anal", image:"evil-teaser-negro.jpg", name:"Evil Teaser Negro", price:"30,00", reference:"P0430", details:["📏 Total: 15 cm","📏 Ancho: 2,5 cm","🔋 3 pilas LR44"] },
+      { id:"anal-31", category:"anal", image:"ducha-anal-fino.jpg", name:"Ducha Anal Fino", price:"30,00", reference:"0568", details:["📏 Total: 26 cm","📏 Ancho: 2 cm","🧴 Silicona / Plástico ABS"] },
+      { id:"anal-32", category:"anal", image:"bomba-anal-vibracion-usb-recargable.jpg", name:"Bomba Anal", price:"30,00", reference:"0283", details:["📏 Total: 50 cm","📏 Ancho: 5,5 cm","📏 Insertable: 10,5 cm","⚡ Con vibración / USB recargable"] },
+      { id:"anal-33", category:"anal", image:"doble-doung.jpg", name:"Doble Doung", price:"19,00", reference:"0006", details:["📏 Total: 28 cm","📏 Ancho: 3 cm","📏 Insertable: 28 cm"] },
+      { id:"anal-34", category:"anal", image:"kit-anal-fantasia.jpg", name:"Kit Anal Fantasía", price:"19,00", reference:"0329", details:["📏 Grande: 9 cm x 3,5 cm","📏 Mediano: 9 cm x 3 cm","📏 Mediano pequeño: 7 cm x 2 cm","📏 Pequeño: 6 cm x 2 cm","ℹ️ No vibra"] },
+      { id:"anal-35", category:"anal", image:"kit-anal-dark-night.jpg", name:"Kit Anal Dark Night", price:"35,00", reference:"1026", details:["📏 Medida total: 38 cm","📏 Medida plug: 4,5 cm","📏 Insertable: 3,3 cm de ancho","ℹ️ No vibra"] },
+      { id:"anal-36", category:"anal", image:"kit-anal-nessy.jpg", name:"Kit Anal Nessy", price:"35,00", reference:"P0055", details:["📏 Bala: 17 cm x 3 cm","📏 Plug 1: 12 cm x 4 cm","📏 Plug 2: 12 cm x 3 cm","📏 Plug 3: 12 cm x 2 cm","📏 Plug 4: 9 cm x 1,5 cm","📏 Rosario: 29 cm x 2 cm","🔋 2 pilas AA"] },
+
+      /* ARNESES */
+      { id:"arnes-1", category:"arneses", image:"arnes-extra-suave-5-7.jpg", name:"Arnés Extra Suave 5.7", price:"35,00", reference:"0576", details:["📏 Alto: 15 cm","📏 Ancho: 3 cm","📏 Insertable: 13 cm","⚙️ Arnés con hueco"] },
+      { id:"arnes-2", category:"arneses", image:"arnes-pasion-dual.jpg", name:"Arnés Pasión Dual", price:"50,00", reference:"0609", details:["📏 Dildo 1: Total 17 cm","📏 Dildo 1: Insertable 16 cm","📏 Dildo 1: Ancho 3.5 cm","📏 Dildo 2: Total 11 cm","📏 Dildo 2: Insertable 10 cm","📏 Dildo 2: Ancho 3.5 cm","🔋 2 pilas AA","⚙️ Arnés sin hueco"] },
+      { id:"arnes-3", category:"arneses", image:"arnes-rino-vibrador.jpg", name:"Arnés Rino Vibrador", price:"39,00", reference:"0779", details:["📏 Total: 17 cm","📏 Insertable: 13 cm","📏 Ancho: 4.5 cm","🔋 2 pilas AA","⚙️ Arnés sin hueco"] },
+      { id:"arnes-4", category:"arneses", image:"arnes-universal-ajustable.jpg", name:"Arnés Universal Ajustable", price:"25,00", reference:"0280", details:["🔧 Compatible con cualquier dildo con ventosa"] },
+
+      /* BDSM */
+      { id:"bdsm-1", category:"bdsm", image:"fetiche-sumision-cuello-acolchado.jpg", name:"Fetiche Sumisión", price:"39,00", reference:"0776", details:["🖤 Fetiche con cuello acolchado"] },
+      { id:"bdsm-2", category:"bdsm", image:"fetiche-extremidades-sujetador.jpg", name:"Extremidades", price:"39,00", reference:"0030", details:["🖤 Fetiche sujetador"] },
+      { id:"bdsm-3", category:"bdsm", image:"fetiche-irreverente-esposas-cuerina.jpg", name:"Irreverente", price:"50,00", reference:"0773", details:["🖤 Esposas (cuerina)"] },
+      { id:"bdsm-4", category:"bdsm", image:"esposas-felpa.jpg", name:"Esposas Felpa", price:"10,00", reference:"0323", details:["🖤 Esposas (tela y plástico ABS)"] },
+      { id:"bdsm-5", category:"bdsm", image:"Sportsheet-esposa-para-la-cama.jpg", name:"Sportsheet", price:"20,00", reference:"6467092020219", details:["🛏️ Esposas para la cama"] },
+      { id:"bdsm-6", category:"bdsm", image:"bondage-amor-puro-sujetador.jpg", name:"Amor Puro", price:"30,00", reference:"0494", details:["🖤 BDSM sujetador (piel sintética)"] },
+      { id:"bdsm-7", category:"bdsm", image:"bondage-pezoneras-campana.jpg", name:"Pezoneras",
