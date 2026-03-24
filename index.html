@@ -13,36 +13,41 @@ body{
   font-family:Arial;
 }
 
+/* CONTENEDOR */
 .container{
   max-width:1200px;
   margin:auto;
   padding:20px;
 }
 
+/* TITULOS */
 h2{
   font-size:28px;
-  margin:30px 0 15px;
+  margin:40px 0 20px;
 }
 
-.banner{
-  width:100%;
-  border-radius:20px;
-  margin-bottom:20px;
-}
-
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
 }
 
+/* CARD */
 .card{
-  background:#111;
+  background:#0b0b0b;
   border-radius:20px;
   overflow:hidden;
-  border:1px solid #222;
+  border:1px solid #1a1a1a;
+  transition:.3s;
 }
 
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+/* IMAGEN */
 .card img{
   width:100%;
   height:260px;
@@ -50,90 +55,115 @@ h2{
   background:#d8e3e0;
 }
 
+/* CONTENIDO */
 .content{
   padding:15px;
 }
 
 .name{
-  font-size:20px;
+  font-size:18px;
   font-weight:bold;
+  margin-bottom:8px;
 }
 
 .price{
   color:#d4af5a;
-  font-size:28px;
-  margin:10px 0;
+  font-size:26px;
+  font-weight:bold;
 }
 
 .ref{
-  font-size:14px;
-  opacity:0.7;
+  font-size:13px;
+  opacity:.6;
+  margin:5px 0 10px;
 }
 
+/* BOTON */
 .buy{
   display:block;
-  margin-top:10px;
-  padding:12px;
   text-align:center;
   background:#25D366;
+  padding:12px;
+  border-radius:12px;
   color:#fff;
-  border-radius:10px;
-  text-decoration:none;
   font-weight:bold;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.buy:hover{
+  background:#1ebe5d;
+}
+
+/* BOTON WHATSAPP FLOTANTE */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+
+/* BANNER */
+.banner{
+  width:100%;
+  border-radius:20px;
+  margin-bottom:15px;
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<!-- ANAL -->
-<h2>Anal</h2>
-<img src="banner-anal-complices.jpg" class="banner">
-<div id="anal"></div>
-
-<!-- ARNESES -->
-<h2>Arneses</h2>
-<img src="banner-arneses.jpg" class="banner">
-<div id="arneses"></div>
-
-<!-- BDSM -->
-<h2>BDSM</h2>
-<img src="banner-bdsm-complices.jpg" class="banner">
-<div id="bdsm"></div>
-
-<!-- KITS -->
 <h2>Kits Fetiche</h2>
 <img src="banner-kits-fetiche.jpg" class="banner">
-<div id="kits"></div>
+<div id="kits" class="grid"></div>
+
+<h2>BDSM</h2>
+<img src="banner-bdsm-complices.jpg" class="banner">
+<div id="bdsm" class="grid"></div>
+
+<h2>Arneses</h2>
+<img src="banner-arneses.jpg" class="banner">
+<div id="arneses" class="grid"></div>
+
+<h2>Anal</h2>
+<img src="banner-anal-complices.jpg" class="banner">
+<div id="anal" class="grid"></div>
 
 </div>
+
+<!-- BOTON WHATSAPP -->
+<a class="whatsapp-float" href="https://wa.me/593992064254" target="_blank">WhatsApp</a>
 
 <script>
 const numero = "593992064254";
 
-function cardHTML(p){
-  return `
-  <div class="grid">
-    <div class="card">
-      <img src="${p.img}" onerror="this.style.display='none'">
-      <div class="content">
-        <div class="name">${p.nombre}</div>
-        <div class="price">${p.precio}</div>
-        <div class="ref">REF: ${p.ref}</div>
-        <a class="buy" href="https://wa.me/${numero}?text=${encodeURIComponent("Hola quiero "+p.nombre+" Ref "+p.ref)}" target="_blank">
-        Comprar
-        </a>
-      </div>
-    </div>
-  </div>
-  `;
+function card(p){
+return `
+<div class="card">
+<img src="${p.img}" onerror="this.style.display='none'">
+<div class="content">
+<div class="name">${p.nombre}</div>
+<div class="price">${p.precio}</div>
+<div class="ref">REF: ${p.ref}</div>
+<a class="buy" href="https://wa.me/${numero}?text=${encodeURIComponent("Hola quiero "+p.nombre+" Ref "+p.ref)}" target="_blank">
+Comprar
+</a>
+</div>
+</div>`;
 }
 
-/* =========================
+/* =======================
    KITS FETICHE
-========================= */
-
+======================= */
 const kits = [
 {nombre:"Kit Fetiche Bunny Negro", precio:"$39,00", ref:"0029", img:"kit-fetiche-bunny-negro.jpg"},
 {nombre:"Kit Fetiche Bunny Rojo", precio:"$39,00", ref:"0802", img:"kit-fetiche-bunny-rojo.jpg"},
@@ -144,10 +174,9 @@ const kits = [
 {nombre:"Kit Fetiche Dark Night", precio:"$35,00", ref:"1026", img:"kit-fetiche-dark-night.jpg"}
 ];
 
-/* =========================
+/* =======================
    BDSM
-========================= */
-
+======================= */
 const bdsm = [
 {nombre:"Jaula de Pene", precio:"$30,00", ref:"P0802", img:"jaula-de-pene.jpg"},
 {nombre:"Dado Poses Hexagonal Blanco", precio:"$10,00", ref:"0560", img:"dado-poses-hexagonal-blanco.jpg"},
@@ -157,43 +186,27 @@ const bdsm = [
 {nombre:"Columpio Techo Rojo", precio:"$40,00", ref:"0774", img:"columpio-techo-rojo.jpg"}
 ];
 
-/* =========================
+/* =======================
    ARNESES
-========================= */
-
+======================= */
 const arneses = [
 {nombre:"Arnés Universal Ajustable", precio:"$25,00", ref:"0280", img:"arnes-universal-ajustable.jpg"}
 ];
 
-/* =========================
-   ANAL (ejemplo mínimo)
-========================= */
-
+/* =======================
+   ANAL
+======================= */
 const anal = [
 {nombre:"Plug Anal Baxter", precio:"$20,00", ref:"P0061", img:"plug-anal-baxter.jpg"}
 ];
 
-/* =========================
+/* =======================
    RENDER
-========================= */
-
-function render(lista, id){
-  const cont = document.getElementById(id);
-  let html="";
-  lista.forEach(p=> html+=cardHTML(p));
-  cont.innerHTML = `<div class="grid">${lista.map(p=>`
-    <div class="card">
-      <img src="${p.img}" onerror="this.style.display='none'">
-      <div class="content">
-        <div class="name">${p.nombre}</div>
-        <div class="price">${p.precio}</div>
-        <div class="ref">REF: ${p.ref}</div>
-        <a class="buy" href="https://wa.me/${numero}?text=${encodeURIComponent("Hola quiero "+p.nombre+" Ref "+p.ref)}" target="_blank">
-        Comprar
-        </a>
-      </div>
-    </div>
-  `).join("")}</div>`;
+======================= */
+function render(lista,id){
+let html="";
+lista.forEach(p=> html+=card(p));
+document.getElementById(id).innerHTML = html;
 }
 
 render(kits,"kits");
