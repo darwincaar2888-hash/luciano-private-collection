@@ -6,11 +6,37 @@
 <title>Luciano Private Collection</title>
 
 <style>
-body{margin:0;background:#000;color:#fff;font-family:Arial}
-.container{max-width:1200px;margin:auto;padding:15px}
-h2{margin-top:40px}
-.search{width:100%;padding:15px;border-radius:12px;border:none;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+body{
+margin:0;
+background:#000;
+color:#fff;
+font-family:Arial;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:15px;
+}
+
+h2{
+margin-top:40px;
+}
+
+.search{
+width:100%;
+padding:15px;
+border-radius:12px;
+border:none;
+margin-bottom:20px;
+font-size:16px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
 
 .card{
 background:#0c0c0c;
@@ -24,23 +50,43 @@ position:relative;
 width:100%;
 height:260px;
 object-fit:contain;
-background:#d8e3e0;
+background:#e6e6e6;
 }
 
 .badge{
-position:absolute;top:10px;left:10px;
-background:red;padding:5px 10px;border-radius:10px;font-size:12px;
+position:absolute;
+top:10px;
+left:10px;
+background:red;
+padding:5px 10px;
+border-radius:10px;
+font-size:12px;
 }
 
 .stock{
-position:absolute;top:10px;right:10px;
-background:#ff9900;padding:5px 10px;border-radius:10px;font-size:12px;
+position:absolute;
+top:10px;
+right:10px;
+background:#ff9900;
+padding:5px 10px;
+border-radius:10px;
+font-size:12px;
 }
 
-.content{padding:15px}
-.name{font-size:18px;font-weight:bold}
-.price{color:#d4af5a;font-size:24px}
-.old{text-decoration:line-through;opacity:.5}
+.content{
+padding:15px;
+}
+
+.name{
+font-size:18px;
+font-weight:bold;
+}
+
+.price{
+color:#d4af5a;
+font-size:24px;
+margin-top:5px;
+}
 
 .buy{
 display:block;
@@ -70,6 +116,19 @@ right:10px;
 font-size:22px;
 cursor:pointer;
 }
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:15px 18px;
+border-radius:50px;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 0 15px #25D366;
+}
 </style>
 </head>
 
@@ -83,14 +142,17 @@ cursor:pointer;
 
 </div>
 
+<a class="whatsapp" href="https://wa.me/593992064254" target="_blank">WhatsApp</a>
+
 <script>
+
 const numero="593992064254";
 
-/* ================= PRODUCTOS REALES ================= */
+/* ================= PRODUCTOS ================= */
 
 const productos = [
 
-/* ================= KITS ================= */
+/* ===== KITS ===== */
 {cat:"Kits Fetiche",n:"Kit Fetiche Perfecto",p:39,img:"kit-fetiche-perfecto.jpg"},
 {cat:"Kits Fetiche",n:"Kit Fetiche Vigoroso",p:40,img:"kit-fetiche-vigoroso.jpg"},
 {cat:"Kits Fetiche",n:"Kit Fetiche Bunny Negro",p:39,img:"kit-fetiche-bunny-negro.jpg"},
@@ -99,7 +161,7 @@ const productos = [
 {cat:"Kits Fetiche",n:"Kit Fetiche Lujuria",p:40,img:"kit-fetiche-lujuria.jpg"},
 {cat:"Kits Fetiche",n:"Kit Dark Night",p:35,img:"kit-dark-night.jpg"},
 
-/* ================= BDSM ================= */
+/* ===== BDSM ===== */
 {cat:"BDSM",n:"Jaula de Pene",p:30,img:"jaula-pene-metal.jpg"},
 {cat:"BDSM",n:"Columpio Techo Negro",p:40,img:"accesorio-columpio-techo-bdsm-negro.jpg"},
 {cat:"BDSM",n:"Columpio Techo Rojo",p:40,img:"accesorio-columpio-techo-bdsm-rojo.jpg"},
@@ -111,7 +173,7 @@ const productos = [
 {cat:"BDSM",n:"Dado Hexagonal Brilla",p:10,img:"accesorio-dado-poses-hexagonal-brilla.jpg"},
 {cat:"BDSM",n:"Dado Cuadrado Brilla",p:8,img:"accesorio-dado-poses-cuadrado-brilla.jpg"},
 
-/* ================= ANAL ================= */
+/* ===== ANAL ===== */
 {cat:"Anal",n:"Plug Anal Baxter",p:15,img:"plug-anal-baxter.jpg"},
 {cat:"Anal",n:"Plug Anal Pleasure",p:15,img:"plug-anal-pleasure.jpg"},
 {cat:"Anal",n:"Plug Cola Conejo Negra",p:18,img:"plug-cola-conejo-negra.jpg"},
@@ -138,7 +200,7 @@ const productos = [
 {cat:"Anal",n:"Rosario Anal",p:20,img:"rosario-anal.jpg"},
 {cat:"Anal",n:"Ducha Anal",p:15,img:"ducha-anal-fino.jpg"},
 
-/* ================= ARNESES ================= */
+/* ===== ARNESES ===== */
 {cat:"Arneses",n:"Arnés Universal Ajustable",p:30,img:"arnes-universal-ajustable.jpg"},
 {cat:"Arneses",n:"Arnés Pasión Dual",p:35,img:"arnes-pasion-dual.jpg"},
 {cat:"Arneses",n:"Arnés Rino Vibrador",p:38,img:"arnes-rino-vibrador.jpg"},
@@ -160,16 +222,8 @@ tienda.innerHTML+=`<h2>${cat}</h2><div class="grid" id="${cat}"></div>`;
 
 lista.forEach(p=>{
 
-let oferta=Math.random()>0.75;
-let stock=Math.random()>0.75;
-
-let precio=p.p;
-let old="";
-
-if(oferta){
-precio=(p.p*0.8).toFixed(2);
-old=`<div class="old">$${p.p}</div>`;
-}
+let oferta=Math.random()>0.8;
+let stock=Math.random()>0.8;
 
 document.getElementById(p.cat).innerHTML+=`
 
@@ -182,8 +236,7 @@ ${stock?'<div class="stock">Últimas</div>':''}
 
 <div class="content">
 <div class="name">${p.n}</div>
-${old}
-<div class="price">$${precio}</div>
+<div class="price">$${p.p}</div>
 
 <a class="buy" href="https://wa.me/${numero}?text=Quiero ${p.n}" target="_blank">Comprar</a>
 <div class="details">Ver más</div>
@@ -197,7 +250,7 @@ ${old}
 
 }
 
-/* ================= BUSCAR ================= */
+/* ================= BUSCADOR ================= */
 
 function buscar(txt){
 let f=productos.filter(p=>p.n.toLowerCase().includes(txt.toLowerCase()));
