@@ -6,113 +6,86 @@
 <title>Luciano Private Collection</title>
 
 <style>
-body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:Arial;
-}
+body{margin:0;background:#000;color:#fff;font-family:Arial;}
+.container{max-width:1200px;margin:auto;padding:20px;}
 
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
-}
-
-/* BUSCADOR */
 .search{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  border:none;
-  margin-bottom:20px;
-  font-size:16px;
+width:100%;
+padding:14px;
+border-radius:12px;
+border:none;
+margin-bottom:20px;
+font-size:16px;
 }
 
-/* GRID */
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 }
 
-/* CARD */
 .card{
-  background:#0b0b0b;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid #1a1a1a;
-  position:relative;
-  transition:.3s;
+background:#0b0b0b;
+border-radius:20px;
+overflow:hidden;
+border:1px solid #1a1a1a;
+position:relative;
+transition:.3s;
 }
 
-.card:hover{
-  transform:translateY(-5px);
-}
+.card:hover{transform:translateY(-5px);}
 
-/* IMG */
 .card img{
-  width:100%;
-  height:260px;
-  object-fit:contain;
-  background:#d8e3e0;
+width:100%;
+height:260px;
+object-fit:contain;
+background:#d8e3e0;
 }
 
-/* BADGES */
 .badge{
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:red;
-  padding:5px 10px;
-  border-radius:10px;
-  font-size:12px;
+position:absolute;
+top:10px;
+left:10px;
+background:red;
+padding:5px 10px;
+border-radius:10px;
+font-size:12px;
 }
 
 .stock{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:#ff9900;
-  padding:5px 10px;
-  border-radius:10px;
-  font-size:12px;
+position:absolute;
+top:10px;
+right:10px;
+background:#ff9900;
+padding:5px 10px;
+border-radius:10px;
+font-size:12px;
 }
 
-/* CONTENT */
-.content{
-  padding:15px;
-}
-
+.content{padding:15px;}
 .name{font-size:18px;font-weight:bold;}
 .price{color:#d4af5a;font-size:24px;}
-.old{
-  text-decoration:line-through;
-  font-size:14px;
-  opacity:.5;
-}
+.old{text-decoration:line-through;font-size:14px;opacity:.5;}
 
-/* BOTONES */
-.buy, .details{
-  display:block;
-  text-align:center;
-  padding:10px;
-  border-radius:10px;
-  margin-top:8px;
-  text-decoration:none;
-  font-weight:bold;
+.buy,.details{
+display:block;
+text-align:center;
+padding:10px;
+border-radius:10px;
+margin-top:8px;
+text-decoration:none;
+font-weight:bold;
 }
 
 .buy{background:#25D366;color:#fff;}
 .details{background:#222;color:#fff;}
 
-/* FAVORITO */
 .fav{
-  position:absolute;
-  bottom:10px;
-  right:10px;
-  font-size:20px;
-  cursor:pointer;
+position:absolute;
+bottom:10px;
+right:10px;
+font-size:20px;
+cursor:pointer;
 }
 </style>
 </head>
@@ -121,9 +94,8 @@ body{
 
 <div class="container">
 
-<input type="text" class="search" placeholder="🔎 Buscar producto..." onkeyup="buscar(this.value)">
+<input class="search" placeholder="🔎 Buscar..." onkeyup="buscar(this.value)">
 
-<h2>Productos</h2>
 <div id="productos" class="grid"></div>
 
 </div>
@@ -131,68 +103,65 @@ body{
 <script>
 const numero="593992064254";
 
-/* =====================
-   PRODUCTOS COMPLETOS
-===================== */
-
+/* PRODUCTOS CORREGIDOS */
 const productos = [
+
 {n:"Kit Fetiche Bunny Negro",p:39,ref:"0029",img:"kit-fetiche-bunny-negro.jpg"},
 {n:"Kit Fetiche Bunny Rojo",p:39,ref:"0802",img:"kit-fetiche-bunny-rojo.jpg"},
 {n:"Kit Fetiche Vigoroso",p:40,ref:"0490",img:"kit-fetiche-vigoroso.jpg"},
 {n:"Kit Fetiche Perfecto",p:39,ref:"0031",img:"kit-fetiche-perfecto.jpg"},
 {n:"Kit Fetiche Ágape Rosado",p:24,ref:"1047",img:"kit-fetiche-agape-rosado.jpg"},
 {n:"Kit Fetiche Lujuria",p:40,ref:"0770",img:"kit-fetiche-lujuria.jpg"},
-{n:"Kit Fetiche Dark Night",p:35,ref:"1026",img:"kit-fetiche-dark-night.jpg"},
+{n:"Kit Fetiche Dark Night",p:35,ref:"1026",img:"kit-dark-night.jpg"},
 
-{n:"Jaula de Pene",p:30,ref:"P0802",img:"jaula-de-pene.jpg"},
-{n:"Dado Hexagonal Blanco",p:10,ref:"0560",img:"dado-poses-hexagonal-blanco.jpg"},
-{n:"Dado Hexagonal Brilla",p:10,ref:"0561",img:"dado-poses-hexagonal-brilla.jpg"},
-{n:"Dado Cuadrado Brilla",p:8,ref:"0569",img:"dado-poses-cuadrado-brilla.jpg"},
+{n:"Jaula de Pene",p:30,ref:"P0802",img:"jaula-pene-metal.jpg"},
 
-{n:"Columpio Techo Negro",p:40,ref:"0493",img:"columpio-techo-negro.jpg"},
-{n:"Columpio Techo Rojo",p:40,ref:"0774",img:"columpio-techo-rojo.jpg"}
+{n:"Dado Hexagonal Blanco",p:10,ref:"0560",img:"accesorio-dado-poses-hexagonal-blanco.jpg"},
+{n:"Dado Hexagonal Brilla",p:10,ref:"0561",img:"accesorio-dado-poses-hexagonal-brilla.jpg"},
+{n:"Dado Cuadrado Brilla",p:8,ref:"0569",img:"accesorio-dado-poses-cuadrado-brilla.jpg"},
+
+{n:"Columpio Techo Negro",p:40,ref:"0493",img:"accesorio-columpio-techo-bdsm-negro.jpg"},
+{n:"Columpio Techo Rojo",p:40,ref:"0774",img:"accesorio-columpio-techo-bdsm-rojo.jpg"}
+
 ];
 
-/* =====================
-   FUNCIONES
-===================== */
-
+/* RENDER */
 function render(lista){
 const cont=document.getElementById("productos");
 cont.innerHTML="";
 
 lista.forEach(p=>{
 
-let oferta = Math.random()>0.7;
-let stock = Math.random()>0.7;
+let oferta=Math.random()>0.7;
+let stock=Math.random()>0.7;
 
-let precioFinal = p.p;
-let old = "";
+let precio=p.p;
+let old="";
 
 if(oferta){
-  precioFinal = (p.p*0.8).toFixed(2);
-  old = `<div class="old">$${p.p}</div>`;
+precio=(p.p*0.8).toFixed(2);
+old=`<div class="old">$${p.p}</div>`;
 }
 
 cont.innerHTML+=`
 <div class="card">
 
-${oferta ? `<div class="badge">OFERTA</div>` : ""}
-${stock ? `<div class="stock">Últimas</div>` : ""}
+${oferta?'<div class="badge">OFERTA</div>':''}
+${stock?'<div class="stock">Últimas</div>':''}
 
-<img src="${p.img}" onerror="this.src='https://via.placeholder.com/300x300?text=Producto'">
+<img src="${p.img}" onerror="this.src='https://via.placeholder.com/300'">
 
 <div class="content">
 <div class="name">${p.n}</div>
 ${old}
-<div class="price">$${precioFinal}</div>
+<div class="price">$${precio}</div>
 
 <a class="buy" href="https://wa.me/${numero}?text=Quiero ${p.n}" target="_blank">Comprar</a>
-<a class="details" onclick="alert('${p.n}\\nRef:${p.ref}')">Ver más</a>
+<a class="details" onclick="alert('${p.n} - Ref:${p.ref}')">Ver más</a>
 
 </div>
 
-<div class="fav" onclick="favorito(this)">❤️</div>
+<div class="fav" onclick="this.style.color=this.style.color==='red'?'white':'red'">❤️</div>
 
 </div>
 `;
@@ -201,13 +170,8 @@ ${old}
 
 /* BUSCADOR */
 function buscar(txt){
-let filtrado = productos.filter(p=> p.n.toLowerCase().includes(txt.toLowerCase()));
-render(filtrado);
-}
-
-/* FAVORITOS */
-function favorito(el){
-el.style.color = el.style.color==="red" ? "white" : "red";
+let f=productos.filter(p=>p.n.toLowerCase().includes(txt.toLowerCase()));
+render(f);
 }
 
 /* INIT */
