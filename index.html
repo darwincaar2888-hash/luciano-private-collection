@@ -1,265 +1,847 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luciano Private Collection</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luciano Private Collection</title>
+  <meta name="description" content="Catálogo premium Luciano Private Collection" />
+  <style>
+    * { box-sizing: border-box; }
 
-<style>
-body{
-margin:0;
-background:#000;
-color:#fff;
-font-family:Arial;
-}
+    :root{
+      --bg:#000;
+      --card:#0b0b0b;
+      --card-2:#111;
+      --line:#1b1b1b;
+      --text:#fff;
+      --muted:#bfbfbf;
+      --gold:#d4af5a;
+      --green:#25D366;
+      --green-dark:#1fb357;
+      --red:#ff2f4f;
+      --orange:#ff9f1a;
+      --chip:#171717;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:24px;
+    }
 
-.container{
-max-width:1200px;
-margin:auto;
-padding:15px;
-}
+    html { scroll-behavior: smooth; }
 
-h2{
-margin-top:40px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-.search{
-width:100%;
-padding:15px;
-border-radius:12px;
-border:none;
-margin-bottom:20px;
-font-size:16px;
-}
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 22px 16px 110px;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
+    .hero {
+      padding: 6px 0 24px;
+    }
 
-.card{
-background:#0c0c0c;
-border-radius:20px;
-overflow:hidden;
-border:1px solid #1a1a1a;
-position:relative;
-}
+    .brand {
+      font-size: 44px;
+      line-height: 1.03;
+      font-weight: 900;
+      margin: 0 0 10px;
+    }
 
-.card img{
-width:100%;
-height:260px;
-object-fit:contain;
-background:#e6e6e6;
-}
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
 
-.badge{
-position:absolute;
-top:10px;
-left:10px;
-background:red;
-padding:5px 10px;
-border-radius:10px;
-font-size:12px;
-}
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
 
-.stock{
-position:absolute;
-top:10px;
-right:10px;
-background:#ff9900;
-padding:5px 10px;
-border-radius:10px;
-font-size:12px;
-}
+    .btn-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+    }
 
-.content{
-padding:15px;
-}
+    .btn-white {
+      background: #fff;
+      color: #000;
+    }
 
-.name{
-font-size:18px;
-font-weight:bold;
-}
+    .btn-green {
+      background: var(--green);
+      color: #fff;
+    }
 
-.price{
-color:#d4af5a;
-font-size:24px;
-margin-top:5px;
-}
+    .top-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: #e8e8e8;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
 
-.buy{
-display:block;
-background:#25D366;
-padding:12px;
-border-radius:10px;
-text-align:center;
-margin-top:10px;
-text-decoration:none;
-color:#fff;
-font-weight:bold;
-}
+    .search-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: linear-gradient(180deg,#000 80%,rgba(0,0,0,0));
+      padding: 8px 0 14px;
+      margin-bottom: 10px;
+    }
 
-.details{
-display:block;
-background:#222;
-padding:10px;
-border-radius:10px;
-text-align:center;
-margin-top:8px;
-}
+    .search {
+      width: 100%;
+      border: 1px solid #262626;
+      background: #0d0d0d;
+      color: #fff;
+      border-radius: 18px;
+      padding: 15px 18px;
+      font-size: 16px;
+      outline: none;
+    }
 
-.fav{
-position:absolute;
-bottom:10px;
-right:10px;
-font-size:22px;
-cursor:pointer;
-}
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px 0 20px;
+    }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:15px 18px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-box-shadow:0 0 15px #25D366;
-}
-</style>
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid #252525;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      min-height: 44px;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .stats b { color: #fff; }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 900;
+      margin: 38px 0 16px;
+    }
+
+    .banner {
+      width: 100%;
+      display: block;
+      border-radius: 28px;
+      margin-bottom: 20px;
+      background: #dfe5e3;
+      object-fit: cover;
+      min-height: 180px;
+    }
+
+    .top-sellers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 18px;
+      margin-top: 14px;
+      margin-bottom: 12px;
+    }
+
+    .top-box {
+      background: linear-gradient(180deg,#111,#090909);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .top-box h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .top-box ol {
+      margin: 0;
+      padding-left: 20px;
+      color: #ddd;
+    }
+
+    .top-box li {
+      margin-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .image-wrap {
+      background: #d8e3e0;
+      position: relative;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 0;
+      object-fit: contain;
+      aspect-ratio: 4 / 5;
+      background: #d8e3e0;
+    }
+
+    .flag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: #fff;
+    }
+
+    .flag.offer { background: var(--red); }
+    .flag.stock { background: var(--orange); left: auto; right: 12px; }
+
+    .content {
+      padding: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #15110a;
+      color: var(--gold);
+      border: 1px solid rgba(212,175,90,.22);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    .product-name {
+      font-size: 28px;
+      line-height: 1.1;
+      margin: 0 0 10px;
+      font-weight: 900;
+    }
+
+    .price {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 0 0 12px;
+    }
+
+    .ref {
+      font-size: 15px;
+      font-weight: 700;
+      color: #d2d2d2;
+      margin-bottom: 14px;
+      letter-spacing: .02em;
+    }
+
+    .meta {
+      font-size: 15px;
+      color: #e5e5e5;
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .btn-buy,
+    .btn-cart,
+    .btn-more {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 900;
+      padding: 15px 14px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-buy {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn-buy:hover,
+    .btn-buy:active {
+      background: var(--green-dark);
+    }
+
+    .btn-cart {
+      background: #1f1f1f;
+      color: #fff;
+    }
+
+    .btn-more {
+      background: #151515;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .shipping {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #e7e7e7;
+      margin-top: 14px;
+      border-top: 1px solid #191919;
+      padding-top: 12px;
+    }
+
+    .empty {
+      background: #0f0f0f;
+      border: 1px solid #1e1e1e;
+      padding: 20px;
+      border-radius: 20px;
+      color: #d9d9d9;
+    }
+
+    .cart-fab {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 60;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 15px 18px;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(37,211,102,.35);
+      cursor: pointer;
+    }
+
+    .cart-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      margin-left: 8px;
+      border-radius: 999px;
+      background: #fff;
+      color: #000;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .drawer,
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: none;
+    }
+
+    .drawer.open,
+    .modal.open {
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+    }
+
+    .drawer-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: min(420px, 100%);
+      height: 100%;
+      background: #090909;
+      border-left: 1px solid #1b1b1b;
+      padding: 18px;
+      overflow: auto;
+    }
+
+    .modal-panel {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: min(760px, calc(100% - 24px));
+      max-height: calc(100% - 24px);
+      overflow: auto;
+      background: #0a0a0a;
+      border: 1px solid #1b1b1b;
+      border-radius: 24px;
+      padding: 18px;
+    }
+
+    .drawer-head,
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .close-btn {
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 12px;
+      background: #101010;
+      border: 1px solid #1c1c1c;
+      border-radius: 18px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    .cart-item img {
+      width: 78px;
+      height: 78px;
+      object-fit: cover;
+      background: #d8e3e0;
+      border-radius: 14px;
+    }
+
+    .cart-item h4 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+
+    .cart-item .line {
+      color: #ddd;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .qty button {
+      background: #232323;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .cart-footer {
+      position: sticky;
+      bottom: 0;
+      background: linear-gradient(180deg,rgba(9,9,9,0),#090909 18%);
+      padding-top: 18px;
+      margin-top: 16px;
+    }
+
+    .total {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .btn-checkout {
+      display: block;
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 16px;
+      font-size: 20px;
+      font-weight: 900;
+      border: none;
+      cursor: pointer;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .detail-grid img {
+      width: 100%;
+      border-radius: 20px;
+      background: #d8e3e0;
+    }
+
+    .list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: #e5e5e5;
+      line-height: 1.55;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .helper {
+      font-size: 13px;
+      color: #bfbfbf;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 720px) {
+      .brand { font-size: 34px; }
+      .section-title { font-size: 28px; }
+      .product-name { font-size: 22px; }
+      .price { font-size: 34px; }
+      .btn-buy, .btn-cart, .btn-more { font-size: 20px; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .top-info { font-size: 15px; }
+      .banner { min-height: 120px; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <section class="hero">
+      <h1 class="brand">Luciano Private<br>Collection</h1>
+      <p class="subtitle">Modo tienda DIOS++PRO · catálogo premium con carrito, stock y top ventas</p>
 
-<div class="container">
+      <div class="hero-actions">
+        <a href="#anal" class="btn-top btn-white">Ver catálogo</a>
+        <a
+          href="https://wa.me/593992064254?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20cat%C3%A1logo."
+          class="btn-top btn-green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >WhatsApp</a>
+      </div>
 
-<input class="search" placeholder="🔎 Buscar producto..." onkeyup="buscar(this.value)">
+      <div class="top-info">
+        <span>📦 Envío discreto</span>
+        <span>🔒 Compra segura</span>
+        <span>🚚 Envíos por Servientrega por discreción del cliente</span>
+        <span>💬 Atención rápida por WhatsApp</span>
+      </div>
+    </section>
 
-<div id="tienda"></div>
+    <div class="search-wrap">
+      <input id="searchInput" class="search" type="text" placeholder="🔎 Buscar producto en vivo..." />
+      <div class="toolbar">
+        <div class="chips">
+          <a class="chip" href="#anal">Anal</a>
+          <a class="chip" href="#arneses">Arneses</a>
+          <a class="chip" href="#bdsm">BDSM</a>
+          <a class="chip" href="#kits-fetiche">Kits Fetiche</a>
+        </div>
+        <div class="stats">
+          <span>🧠 Top vendidos: <b id="topCount">0</b></span>
+          <span>🛒 Carrito: <b id="miniCartCount">0</b></span>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <section>
+      <h2 class="section-title">Productos más vendidos</h2>
+      <div id="topSellers" class="top-sellers"></div>
+    </section>
 
-<a class="whatsapp" href="https://wa.me/593992064254" target="_blank">WhatsApp</a>
+    <section id="anal">
+      <h2 class="section-title">Categoría Anal</h2>
+      <img src="banner-anal-complices.jpg" alt="Banner Anal" class="banner" onerror="this.style.display='none'">
+      <div id="catalogo-anal" class="grid"></div>
+    </section>
 
-<script>
+    <section id="arneses">
+      <h2 class="section-title">Categoría Arneses</h2>
+      <img src="banner-arneses.jpg" alt="Banner Arneses" class="banner" onerror="this.style.display='none'">
+      <div id="catalogo-arneses" class="grid"></div>
+    </section>
 
-const numero="593992064254";
+    <section id="bdsm">
+      <h2 class="section-title">Categoría BDSM</h2>
+      <img src="banner-bdsm-complices.jpg" alt="Banner BDSM" class="banner" onerror="this.style.display='none'">
+      <div id="catalogo-bdsm" class="grid"></div>
+    </section>
 
-/* ================= PRODUCTOS ================= */
+    <section id="kits-fetiche">
+      <h2 class="section-title">Kits Fetiche</h2>
+      <img src="banner-kits-fetiche.jpg" alt="Banner Kits Fetiche" class="banner" onerror="this.style.display='none'">
+      <div id="catalogo-kits" class="grid"></div>
+    </section>
+  </div>
 
-const productos = [
+  <button class="cart-fab" id="openCartBtn">
+    🛒 Carrito <span class="cart-count" id="cartCount">0</span>
+  </button>
 
-/* ===== KITS ===== */
-{cat:"Kits Fetiche",n:"Kit Fetiche Perfecto",p:39,img:"kit-fetiche-perfecto.jpg"},
-{cat:"Kits Fetiche",n:"Kit Fetiche Vigoroso",p:40,img:"kit-fetiche-vigoroso.jpg"},
-{cat:"Kits Fetiche",n:"Kit Fetiche Bunny Negro",p:39,img:"kit-fetiche-bunny-negro.jpg"},
-{cat:"Kits Fetiche",n:"Kit Fetiche Bunny Rojo",p:39,img:"kit-fetiche-bunny-rojo.jpg"},
-{cat:"Kits Fetiche",n:"Kit Fetiche Ágape Rosado",p:24,img:"kit-fetiche-agape-rosado.jpg"},
-{cat:"Kits Fetiche",n:"Kit Fetiche Lujuria",p:40,img:"kit-fetiche-lujuria.jpg"},
-{cat:"Kits Fetiche",n:"Kit Dark Night",p:35,img:"kit-dark-night.jpg"},
+  <div class="drawer" id="cartDrawer">
+    <div class="overlay" data-close-cart></div>
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <h3 style="margin:0;">🛒 Tu carrito</h3>
+        <button class="close-btn" data-close-cart>Cerrar</button>
+      </div>
+      <div id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="total" id="cartTotal">$0,00</div>
+        <button class="btn-checkout" id="checkoutBtn">Finalizar pedido por WhatsApp</button>
+        <div class="helper">El stock y el carrito se guardan en este navegador.</div>
+      </div>
+    </div>
+  </div>
 
-/* ===== BDSM ===== */
-{cat:"BDSM",n:"Jaula de Pene",p:30,img:"jaula-pene-metal.jpg"},
-{cat:"BDSM",n:"Columpio Techo Negro",p:40,img:"accesorio-columpio-techo-bdsm-negro.jpg"},
-{cat:"BDSM",n:"Columpio Techo Rojo",p:40,img:"accesorio-columpio-techo-bdsm-rojo.jpg"},
-{cat:"BDSM",n:"Antifaz Cuero Negro",p:15,img:"accesorio-antifaz-cuero-negro.jpg"},
-{cat:"BDSM",n:"Plumas Cosquilleo",p:12,img:"accesorio-plumas-cosquilleo.jpg"},
-{cat:"BDSM",n:"Esposas Felpa",p:18,img:"esposas-felpa.jpg"},
-{cat:"BDSM",n:"Paleta Spanking",p:20,img:"spanking-paleta-cuero-negro.jpg"},
-{cat:"BDSM",n:"Dado Hexagonal Blanco",p:10,img:"accesorio-dado-poses-hexagonal-blanco.jpg"},
-{cat:"BDSM",n:"Dado Hexagonal Brilla",p:10,img:"accesorio-dado-poses-hexagonal-brilla.jpg"},
-{cat:"BDSM",n:"Dado Cuadrado Brilla",p:8,img:"accesorio-dado-poses-cuadrado-brilla.jpg"},
+  <div class="modal" id="detailModal">
+    <div class="overlay" data-close-detail></div>
+    <div class="modal-panel">
+      <div class="modal-head">
+        <h3 style="margin:0;">Detalles del producto</h3>
+        <button class="close-btn" data-close-detail>Cerrar</button>
+      </div>
+      <div id="detailContent"></div>
+    </div>
+  </div>
 
-/* ===== ANAL ===== */
-{cat:"Anal",n:"Plug Anal Baxter",p:15,img:"plug-anal-baxter.jpg"},
-{cat:"Anal",n:"Plug Anal Pleasure",p:15,img:"plug-anal-pleasure.jpg"},
-{cat:"Anal",n:"Plug Cola Conejo Negra",p:18,img:"plug-cola-conejo-negra.jpg"},
-{cat:"Anal",n:"Plug Cola Conejo Roja",p:18,img:"plug-cola-conejo-roja.jpg"},
-{cat:"Anal",n:"Plug Cola Conejo Rosada",p:18,img:"plug-cola-conejo-rosada.jpg"},
-{cat:"Anal",n:"Plug Cola Conejo Blanca",p:18,img:"plug-cola-conejo-blanca.jpg"},
-{cat:"Anal",n:"Plug Cola Conejo Morada",p:18,img:"plug-cola-conejo-morada.jpg"},
-{cat:"Anal",n:"Plug Cola Zorro Negro",p:18,img:"plug-cola-zorro-negro.jpg"},
-{cat:"Anal",n:"Plug Cola Zorro Café",p:18,img:"plug-cola-zorro-cafe.jpg"},
-{cat:"Anal",n:"Plug Cola Zorro Blanco",p:18,img:"plug-cola-zorro-blanco.jpg"},
-{cat:"Anal",n:"Plug Cola Zorro Rainbow",p:18,img:"plug-cola-zorro-rainbow.jpg"},
-{cat:"Anal",n:"Plug Eléctrico Jack",p:20,img:"plug-electrico-jack.jpg"},
-{cat:"Anal",n:"Plug Metálico Corazón Grande",p:22,img:"plug-metalico-corazon-grande.jpg"},
-{cat:"Anal",n:"Plug Metálico Corazón Mediano",p:20,img:"plug-metalico-corazon-mediano.jpg"},
-{cat:"Anal",n:"Plug Metálico Corazón Pequeño",p:18,img:"plug-metalico-corazon-pequeno.jpg"},
-{cat:"Anal",n:"Plug Metálico Redondo Grande",p:22,img:"plug-metalico-redondo-grande.jpg"},
-{cat:"Anal",n:"Plug Metálico Redondo Mediano",p:20,img:"plug-metalico-redondo-mediano.jpg"},
-{cat:"Anal",n:"Plug Metálico Redondo Pequeño",p:18,img:"plug-metalico-redondo-pequeno.jpg"},
-{cat:"Anal",n:"Plug Silicona Corazón Grande",p:20,img:"plug-silicona-corazon-grande.jpg"},
-{cat:"Anal",n:"Plug Silicona Corazón Pequeño",p:18,img:"plug-silicona-corazon-pequeno.jpg"},
-{cat:"Anal",n:"Plug Silicona Redondo Grande",p:20,img:"plug-silicona-redondo-grande.jpg"},
-{cat:"Anal",n:"Plug Silicona Redondo Mediano",p:18,img:"plug-silicona-redondo-mediano.jpg"},
-{cat:"Anal",n:"Plug Silicona Redondo Pequeño",p:16,img:"plug-silicona-redondo-pequeno.jpg"},
-{cat:"Anal",n:"Rosario Anal",p:20,img:"rosario-anal.jpg"},
-{cat:"Anal",n:"Ducha Anal",p:15,img:"ducha-anal-fino.jpg"},
+  <script>
+    const whatsappNumber = "593992064254";
 
-/* ===== ARNESES ===== */
-{cat:"Arneses",n:"Arnés Universal Ajustable",p:30,img:"arnes-universal-ajustable.jpg"},
-{cat:"Arneses",n:"Arnés Pasión Dual",p:35,img:"arnes-pasion-dual.jpg"},
-{cat:"Arneses",n:"Arnés Rino Vibrador",p:38,img:"arnes-rino-vibrador.jpg"},
-{cat:"Arneses",n:"Arnés Extra Suave",p:32,img:"arnes-extra-suave-5-7.jpg"}
-
-];
-
-/* ================= RENDER ================= */
-
-function render(lista){
-const tienda=document.getElementById("tienda");
-tienda.innerHTML="";
-
-let categorias=[...new Set(lista.map(p=>p.cat))];
-
-categorias.forEach(cat=>{
-tienda.innerHTML+=`<h2>${cat}</h2><div class="grid" id="${cat}"></div>`;
-});
-
-lista.forEach(p=>{
-
-let oferta=Math.random()>0.8;
-let stock=Math.random()>0.8;
-
-document.getElementById(p.cat).innerHTML+=`
-
-<div class="card">
-
-${oferta?'<div class="badge">OFERTA</div>':''}
-${stock?'<div class="stock">Últimas</div>':''}
-
-<img src="${p.img}" onerror="this.src='https://via.placeholder.com/300'">
-
-<div class="content">
-<div class="name">${p.n}</div>
-<div class="price">$${p.p}</div>
-
-<a class="buy" href="https://wa.me/${numero}?text=Quiero ${p.n}" target="_blank">Comprar</a>
-<div class="details">Ver más</div>
-</div>
-
-<div class="fav" onclick="this.style.color=this.style.color==='red'?'white':'red'">❤️</div>
-
-</div>
-`;
-});
-
-}
-
-/* ================= BUSCADOR ================= */
-
-function buscar(txt){
-let f=productos.filter(p=>p.n.toLowerCase().includes(txt.toLowerCase()));
-render(f);
-}
-
-render(productos);
-
-</script>
-
-</body>
-</html>
+    const products = [
+      /* ANAL */
+      {
+        id: "anal-1",
+        category: "anal",
+        image: "plug-anal-baxter.jpg",
+        name: "Plug Anal Baxter",
+        price: "20,00",
+        priceNumber: 20.00,
+        reference: "P0061",
+        details: ["📏 Total: 16 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 13 cm"],
+        offer: false
+      },
+      {
+        id: "anal-2",
+        category: "anal",
+        image: "plug-anal-pleasure.jpg",
+        name: "Plug Anal Pleasure",
+        price: "10,00",
+        priceNumber: 10.00,
+        reference: "6926426917002",
+        details: ["📏 Total: 11,7 cm", "📏 Ancho: 2,5 cm", "📏 Insertable: 9,5 cm"],
+        offer: false
+      },
+      {
+        id: "anal-3",
+        category: "anal",
+        image: "plug-cola-conejo-blanca.jpg",
+        name: "Cola de Conejo Blanca",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0698",
+        details: ["📏 Total: 11 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 6 cm"],
+        offer: false
+      },
+      {
+        id: "anal-4",
+        category: "anal",
+        image: "plug-cola-conejo-morada.jpg",
+        name: "Cola de Conejo Morada",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0700",
+        details: ["📏 Total: 11 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 6 cm"],
+        offer: false
+      },
+      {
+        id: "anal-5",
+        category: "anal",
+        image: "plug-cola-conejo-negra.jpg",
+        name: "Cola de Conejo Negra",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0696",
+        details: ["📏 Total: 11 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 6 cm"],
+        offer: false
+      },
+      {
+        id: "anal-6",
+        category: "anal",
+        image: "plug-cola-conejo-roja.jpg",
+        name: "Cola de Conejo Roja",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0697",
+        details: ["📏 Total: 11 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 6 cm"],
+        offer: false
+      },
+      {
+        id: "anal-7",
+        category: "anal",
+        image: "plug-cola-conejo-rosada.jpg",
+        name: "Cola de Conejo Rosada",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0699",
+        details: ["📏 Total: 11 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 6 cm"],
+        offer: false
+      },
+      {
+        id: "anal-8",
+        category: "anal",
+        image: "plug-cola-zorro-blanco.jpg",
+        name: "Cola de Zorro Blanco",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0005",
+        details: ["📏 Total: 38 cm", "📏 Ancho: 4,5 cm", "📏 Insertable: 3,3 cm"],
+        offer: false
+      },
+      {
+        id: "anal-9",
+        category: "anal",
+        image: "plug-cola-zorro-cafe.jpg",
+        name: "Cola de Zorro Café",
+        price: "25,00",
+        priceNumber: 25.00,
+        reference: "0004",
+        details: ["📏 Total: 38 cm", "📏 Ancho: 4,5 cm", "📏 Insertable: 3,3 cm"],
+        offer: false
+      },
+      {
+        id: "anal-10",
+        category: "anal",
+        image: "plug-cola-zorro-negro.jpg",
+        name: "Cola de Zorro Negro",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0701",
+        details: ["📏 Total: 38 cm", "📏 Ancho: 4,5 cm", "📏 Insertable: 3,3 cm"],
+        offer: false
+      },
+      {
+        id: "anal-11",
+        category: "anal",
+        image: "plug-cola-zorro-rainbow.jpg",
+        name: "Cola de Zorro Rainbow",
+        price: "30,00",
+        priceNumber: 30.00,
+        reference: "0693",
+        details: ["📏 Total: 38 cm", "📏 Ancho: 4,5 cm", "📏 Insertable: 3,3 cm"],
+        offer: true
+      },
+      {
+        id: "anal-12",
+        category: "anal",
+        image: "plug-electrico-jack.jpg",
+        name: "Plug Eléctrico Jack",
+        price: "45,50",
+        priceNumber: 45.50,
+        reference: "1022",
+        details: ["📏 Total: 15 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 13 cm", "⚡ Con vibración"],
+        offer: false
+      },
+      {
+        id: "anal-13",
+        category: "anal",
+        image: "plug-metalico-corazon-grande.jpg",
+        name: "Plug Metálico Corazón Grande",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0489",
+        details: ["📏 Total: 9 cm", "📏 Ancho: 4 cm", "📏 Insertable: 8 cm"],
+        offer: false
+      },
+      {
+        id: "anal-14",
+        category: "anal",
+        image: "plug-metalico-corazon-mediano.jpg",
+        name: "Plug Metálico Corazón Mediano",
+        price: "15,00",
+        priceNumber: 15.00,
+        reference: "0488",
+        details: ["📏 Total: 8 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 6 cm"],
+        offer: false
+      },
+      {
+        id: "anal-15",
+        category: "anal",
+        image: "plug-metalico-corazon-pequeno.jpg",
+        name: "Plug Metálico Corazón Pequeño",
+        price: "13,00",
+        priceNumber: 13.00,
+        reference: "0487",
+        details: ["📏 Total: 6,8 cm", "📏 Ancho: 3 cm", "📏 Insertable: 3,6 cm"],
+        offer: false
+      },
+      {
+        id: "anal-16",
+        category: "anal",
+        image: "plug-metalico-redondo-grande.jpg",
+        name: "Plug Metálico Redondo Grande",
+        price: "18,00",
+        priceNumber: 18.00,
+        reference: "0008",
+        details: 
