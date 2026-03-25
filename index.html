@@ -6,13 +6,9 @@
   <title>Luciano Private Collection</title>
   <meta name="description" content="Catálogo Luciano Private Collection">
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -32,7 +28,7 @@
     }
 
     .brand {
-      font-size: 52px;
+      font-size: 46px;
       line-height: 1.02;
       font-weight: 900;
       margin: 0 0 12px;
@@ -40,9 +36,9 @@
 
     .subtitle {
       font-size: 18px;
-      color: #bdbdbd;
+      color: #c7c7c7;
       margin: 0 0 22px;
-      line-height: 1.35;
+      line-height: 1.4;
     }
 
     .buttons {
@@ -62,11 +58,6 @@
       font-size: 18px;
       font-weight: 800;
       text-decoration: none;
-      transition: transform .15s ease;
-    }
-
-    .top-btn:hover {
-      transform: translateY(-1px);
     }
 
     .btn-catalogo {
@@ -99,7 +90,7 @@
       border: 1px solid #1d1d1d;
       color: #fff;
       border-radius: 20px;
-      padding: 18px 18px;
+      padding: 18px;
       font-size: 18px;
       outline: none;
     }
@@ -138,7 +129,7 @@
       border-radius: 28px;
       margin-bottom: 22px;
       background: #d8e3e0;
-      max-height: 180px;
+      max-height: 170px;
       object-fit: cover;
     }
 
@@ -161,14 +152,6 @@
       background: #d8e3e0;
     }
 
-    .image-wrap img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 4 / 5;
-      object-fit: contain;
-      background: #d8e3e0;
-    }
-
     .stock-badge {
       position: absolute;
       top: 12px;
@@ -180,6 +163,14 @@
       padding: 8px 12px;
       border-radius: 999px;
       z-index: 2;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      background: #d8e3e0;
     }
 
     .content {
@@ -358,33 +349,13 @@
     }
 
     @media (max-width: 760px) {
-      .brand {
-        font-size: 34px;
-      }
-
-      .subtitle {
-        font-size: 16px;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
-
-      .banner {
-        max-height: 150px;
-      }
-
-      .product-name {
-        font-size: 23px;
-      }
-
-      .price {
-        font-size: 34px;
-      }
-
-      .modal-grid {
-        grid-template-columns: 1fr;
-      }
+      .brand { font-size: 34px; }
+      .subtitle { font-size: 16px; }
+      .section-title { font-size: 28px; }
+      .banner { max-height: 150px; }
+      .product-name { font-size: 23px; }
+      .price { font-size: 34px; }
+      .modal-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -455,9 +426,9 @@
   </div>
 
   <script>
-    const whatsappNumber = "593992064254";
+    var whatsappNumber = "593992064254";
 
-    const products = [
+    var products = [
       { category: "anal", image: "plug-anal-baxter.jpg", name: "Plug Anal Baxter", price: "20,00", reference: "P0061", details: ["📏 Total: 16 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 13 cm"] },
       { category: "anal", image: "plug-anal-pleasure.jpg", name: "Plug Anal Pleasure", price: "10,00", reference: "6926426917002", details: ["📏 Total: 11,7 cm", "📏 Ancho: 2,5 cm", "📏 Insertable: 9,5 cm"] },
       { category: "anal", image: "plug-cola-conejo-blanca.jpg", name: "Cola de Conejo Blanca", price: "18,00", reference: "0698", details: ["📏 Total: 11 cm", "📏 Ancho: 3,5 cm", "📏 Insertable: 6 cm"] },
@@ -508,4 +479,6 @@
       { category: "bdsm", image: "bondage-amor-puro-sujetador.jpg", name: "Amor Puro", price: "30,00", reference: "0494", details: ["🖤 BDSM sujetador (piel sintética)"] },
       { category: "bdsm", image: "bondage-pezoneras-campana.jpg", name: "Pezoneras", price: "10,00", reference: "0599", details: ["🖤 BDSM"] },
       { category: "bdsm", image: "jaula-pene-metal.jpg", name: "Jaula de Pene", price: "30,00", reference: "P0802", details: ["🔐 BDSM"] },
-      { category: "bdsm", image: "accesorio-antifaz-cuero-negro.jpg", name: "Antifaz Cuero", price: "15,00", reference: "0578", details: ["
+      { category: "bdsm", image: "accesorio-antifaz-cuero-negro.jpg", name: "Antifaz Cuero", price: "15,00", reference: "0578", details: ["🖤 Cuerina y tela"] },
+      { category: "bdsm", image: "accesorio-plumas-cosquilleo.jpg", name: "Plumas Cosquilleo", price: "10,00", reference: "0805", details: ["🪶 Accesorio BDSM"] },
+      { category: "bdsm", image: "spanking-paleta
